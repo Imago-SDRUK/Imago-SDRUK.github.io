@@ -1,0 +1,98 @@
+<script lang="ts">
+	import type { Post } from '$lib/types'
+	import { DateTime } from 'luxon'
+	import Title from '../blog/title.svelte'
+	import Anchor from '../buttons/anchor.svelte'
+	import BaseCard from './base_card.svelte'
+	import { dateAvailable, dateExpired } from '$lib/utils/data'
+	let { job }: { job: Post } = $props()
+	const { title, url, closing_date, contract, slug, salary, posted, location, hours } = job
+</script>
+
+<BaseCard>
+	<div class="job-card">
+		<!-- <h2 class="title">{title}</h2> -->
+		<div class="card-title">
+			<Title {title}></Title>
+		</div>
+		<div class="facts">
+			<h3 class="fact">Location: {location}</h3>
+			<h3 class="fact">Salary: {salary}</h3>
+			<h3 class="fact">Hours: {hours}</h3>
+			<h3 class="fact">Contract: {contract}</h3>
+			<h3 class="fact">
+				Posted on: {DateTime.fromISO(posted).setLocale('en-gb').toLocaleString(DateTime.DATE_FULL)}
+			</h3>
+			<h3
+				class="fact"
+				class:expired={dateExpired(DateTime.fromISO(closing_date))}
+				class:available={dateAvailable(DateTime.fromISO(closing_date))}
+			>
+				Closing date: {DateTime.fromISO(closing_date)
+					.setLocale('en-gb')
+					.toLocaleString(DateTime.DATE_FULL)}
+			</h3>
+		</div>
+		<div class="buttons">
+			<Anchor href="/jobs/{slug}" label="See more"></Anchor>
+			<Anchor href={url} label="Apply"></Anchor>
+		</div>
+	</div>
+</BaseCard>
+
+<style>
+	.job-card {
+		display: grid;
+		height: 100%;
+		grid-template-columns: minmax(0, 1fr);
+		position: relative;
+		background-color: color-mix(in oklab, var(--theme-colour-text) 10%, transparent 90%);
+		padding: 1rem;
+		transition: all 0.3s ease-in-out;
+		z-index: 1;
+	}
+	.job-card:hover::before {
+		top: 1rem;
+		left: -1rem;
+	}
+	.job-card::before {
+		content: '';
+		height: 100%;
+		width: 100%;
+		background-color: color-mix(in oklab, var(--theme-colour-text) 10%, transparent 90%);
+		position: absolute;
+		top: 0.5rem;
+		left: -0.5rem;
+		transition: all 0.3s ease-in-out;
+		pointer-events: none;
+	}
+	.card-title {
+		margin-bottom: 0.35rem;
+		border-bottom: 2px solid var(--theme-colour-text);
+	}
+	.facts {
+		margin: 1rem 0;
+		color: var(--theme-colour-text);
+		font-weight: 500;
+	}
+	.fact {
+		font-family: var(--theme-font-subtitle);
+		font-size: clamp(0.75rem, 0.717rem + 0.167vw, 0.85rem);
+	}
+
+	.available {
+		color: var(--theme-colour-highlight);
+		font-weight: 600;
+	}
+
+	.expired {
+		color: red;
+	}
+
+	.buttons {
+		display: flex;
+		padding: 1rem 1rem 0 1rem;
+		justify-content: space-between;
+		font-family: var(--theme-font-subtitle);
+	}
+</style>
