@@ -32,6 +32,9 @@ importers:
       '@sveltejs/adapter-node':
         specifier: ^5.2.11
         version: 5.2.12(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.8
+        version: 3.0.8(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))
       '@sveltejs/kit':
         specifier: ^2.16.0
         version: 2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0))
@@ -524,6 +527,11 @@ packages:
     resolution: {integrity: sha512-0bp4Yb3jKIEcZWVcJC/L1xXp9zzJS4hDwfb4VITAkfT4OVdkspSHsx7YhqJDbb2hgLl6R9Vs7VQR+fqIVOxPUQ==}
     peerDependencies:
       '@sveltejs/kit': ^2.4.0
+
+  '@sveltejs/adapter-static@3.0.8':
+    resolution: {integrity: sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
 
   '@sveltejs/kit@2.17.1':
     resolution: {integrity: sha512-CpoGSLqE2MCmcQwA2CWJvOsZ9vW+p/1H3itrFykdgajUNAEyQPbsaSn7fZb6PLHQwe+07njxje9ss0fjZoCAyw==}
@@ -2128,6 +2136,10 @@ snapshots:
       '@rollup/plugin-node-resolve': 16.0.0(rollup@4.34.3)
       '@sveltejs/kit': 2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0))
       rollup: 4.34.3
+
+  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))':
+    dependencies:
+      '@sveltejs/kit': 2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0))
 
   '@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0)))(svelte@5.19.7)(vite@6.0.11(jiti@1.21.7)(yaml@2.7.0))':
     dependencies:

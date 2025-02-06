@@ -25,6 +25,7 @@
 		"@fontsource/cousine": "^5.1.1",
 		"@playwright/test": "^1.49.1",
 		"@sveltejs/adapter-node": "^5.2.11",
+		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@tabler/icons-svelte": "^3.29.0",
