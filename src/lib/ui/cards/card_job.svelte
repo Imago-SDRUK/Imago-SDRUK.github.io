@@ -1,17 +1,16 @@
 <script lang="ts">
-	import type { Post } from '$lib/types'
+	import type { Job } from '$lib/types'
 	import { DateTime } from 'luxon'
 	import Title from '../blog/title.svelte'
 	import Anchor from '../buttons/anchor.svelte'
 	import BaseCard from './base_card.svelte'
 	import { dateAvailable, dateExpired } from '$lib/utils/data'
-	let { job }: { job: Post } = $props()
+	let { job }: { job: Job } = $props()
 	const { title, url, closing_date, contract, slug, salary, posted, location, hours } = job
 </script>
 
 <BaseCard>
 	<div class="job-card">
-		<!-- <h2 class="title">{title}</h2> -->
 		<div class="card-title">
 			<Title {title}></Title>
 		</div>
@@ -45,8 +44,9 @@
 		display: grid;
 		height: 100%;
 		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
 		position: relative;
-		background-color: color-mix(in oklab, var(--theme-colour-text) 5%, transparent 95%);
+		background-color: color-mix(in oklab, var(--theme-colour-text) 3%, transparent 97%);
 		padding: 1rem;
 		transition: all 0.3s ease-in-out;
 		z-index: 1;
@@ -59,7 +59,7 @@
 		content: '';
 		height: 100%;
 		width: 100%;
-		background-color: color-mix(in oklab, var(--theme-colour-text) 10%, transparent 90%);
+		background-color: color-mix(in oklab, var(--theme-colour-text) 8%, transparent 92%);
 		position: absolute;
 		top: 0.5rem;
 		left: -0.5rem;
@@ -95,8 +95,9 @@
 
 	.buttons {
 		display: flex;
-		padding: 1rem 1rem 0 1rem;
-		justify-content: space-between;
+		padding: 1rem 0rem 0 0rem;
+		gap: 0.5rem;
+		justify-content: flex-end;
 		font-family: var(--theme-font-subtitle);
 	}
 </style>

@@ -12,7 +12,7 @@
 	}
 
 	.medium {
-		font-size: clamp(1.15rem, 1.017rem + 0.667vw, 1.55rem);
+		font-size: clamp(1.15rem, 0.983rem + 0.833vw, 1.65rem);
 	}
 	.large {
 		font-size: clamp(1.25rem, 0.917rem + 1.667vw, 2.25rem);

@@ -23,8 +23,9 @@
 		justify-content: center;
 		gap: 0.25rem;
 		transition: all 0.3s ease-in-out;
-		font-family: var(--theme-font-accent);
+		font-family: var(--theme-font-title);
 		color: var(--theme-colour-text);
+		text-shadow: 1px 1px color-mix(in oklab, var(--theme-colour-quarternary) 80%, transparent 20%);
 		font-weight: 600;
 		font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem);
 	}
