@@ -20,7 +20,8 @@ Write the rest of the content in markdown
 
 And save to ./src/lib/content/jobs/{name}.md
 
-NOTE: {name} should be a slug! that means, only letters, numbers and "-" / "." / "\_" / "~" eg.
+> NOTE: {name} should be a slug! that means, only letters, numbers and "-" / "." / "\_" / "~" eg.
 
 this-is-a-new-job.md ✅
+
 this is a new job.md ❌
