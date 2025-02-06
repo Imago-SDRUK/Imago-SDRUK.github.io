@@ -28,6 +28,11 @@
 </script>
 
 <svelte:head>
+	<script
+		defer
+		src="https://events.arturoguzman.art/script.js"
+		data-website-id="6514d5fc-b640-45d3-92b3-3135517734a0"
+	></script>
 	<title>Imago - SDRUK</title>
 </svelte:head>
 
