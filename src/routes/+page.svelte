@@ -5,7 +5,7 @@
 
 <div class="jobs-page">
 	<div class="jobs-page-grid">
-		{#each data.posts as job}
+		{#each data.jobs as job}
 			<CardJob {job}></CardJob>
 		{/each}
 	</div>

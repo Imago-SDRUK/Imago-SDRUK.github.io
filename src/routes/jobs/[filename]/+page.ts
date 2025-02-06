@@ -1,13 +1,13 @@
-import type { Post } from '$lib/types/index.js'
+import type { Job } from '$lib/types/index.js'
 import { error } from '@sveltejs/kit'
 
 export async function load({ params }) {
 	try {
-		const post = await import(`$lib/content/jobs/${params.filename}.md`)
+		const job = await import(`$lib/content/jobs/${params.filename}.md`)
 
 		return {
-			content: post.default,
-			meta: post.metadata as Post
+			content: job.default,
+			meta: job.metadata as Job
 		}
 	} catch (err) {
 		console.log(err)

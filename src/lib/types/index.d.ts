@@ -1,4 +1,4 @@
-export type Post = {
+export type Job = {
 	title: string
 	location: string
 	salary: string
