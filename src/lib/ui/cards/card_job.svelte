@@ -46,7 +46,7 @@
 		height: 100%;
 		grid-template-columns: minmax(0, 1fr);
 		position: relative;
-		background-color: color-mix(in oklab, var(--theme-colour-text) 10%, transparent 90%);
+		background-color: color-mix(in oklab, var(--theme-colour-text) 5%, transparent 95%);
 		padding: 1rem;
 		transition: all 0.3s ease-in-out;
 		z-index: 1;
@@ -69,15 +69,19 @@
 	.card-title {
 		margin-bottom: 0.35rem;
 		border-bottom: 2px solid var(--theme-colour-text);
+		padding: 0 0 0.35rem 0;
 	}
 	.facts {
 		margin: 1rem 0;
 		color: var(--theme-colour-text);
 		font-weight: 500;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
 	}
 	.fact {
 		font-family: var(--theme-font-subtitle);
-		font-size: clamp(0.75rem, 0.717rem + 0.167vw, 0.85rem);
+		font-size: clamp(0.8rem, 0.742rem + 0.292vw, 0.975rem);
 	}
 
 	.available {

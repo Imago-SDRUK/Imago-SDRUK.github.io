@@ -44,7 +44,7 @@
 
 <style>
 	.jobs-page {
-		padding: 1rem;
+		padding: 1rem 1rem 4rem 1rem;
 		width: min(100lvw - 4rem, 800px);
 		margin-inline: auto;
 	}
@@ -56,13 +56,15 @@
 		position: relative;
 	}
 	.facts {
-		line-height: 1.75rem;
 		font-weight: 500;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
 	}
 	.fact {
 		color: var(--theme-colour-text);
 		font-family: var(--theme-font-subtitle);
-		font-size: clamp(0.8rem, 0.758rem + 0.208vw, 0.925rem);
+		font-size: clamp(0.8rem, 0.742rem + 0.292vw, 0.975rem);
 	}
 
 	.meta-container {

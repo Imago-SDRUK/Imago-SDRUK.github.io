@@ -75,7 +75,7 @@
 		top: 0;
 		left: 0;
 		height: 100lvh;
-		width: 100lvw;
+		width: 100%;
 		pointer-events: none;
 	}
 	.watermark {

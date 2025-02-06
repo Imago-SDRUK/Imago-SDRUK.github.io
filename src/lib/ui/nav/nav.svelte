@@ -15,7 +15,7 @@
 	nav {
 		/* background-color: var(--theme-colour-background); */
 		color: var(--theme-colour-highlight);
-		width: 100lvw;
+		width: 100%;
 		height: 4rem;
 		position: sticky;
 		top: 0;
