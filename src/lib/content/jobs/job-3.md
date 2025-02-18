@@ -16,7 +16,7 @@ The PDRA will work closely with the service co-directors (Professor. Arribas-Bel
 
 The School of Environmental Sciences is an Athena SWAN Silver Award holder. We particularly welcome applications from scholars who identify with groups who continue to be underrepresented and who face barriers to inclusion in higher education. We believe that a diverse and supportive environment, bringing different perspectives to our work and allowing people to blossom is the best platform.
 
-If you require any further details on the role, please contact Professors [Dani Arribas-Bel](mailto:d.arribas-bel@liverpool.ac.uk) and [Rachel Franklin](mailto:Rachel.Franklin@newcastle.ac.uk).
+If you require any further details on the role, please contact Professors [Dani Arribas-Bel d.arribas-bel@liverpool.ac.uk](mailto:d.arribas-bel@liverpool.ac.uk) and [Rachel Franklin Rachel.Franklin@newcastle.ac.uk](mailto:Rachel.Franklin@newcastle.ac.uk).
 
 **If you are still awaiting your PhD to be awarded you will be appointed at Grade 6, spine point 30. Upon written confirmation that you have been awarded your PhD, your salary will be increased to Grade 7, spine point 31.**
 
