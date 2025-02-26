@@ -4,6 +4,7 @@
 	import '@fontsource-variable/quicksand'
 	import '@fontsource-variable/noto-sans'
 	import '@fontsource-variable/figtree'
+	import '@fontsource-variable/space-grotesk'
 	import Nav from '$lib/ui/nav/nav.svelte'
 	import Logos from '$lib/ui/cards/logos.svelte'
 
@@ -22,7 +23,7 @@
 			title: 'Figtree Variable',
 			subtitle: 'Quicksand Variable',
 			paragraph: 'Noto Sans Variable',
-			accent: 'Cousine'
+			accent: 'Space Grotesk Variable'
 		}
 	}
 </script>
@@ -50,16 +51,14 @@
 	style:--theme-font-accent={theme.fonts.accent}
 	class="theme"
 >
-	<div class="watermark-container">
-		<img class="watermark" src="/ui/banner.png" alt="" />
-	</div>
+	<!-- <div class="watermark-container"> -->
+	<!-- 	<img class="watermark" src="/ui/banner.png" alt="" /> -->
+	<!-- </div> -->
 	<Nav></Nav>
 	<main>
 		{@render children()}
 	</main>
-	<div class="logos-container">
-		<Logos></Logos>
-	</div>
+	<div class="logos-container"></div>
 </div>
 
 <style>
@@ -74,24 +73,24 @@
 		background-color: var(--theme-colour-background);
 		/* min-height: 100lvh; */
 	}
-	.watermark-container {
-		overflow: hidden;
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 100lvh;
-		width: 100%;
-		pointer-events: none;
-	}
-	.watermark {
-		filter: saturate(0.35);
-		mix-blend-mode: luminosity;
-		position: absolute;
-		top: 50%;
-		right: -37.5%;
-		rotate: 270deg;
-		opacity: 0.15;
-	}
+	/* .watermark-container { */
+	/* 	overflow: hidden; */
+	/* 	position: fixed; */
+	/* 	top: 0; */
+	/* 	left: 0; */
+	/* 	height: 100lvh; */
+	/* 	width: 100%; */
+	/* 	pointer-events: none; */
+	/* } */
+	/* .watermark { */
+	/* 	filter: saturate(0.35); */
+	/* 	mix-blend-mode: luminosity; */
+	/* 	position: absolute; */
+	/* 	top: 50%; */
+	/* 	right: -37.5%; */
+	/* 	rotate: 270deg; */
+	/* 	opacity: 0.15; */
+	/* } */
 	.logos-container {
 		pointer-events: none;
 		position: fixed;
