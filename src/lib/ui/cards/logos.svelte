@@ -1,11 +1,11 @@
-<div class="logos">
+<a href="/" class="logos">
 	<img src="/ui/imago_logo.png" alt="" />
 	<img src="/ui/ukri_logo.png" alt="" />
-</div>
+</a>
 
 <style>
 	img {
-		height: clamp(1.5rem, 1.167rem + 1.667vw, 2.5rem);
+		height: clamp(1rem, 0.75rem + 1.25vw, 1.75rem);
 	}
 	.logos {
 		display: flex;

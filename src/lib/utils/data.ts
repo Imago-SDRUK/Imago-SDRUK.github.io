@@ -5,3 +5,5 @@ export const dateExpired = (date: DateTime<true> | DateTime<false>) =>
 
 export const dateAvailable = (date: DateTime<true> | DateTime<false>) =>
 	DateTime.now().diff(date).milliseconds - 86400000 < 0
+
+export const jstr = (x: unknown) => JSON.stringify(x, null, 2)

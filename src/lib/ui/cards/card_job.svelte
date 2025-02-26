@@ -6,7 +6,7 @@
 	import BaseCard from './base_card.svelte'
 	import { dateAvailable, dateExpired } from '$lib/utils/data'
 	let { job }: { job: Job } = $props()
-	const { title, url, closing_date, contract, slug, salary, posted, location, hours } = job
+	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = job
 </script>
 
 <BaseCard>
@@ -20,7 +20,9 @@
 			<h3 class="fact">Hours: {hours}</h3>
 			<h3 class="fact">Contract: {contract}</h3>
 			<h3 class="fact">
-				Posted on: {DateTime.fromISO(posted).setLocale('en-gb').toLocaleString(DateTime.DATE_FULL)}
+				Posted on: {DateTime.fromISO(posted_on)
+					.setLocale('en-gb')
+					.toLocaleString(DateTime.DATE_FULL)}
 			</h3>
 			<h3
 				class="fact"
@@ -33,7 +35,7 @@
 			</h3>
 		</div>
 		<div class="buttons">
-			<Anchor href="/jobs/{slug}" label="See more"></Anchor>
+			<Anchor href="/careers/{slug}" label="See more"></Anchor>
 			<Anchor href={url} label="Apply"></Anchor>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 	let { children } = $props()
 </script>
 
-<div class="content prose-sm">
+<div class="content prose-base">
 	{@render children()}
 </div>
 
@@ -14,6 +14,11 @@
 		flex-direction: column;
 		gap: 1rem;
 		font-weight: 200;
-		font-size: clamp(0.85rem, 0.8rem + 0.25vw, 1rem);
+		width: min(100%, 600px);
+		margin-inline: auto;
+		/* font-size: clamp(0.85rem, 0.8rem + 0.25vw, 1rem); */
+	}
+	:global(.content > a, .content > * > a) {
+		text-decoration: underline 1px;
 	}
 </style>
