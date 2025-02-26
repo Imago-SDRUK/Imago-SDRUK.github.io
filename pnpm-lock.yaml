@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@arturoguzman/art-ui':
+        specifier: ^0.1.1
+        version: 0.1.1(svelte@5.19.7)
+      '@directus/sdk':
+        specifier: ^19.0.1
+        version: 19.0.1
       '@eslint/compat':
         specifier: ^1.2.5
         version: 1.2.6(eslint@9.19.0(jiti@1.21.7))
@@ -21,6 +27,9 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
       '@fontsource-variable/quicksand':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource-variable/space-grotesk':
         specifier: ^5.1.1
         version: 5.1.1
       '@fontsource/cousine':
@@ -120,6 +129,15 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@arturoguzman/art-ui@0.1.1':
+    resolution: {integrity: sha1-9Lss7ZyQXDtHPFN5FJtfb11Adic=, tarball: https://gitlab.com/api/v4/projects/57545903/packages/npm/@arturoguzman/art-ui/-/@arturoguzman/art-ui-0.1.1.tgz}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@directus/sdk@19.0.1':
+    resolution: {integrity: sha512-6KwWedA/vxrMN2aRm5L52TEgB+42vkz0Ae8kwOitHuBPT4VWtUNOXenzaHnZyXyNrEgh/VBLJ36f3UEe3b/Wfw==}
+    engines: {node: '>=22'}
 
   '@esbuild/aix-ppc64@0.24.2':
     resolution: {integrity: sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA==}
@@ -322,6 +340,9 @@ packages:
 
   '@fontsource-variable/quicksand@5.1.1':
     resolution: {integrity: sha512-FVyhFT7QgcTf95ZR1TOowU2mtuoLWvkKw1oVhOXGsZ0/0IXJmx1/ibWbOUkAm6MPGJt8HEjcpMDZsE3WCYsJcw==}
+
+  '@fontsource-variable/space-grotesk@5.1.1':
+    resolution: {integrity: sha512-LTz+nIUdm7ZVY9ZlqRiTKqByi+tIcQUKaKONBVSxKRABPRgdnJOwiuqvHa+ac7Xs0ZorDBm7O0fmwHuOGT3HIw==}
 
   '@fontsource/cousine@5.1.1':
     resolution: {integrity: sha512-56nhO3hHygBFLWE5Guoa8/Fe9LgGKtf6Q5cCB7GANZd3u2dco9VnpKX3f7v91oloHRafpFFWOrwDRpEWky3/Zg==}
@@ -1847,6 +1868,12 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@arturoguzman/art-ui@0.1.1(svelte@5.19.7)':
+    dependencies:
+      svelte: 5.19.7
+
+  '@directus/sdk@19.0.1': {}
+
   '@esbuild/aix-ppc64@0.24.2':
     optional: true
 
@@ -1973,6 +2000,8 @@ snapshots:
   '@fontsource-variable/noto-sans@5.1.1': {}
 
   '@fontsource-variable/quicksand@5.1.1': {}
+
+  '@fontsource-variable/space-grotesk@5.1.1': {}
 
   '@fontsource/cousine@5.1.1': {}
 
