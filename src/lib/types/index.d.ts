@@ -9,3 +9,8 @@ export type Job = {
 	url: string
 	slug: string
 }
+
+export type SelectOption = {
+	label: string
+	value: string | number | boolean
+}

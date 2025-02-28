@@ -55,5 +55,9 @@
 		"typescript-svelte-plugin": "^0.3.45",
 		"vite": "^6.0.0",
 		"vitest": "^3.0.0"
+	},
+	"dependencies": {
+		"@lottiefiles/dotlottie-svelte": "^0.4.6",
+		"@lottiefiles/dotlottie-web": "^0.40.1"
 	}
 }
