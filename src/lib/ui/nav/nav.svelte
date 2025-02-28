@@ -29,7 +29,7 @@
 			<!-- 	<IconArrowLeft size={32} stroke-width={2}></IconArrowLeft> -->
 			<!-- </a> -->
 		{/if}
-		<Logos></Logos>
+		<Logos {scroll}></Logos>
 	</div>
 
 	<!-- <div class="centre-col"></div> -->
