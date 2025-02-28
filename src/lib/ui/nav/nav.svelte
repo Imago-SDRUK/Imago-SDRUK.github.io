@@ -44,7 +44,7 @@
 	nav {
 		/* background-color: var(--theme-colour-background); */
 		color: var(--theme-colour-highlight);
-		border: 1px solid var(--theme-colour-background);
+		border: 1px solid transparent;
 		border-radius: 999px;
 		width: 100%;
 		height: 4rem;
@@ -56,7 +56,7 @@
 		margin-inline: auto;
 		grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
 		transition: all 0.3s ease-in-out;
-		background-color: var(--theme-colour-background);
+		/* background-color: var(--theme-colour-background); */
 		z-index: 99;
 	}
 	.compact-nav {
