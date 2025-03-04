@@ -4,7 +4,7 @@ import { EMAIL_REGEX } from '$lib/utils/regex.js'
 import { createItem } from '@directus/sdk'
 import { fail } from '@sveltejs/kit'
 
-// export const prerender = true
+export const prerender = true
 
 export const load = async ({ fetch }) => {
 	// const response = await fetch('/api/v1/jobs')

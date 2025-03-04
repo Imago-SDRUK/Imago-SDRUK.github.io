@@ -1,9 +1,9 @@
-import { env } from '$env/dynamic/private'
+import { BACKEND_TOKEN } from '$env/static/private'
 import { directusSDKWithToken, handleDirectusError } from '$lib/utils/directus.js'
 import { readItems } from '@directus/sdk'
-
+export const prerender = true
 export const entries = async () => {
-	const events = await directusSDKWithToken(env.BACKEND_TOKEN)
+	const events = await directusSDKWithToken(BACKEND_TOKEN)
 		.request(readItems('events'))
 		.catch(handleDirectusError)
 	return events

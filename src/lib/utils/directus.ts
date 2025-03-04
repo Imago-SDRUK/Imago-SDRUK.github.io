@@ -1,8 +1,9 @@
-import { env } from '$env/dynamic/private'
+// import { env } from '$env/dynamic/private'
 import type { Collections } from '$lib/types/directus'
 import { rest, staticToken, type FetchInterface, createDirectus } from '@directus/sdk'
 import { jstr } from './data'
 import { error } from '@sveltejs/kit'
+import { BACKEND_TOKEN, BACKEND_URL } from '$env/static/private'
 
 export type DirectusError = {
 	errors: [
@@ -25,13 +26,13 @@ export type DirectusError = {
 }
 
 export const directusSDK = (fetch?: FetchInterface) => {
-	return createDirectus<Collections>(env.BACKEND_URL, fetch ? { globals: { fetch: fetch } } : {})
+	return createDirectus<Collections>(BACKEND_URL, fetch ? { globals: { fetch: fetch } } : {})
 		.with(rest())
-		.with(staticToken(env.BACKEND_TOKEN))
+		.with(staticToken(BACKEND_TOKEN))
 }
 
 export const directusSDKWithToken = (token: string, fetch?: FetchInterface) => {
-	return createDirectus<Collections>(env.BACKEND_URL, fetch ? { globals: { fetch: fetch } } : {})
+	return createDirectus<Collections>(BACKEND_URL, fetch ? { globals: { fetch: fetch } } : {})
 		.with(rest())
 		.with(staticToken(token))
 }
