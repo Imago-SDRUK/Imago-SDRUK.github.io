@@ -1,12 +1,14 @@
 <script lang="ts">
-	import FormSection from '$lib/ui/sections/form_section.svelte'
+	import AboutSection from '$lib/ui/sections/about_section.svelte'
 	import HeroSection from '$lib/ui/sections/hero_section.svelte'
+	import NewsletterFormSection from '$lib/ui/sections/newsletter_form_section.svelte'
 	let { data } = $props()
 </script>
 
 <div class="page">
-	<!-- <HeroSection></HeroSection> -->
-	<FormSection></FormSection>
+	<HeroSection></HeroSection>
+	<AboutSection></AboutSection>
+	<!-- <NewsletterFormSection></NewsletterFormSection> -->
 </div>
 
 <style>

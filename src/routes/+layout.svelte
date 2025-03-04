@@ -54,11 +54,7 @@
 	<!-- <div class="watermark-container"> -->
 	<!-- 	<img class="watermark" src="/ui/banner.png" alt="" /> -->
 	<!-- </div> -->
-	<Nav></Nav>
-	<main>
-		{@render children()}
-	</main>
-	<div class="logos-container"></div>
+	{@render children()}
 </div>
 
 <style>
@@ -68,33 +64,5 @@
 	.theme {
 		min-height: 100lvh;
 		background-color: var(--theme-colour-background);
-	}
-	main {
-		background-color: var(--theme-colour-background);
-		/* min-height: 100lvh; */
-	}
-	/* .watermark-container { */
-	/* 	overflow: hidden; */
-	/* 	position: fixed; */
-	/* 	top: 0; */
-	/* 	left: 0; */
-	/* 	height: 100lvh; */
-	/* 	width: 100%; */
-	/* 	pointer-events: none; */
-	/* } */
-	/* .watermark { */
-	/* 	filter: saturate(0.35); */
-	/* 	mix-blend-mode: luminosity; */
-	/* 	position: absolute; */
-	/* 	top: 50%; */
-	/* 	right: -37.5%; */
-	/* 	rotate: 270deg; */
-	/* 	opacity: 0.15; */
-	/* } */
-	.logos-container {
-		pointer-events: none;
-		position: fixed;
-		bottom: 1rem;
-		right: 1rem;
 	}
 </style>

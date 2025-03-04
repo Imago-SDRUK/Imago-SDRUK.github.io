@@ -14,7 +14,10 @@ declare global {
 			// startTimer: number
 			//    bot: boolean
 		}
-
+		interface Error {
+			id: string
+			message: string
+		}
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
