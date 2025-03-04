@@ -38,7 +38,7 @@
 		background-color: transparent;
 		border-radius: 0.35rem;
 		transition: background 0.3s ease-in-out;
-		padding: 0 0.25rem;
+		/* padding: 0 0.25rem; */
 		width: 100%;
 	}
 	input:focus {

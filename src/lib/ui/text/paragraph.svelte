@@ -3,7 +3,7 @@
 </script>
 
 <p class="paragraph">
-	{text}
+	{@html text}
 </p>
 
 <style>

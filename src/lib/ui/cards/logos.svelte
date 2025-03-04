@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { scroll = 0 }: { scroll: number } = $props()
+	let { scroll = 0 }: { scroll?: number } = $props()
 </script>
 
 <a href="/" class="logos">
