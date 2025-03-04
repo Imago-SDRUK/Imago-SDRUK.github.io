@@ -2,7 +2,7 @@
 	let {
 		title,
 		size = 'small'
-	}: { title: string; size?: 'medium' | 'large' | 'extra-large' | 'huge' } = $props()
+	}: { title: string; size?: 'small' | 'medium' | 'large' | 'extra-large' | 'huge' } = $props()
 </script>
 
 <h2 class="title {size}">{title}</h2>
