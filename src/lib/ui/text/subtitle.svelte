@@ -11,21 +11,21 @@
 	h3 {
 		color: var(--theme-colour-text);
 		font-family: var(--theme-font-subtitle);
-		font-weight: 200;
+		font-weight: 400;
 	}
 	.small {
-		font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem);
+		font-size: clamp(1rem, 0.933rem + 0.333vw, 1.2rem);
 	}
 	.medium {
-		font-size: clamp(1.15rem, 0.983rem + 0.833vw, 1.65rem);
+		font-size: clamp(1.075rem, 0.933rem + 0.708vw, 1.5rem);
 	}
 	.large {
-		font-size: clamp(1.25rem, 0.917rem + 1.667vw, 2.25rem);
+		font-size: clamp(1.35rem, 1.133rem + 1.083vw, 2rem);
 	}
 	.extra-large {
-		font-size: clamp(1.95rem, 1.6rem + 1.75vw, 3rem);
+		font-size: clamp(1.725rem, 1.55rem + 0.875vw, 2.25rem);
 	}
 	.huge {
-		font-size: clamp(3rem, 2.667rem + 1.667vw, 4rem);
+		font-size: clamp(2rem, 1.667rem + 1.667vw, 3rem);
 	}
 </style>

@@ -2901,6 +2901,14 @@ export interface Event {
   /**
    * No description.
    *
+   * Type in directus: json
+   * Type in database: json
+   */
+   agenda: any | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: text
    * Type in database: text
    */
@@ -3017,6 +3025,14 @@ export interface Event {
    * Type in database: character varying
    */
    type: 'workshop' | 'conference' | 'meet_up' | 'social';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   url: string | null;
 
   /**
    * No description.

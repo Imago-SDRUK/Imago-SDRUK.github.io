@@ -71,7 +71,8 @@
 	}
 	.time {
 		display: flex;
-		justify-content: space-between;
+		/* justify-content: space-between; */
+		gap: 0.35rem;
 	}
 	.centre-col {
 		display: flex;
