@@ -3,6 +3,7 @@
 	import { page } from '$app/state'
 	import Logos from '../cards/logos.svelte'
 	import NavButton from '../buttons/nav_button.svelte'
+	import { NAV_HEIGHT } from '$lib/globals/style'
 	let scroll = $state(0)
 	const routes: { label: string; href: string }[] = [
 		{
@@ -14,7 +15,7 @@
 </script>
 
 <svelte:window bind:scrollY={scroll} />
-<nav class:compact-nav={scroll > 256}>
+<nav class:compact-nav={scroll > 256} style:--nav-height={NAV_HEIGHT}>
 	<div class="left-col">
 		{#if page.url.pathname !== '/'}
 			<button
@@ -47,7 +48,7 @@
 		border: 1px solid transparent;
 		border-radius: 999px;
 		width: 100%;
-		height: 4rem;
+		height: var(--nav-height);
 		position: sticky;
 		top: 0rem;
 		left: 0rem;
