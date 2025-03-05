@@ -1,9 +1,13 @@
 name: Release
 
+# on:
+#   push:
+#     branches:
+#       - main
+
 on:
-  push:
-    branches:
-      - main # Triggers when code is pushed to the main branch
+  release:
+    types: [published]
 
 jobs:
   release:
