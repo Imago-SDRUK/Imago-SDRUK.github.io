@@ -33,19 +33,44 @@
 <style>
 	.about-container {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) minmax(50vw, 1fr);
+		grid-template-rows: minmax(0, min-content) minmax(0, 1fr);
 		min-height: calc(100lvh - var(--nav-height));
 	}
 	.left-col {
+		grid-row: 2/3;
+		grid-column: 1 / 3;
+	}
+	.right-col {
+		grid-row: 1/2;
+		grid-column: 1 / 3;
 	}
 	.text-container {
 		display: grid;
 		gap: 2rem;
-		width: min(100% - 2rem, 500px);
 		margin-inline: auto;
 	}
 
-	.svg {
-		height: 80lvh;
+	@media (min-width: 768px) {
+		.text-container {
+			width: min(100% - 2rem, 500px);
+		}
+	}
+	@media (min-width: 1024px) {
+		.about-container {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-rows: minmax(0, 1fr);
+		}
+		.left-col {
+			grid-column: initial;
+			grid-row: 1/2;
+		}
+		.right-col {
+			grid-column: initial;
+			grid-row: 1/2;
+		}
+		.svg {
+			height: 80lvh;
+		}
 	}
 </style>

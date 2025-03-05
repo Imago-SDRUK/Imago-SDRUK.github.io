@@ -12,9 +12,10 @@
 		},
 		{ label: 'Events', href: '/events' }
 	]
+	let windowWidth = $state(0)
 </script>
 
-<svelte:window bind:scrollY={scroll} />
+<svelte:window bind:scrollY={scroll} bind:innerWidth={windowWidth} />
 <nav class:compact-nav={scroll > 256} style:--nav-height={NAV_HEIGHT}>
 	<div class="left-col">
 		{#if page.url.pathname !== '/'}

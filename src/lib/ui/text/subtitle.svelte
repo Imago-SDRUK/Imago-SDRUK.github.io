@@ -14,7 +14,7 @@
 		font-weight: 400;
 	}
 	.small {
-		font-size: clamp(1rem, 0.933rem + 0.333vw, 1.2rem);
+		font-size: clamp(0.925rem, 0.85rem + 0.375vw, 1.15rem);
 	}
 	.medium {
 		font-size: clamp(1.075rem, 0.933rem + 0.708vw, 1.5rem);

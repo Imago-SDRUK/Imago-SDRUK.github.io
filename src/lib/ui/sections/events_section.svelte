@@ -71,16 +71,15 @@
 
 <style>
 	.career-section {
-		display: grid;
 		gap: 2rem;
-		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
 		z-index: 1;
 		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
 	.career-content-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+		display: flex;
+		flex-direction: column;
 		gap: 2rem;
 		position: relative;
 	}
@@ -121,5 +120,22 @@
 		border: 1px solid var(--theme-colour-secondary);
 		padding: 0.25rem 1rem;
 		border-radius: 0.35rem;
+	}
+
+	@media (min-width: 768px) {
+		.career-section {
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
+			z-index: 1;
+			position: relative;
+		}
+		.career-content-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+			gap: 2rem;
+			position: relative;
+		}
 	}
 </style>

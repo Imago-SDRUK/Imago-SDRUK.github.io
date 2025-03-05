@@ -21,11 +21,14 @@
 	}
 	.large {
 		font-size: clamp(1.25rem, 0.917rem + 1.667vw, 2.25rem);
+		line-height: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
 	}
 	.extra-large {
 		font-size: clamp(1.95rem, 1.6rem + 1.75vw, 3rem);
+		line-height: clamp(2.25rem, 2rem + 1.25vw, 3rem);
 	}
 	.huge {
 		font-size: clamp(3rem, 2.667rem + 1.667vw, 4rem);
+		line-height: clamp(3rem, 2.833rem + 0.833vw, 3.5rem);
 	}
 </style>

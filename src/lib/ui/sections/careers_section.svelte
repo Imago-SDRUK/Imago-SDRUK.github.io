@@ -59,19 +59,18 @@
 
 <style>
 	.career-section {
-		display: grid;
-		gap: 2rem;
-		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
-		z-index: 1;
+		display: flex;
+		flex-direction: column;
 		position: relative;
+		gap: 2rem;
 	}
 	.career-content-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+		display: flex;
+		flex-direction: column;
 		gap: 2rem;
 		position: relative;
 	}
+
 	.meta-container {
 		display: flex;
 		align-items: flex-start;
@@ -99,5 +98,21 @@
 	}
 	.expired {
 		color: red;
+	}
+	@media (min-width: 768px) {
+		.career-section {
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
+			z-index: 1;
+			position: relative;
+		}
+		.career-content-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+			gap: 2rem;
+			position: relative;
+		}
 	}
 </style>

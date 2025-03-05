@@ -10,7 +10,7 @@
 	<div class="footer-content">
 		<div class="top">
 			<div class="left-col">
-				<Title title="Imago - {DateTime.now().year}"></Title>
+				<Title title="Imago © {DateTime.now().year}"></Title>
 			</div>
 
 			<FooterCollection title="Platform"></FooterCollection>
@@ -36,7 +36,7 @@
 		background-color: #040326;
 	}
 	.footer-content {
-		width: min(100%, 1440px);
+		width: min(100% - 6rem, 1440px);
 		margin-inline: auto;
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
@@ -44,15 +44,19 @@
 		gap: 2rem;
 		padding: 4rem 0;
 	}
-	.top {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-		justify-content: space-evenly;
-	}
+
 	.left-col {
 	}
 	.bottom {
 		display: flex;
 		justify-content: space-between;
+	}
+	@media (min-width: 1024px) {
+		.top {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+			justify-content: space-evenly;
+		}
 	}
 </style>

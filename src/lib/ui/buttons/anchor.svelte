@@ -34,14 +34,17 @@
 		padding: 0.25rem 1.25rem;
 		border-radius: 9999px;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 		gap: 1.25rem;
 		transition: all 0.3s ease-in-out;
 		font-family: var(--theme-font-title);
 		color: var(--theme-colour-highlight);
 		text-shadow: 1px 1px color-mix(in oklab, var(--theme-colour-quarternary) 80%, transparent 20%);
+		/* text-wrap: nowrap; */
 		font-weight: 600;
-		font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem);
+		/* font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem); */
+		font-size: 0.975rem;
 	}
 	a:hover {
 		border: 1px solid var(--theme-colour-text);
