@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main # Triggers when code is pushed to the main branch
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest # Runs on an Ubuntu runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Semantic Release
+        run: pnpm exec semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Provide the GitHub
+          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR }}
+          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.GIT_AUTHOR }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_EMAIL }}
