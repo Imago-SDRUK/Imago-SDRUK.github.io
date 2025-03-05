@@ -1,7 +1,7 @@
 {
 	"name": "website",
 	"private": true,
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -67,7 +67,7 @@
 		"@lottiefiles/dotlottie-svelte": "^0.4.6",
 		"@lottiefiles/dotlottie-web": "^0.40.1"
 	},
-  	"release": {
+	"release": {
 		"branches": [
 			"main"
 		],
