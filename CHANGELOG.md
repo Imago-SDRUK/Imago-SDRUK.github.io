@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.3.0...v1.4.0) (2025-03-06)
+
+
+### Features
+
+* ui improvements ([416866c](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/416866cde91e2e86d927aa0929bb0f1a0a7ed2b1))
+
 # [1.3.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.2.0...v1.3.0) (2025-03-06)
 
 
