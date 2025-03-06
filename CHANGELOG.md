@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.0.2...v1.0.3) (2025-03-06)
+
+
+### Bug Fixes
+
+* remove paths ([c97abc1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/c97abc160202d63c9028e778c92737b8cf7f84d2))
+
 ## [1.0.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.0.1...v1.0.2) (2025-03-06)
 
 
