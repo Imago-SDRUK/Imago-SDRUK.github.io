@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconArrowLeft } from '@tabler/icons-svelte'
+	import { IconArrowLeft, IconMenu, IconMenu2 } from '@tabler/icons-svelte'
 	import { page } from '$app/state'
 	import Logos from '../cards/logos.svelte'
 	import NavButton from '../buttons/nav_button.svelte'
@@ -13,10 +13,18 @@
 		{ label: 'Events', href: '/events' }
 	]
 	let windowWidth = $state(0)
+	let desktop = $derived(windowWidth > 768)
+	let menu_open = $state(false)
 </script>
 
-<svelte:window bind:scrollY={scroll} bind:innerWidth={windowWidth} />
-<nav class:compact-nav={scroll > 256} style:--nav-height={NAV_HEIGHT}>
+<svelte:window
+	bind:scrollY={scroll}
+	bind:innerWidth={windowWidth}
+	onscroll={() => {
+		menu_open = false
+	}}
+/>
+<nav class:compact-nav={scroll > 256 && desktop} style:--nav-height={NAV_HEIGHT}>
 	<div class="left-col">
 		{#if page.url.pathname !== '/'}
 			<button
@@ -27,18 +35,31 @@
 			>
 				<IconArrowLeft size={32} stroke-width={2}></IconArrowLeft>
 			</button>
-			<!-- <a class="button-link" href="/"> -->
-			<!-- 	<IconArrowLeft size={32} stroke-width={2}></IconArrowLeft> -->
-			<!-- </a> -->
 		{/if}
-		<Logos {scroll}></Logos>
+		{#if desktop}
+			<Logos {scroll}></Logos>
+		{/if}
+		{#if !desktop}
+			<a href="/">
+				<img class="icon" src="/favicon.png" alt="" />
+			</a>
+		{/if}
 	</div>
-
-	<!-- <div class="centre-col"></div> -->
 	<div class="right-col">
-		{#each routes as { href, label }}
-			<NavButton {href} {label}></NavButton>
-		{/each}
+		{#if !desktop}
+			<button
+				onclick={() => {
+					menu_open = !menu_open
+				}}
+			>
+				<IconMenu2></IconMenu2>
+			</button>
+		{/if}
+		<div class="routes" data-menu={menu_open ? true : undefined}>
+			{#each routes as { href, label }}
+				<NavButton {href} {label}></NavButton>
+			{/each}
+		</div>
 	</div>
 </nav>
 
@@ -83,5 +104,44 @@
 		gap: 1rem;
 		justify-content: flex-end;
 		align-items: center;
+	}
+	.routes {
+		position: fixed;
+		top: 0;
+		right: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		justify-content: flex-end;
+		align-items: center;
+		transform: translate(200%, 75%);
+		border: 1px solid var(--theme-colour-highlight);
+		border-radius: 0.35rem;
+		background-color: var(--theme-colour-background);
+		transition: all 0.3s ease-in-out;
+		padding: 2rem;
+	}
+	.routes[data-menu] {
+		z-index: 2;
+		transform: translate(0%, 75%);
+	}
+	.icon {
+		height: 2rem;
+	}
+	@media (min-width: 768px) {
+		.routes {
+			position: initial;
+			top: initial;
+			right: initial;
+			border: none;
+			background-color: initial;
+			transform: initial;
+			display: flex;
+			flex-direction: initial;
+			padding: 0;
+			gap: 1rem;
+			justify-content: flex-end;
+			align-items: center;
+		}
 	}
 </style>
