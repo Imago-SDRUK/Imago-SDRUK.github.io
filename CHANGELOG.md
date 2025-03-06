@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.2.0...v1.3.0) (2025-03-06)
+
+
+### Features
+
+* footer improvements ([9492349](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/94923491baa2695c32b63b4a5a852c35cfe8bc0a))
+
 # [1.2.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.1.0...v1.2.0) (2025-03-06)
 
 
