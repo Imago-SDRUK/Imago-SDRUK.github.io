@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.1.0...v1.2.0) (2025-03-06)
+
+
+### Features
+
+* mobile nav ([b2751bd](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/b2751bdeb99703028e7f9251ac3aa60ea173666e))
+
 # [1.1.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.0.4...v1.1.0) (2025-03-06)
 
 
