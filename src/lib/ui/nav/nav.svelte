@@ -130,6 +130,7 @@
 	@media (min-width: 768px) {
 		nav {
 			border-radius: 999px;
+			background-color: initial;
 		}
 		.routes {
 			position: initial;
