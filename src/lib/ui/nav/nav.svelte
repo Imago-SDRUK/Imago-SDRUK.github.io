@@ -65,10 +65,9 @@
 
 <style>
 	nav {
-		/* background-color: var(--theme-colour-background); */
+		background-color: var(--theme-colour-background);
 		color: var(--theme-colour-highlight);
 		border: 1px solid transparent;
-		border-radius: 999px;
 		width: 100%;
 		height: var(--nav-height);
 		position: sticky;
@@ -129,6 +128,9 @@
 		height: 2rem;
 	}
 	@media (min-width: 768px) {
+		nav {
+			border-radius: 999px;
+		}
 		.routes {
 			position: initial;
 			top: initial;

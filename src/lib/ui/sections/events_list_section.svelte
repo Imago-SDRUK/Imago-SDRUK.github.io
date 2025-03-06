@@ -9,7 +9,7 @@
 	let { events }: { events: Event[] } = $props()
 </script>
 
-<ListSection title="Calendar">
+<ListSection title="Events">
 	{#each events as event}
 		<li class="list">
 			<div class="event-list">

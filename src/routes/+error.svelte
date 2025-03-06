@@ -7,7 +7,7 @@
 </script>
 
 <Nav></Nav>
-<div class="error-section" style:--nav-height={NAV_HEIGHT} style:--footer-height={FOOTER_HEIGHT}>
+<div class="error-section" style:--nav-height={NAV_HEIGHT}>
 	<div class="error-message">
 		<Title title={`${page.status} ${page.error?.message}`}></Title>
 	</div>
@@ -17,7 +17,7 @@
 
 <style>
 	.error-section {
-		height: calc(100lvh - var(--nav-height) - var(--footer-height));
+		min-height: calc(100lvh - var(--nav-height));
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

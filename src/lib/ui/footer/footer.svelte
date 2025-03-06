@@ -3,7 +3,7 @@
 	import Title from '../blog/title.svelte'
 	import Logos from '../cards/logos.svelte'
 	import FooterCollection from './footer_collection.svelte'
-	import { FOOTER_HEIGHT } from '$lib/globals/style'
+	// import { FOOTER_HEIGHT } from '$lib/globals/style'
 	import {
 		IconBrandLinkedin,
 		IconBrandMastodon,
@@ -47,7 +47,7 @@
 	]
 </script>
 
-<footer style:--footer-height={FOOTER_HEIGHT}>
+<footer>
 	<div class="footer-content">
 		<div class="top">
 			<div class="left-col">
@@ -102,10 +102,21 @@
 		gap: 2rem;
 		padding: 4rem 0;
 	}
-
+	.top {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.footer-collections {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
 	.bottom {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
+		gap: 1rem;
 	}
 	.social-media {
 		color: white;
@@ -125,8 +136,11 @@
 			gap: 2rem;
 		}
 		.footer-collections {
-			display: flex;
+			flex-direction: initial;
 			gap: 4rem;
+		}
+		.bottom {
+			flex-direction: initial;
 		}
 	}
 </style>
