@@ -22,43 +22,43 @@
 			<div class="meta-container">
 				<div class="facts">
 					<Anchor label="Tickets" href={url}></Anchor>
-					<Subtitle subtitle="Location"></Subtitle>
-					<Fact text={location}></Fact>
-					<Subtitle subtitle="Date"></Subtitle>
+					<Fact title="Location" text={location}></Fact>
 					<Fact
+						title="Date"
 						text={DateTime.fromISO(date_start)
 							.setLocale('en-gb')
 							.toLocaleString(DateTime.DATE_FULL)}
 					></Fact>
-					<Subtitle subtitle="Time"></Subtitle>
-					<div class="time">
-						<Fact
-							text={DateTime.fromISO(date_start)
-								.setLocale('en-gb')
-								.toLocaleString(DateTime.TIME_SIMPLE)}
-						></Fact>
-						{#if date_end}
-							<Fact
-								text={`to ${DateTime.fromISO(date_end)
+					<Fact
+						title="Time"
+						text={date_end
+							? `${DateTime.fromISO(date_start)
 									.setLocale('en-gb')
-									.toLocaleString(DateTime.TIME_SIMPLE)}`}
-							></Fact>
-						{/if}
-					</div>
-					<!-- <Anchor href={url} label="Apply"></Anchor> -->
+									.toLocaleString(DateTime.TIME_SIMPLE)} to ${DateTime.fromISO(date_end)
+									.setLocale('en-gb')
+									.toLocaleString(DateTime.TIME_SIMPLE)}`
+							: DateTime.fromISO(date_start)
+									.setLocale('en-gb')
+									.toLocaleString(DateTime.TIME_SIMPLE)}
+					></Fact>
 					{#if agenda}
-						<Subtitle subtitle="Agenda"></Subtitle>
-
-						{#each agenda as _agenda}
-							<div class="agenda-element">
-								<Fact
-									text="{DateTime.fromISO(_agenda.time_start).toLocaleString(
-										DateTime.TIME_SIMPLE
-									)} - {DateTime.fromISO(_agenda.time_end).toLocaleString(DateTime.TIME_SIMPLE)}"
-								></Fact>
-								<Fact text={_agenda.title}></Fact>
+						<div class="fact">
+							<Subtitle subtitle="Agenda"></Subtitle>
+							<div class="agenda-elements">
+								{#each agenda as _agenda}
+									<div class="agenda-element">
+										<Fact
+											text="{DateTime.fromISO(_agenda.time_start).toLocaleString(
+												DateTime.TIME_SIMPLE
+											)} - {DateTime.fromISO(_agenda.time_end).toLocaleString(
+												DateTime.TIME_SIMPLE
+											)}"
+										></Fact>
+										<Fact text={_agenda.title}></Fact>
+									</div>
+								{/each}
 							</div>
-						{/each}
+						</div>
 					{/if}
 				</div>
 			</div>
@@ -83,11 +83,6 @@
 		gap: 2rem;
 		position: relative;
 	}
-	.time {
-		display: flex;
-		gap: 0.25rem;
-		color: var(--theme-colour-text);
-	}
 	.meta-container {
 		display: flex;
 		align-items: flex-start;
@@ -103,19 +98,13 @@
 		top: 6rem;
 		left: 0;
 	}
-	.fact {
-		color: var(--theme-colour-text);
-		font-family: var(--theme-font-subtitle);
-		font-size: clamp(0.8rem, 0.742rem + 0.292vw, 0.975rem);
+	.agenda-elements {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0.35rem;
+		gap: 0.5rem;
 	}
 
-	.available {
-		color: var(--theme-colour-highlight);
-		font-weight: 600;
-	}
-	.expired {
-		color: red;
-	}
 	.agenda-element {
 		border: 1px solid var(--theme-colour-secondary);
 		padding: 0.25rem 1rem;

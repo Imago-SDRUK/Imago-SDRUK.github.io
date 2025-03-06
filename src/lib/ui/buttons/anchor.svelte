@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ArrowRight from '@tabler/icons-svelte/icons/arrow-right'
+	import ArrowUpRight from '@tabler/icons-svelte/icons/arrow-up-right'
 	import type { Snippet } from 'svelte'
 
 	let { href, children, label }: { href: string; children?: Snippet; label: string } = $props()
@@ -11,20 +13,13 @@
 	{#if children}
 		{@render children()}
 	{/if}
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		width="24"
-		height="24"
-		stroke-width="2"
-	>
-		<path d="M17 7l-10 10"></path>
-		<path d="M8 7l9 0l0 9"></path>
-	</svg>
+
+	{#if href.startsWith('http')}
+		<ArrowUpRight></ArrowUpRight>
+	{/if}
+	{#if href.startsWith('/')}
+		<ArrowRight></ArrowRight>
+	{/if}
 </a>
 
 <style>

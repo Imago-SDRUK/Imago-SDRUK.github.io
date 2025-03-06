@@ -6,19 +6,9 @@
 	import Anchor from '$lib/ui/buttons/anchor.svelte'
 	import { dateAvailable, dateExpired } from '$lib/utils/data.js'
 	import { DateTime } from 'luxon'
+	import Fact from '../text/fact.svelte'
 	let { career }: { career: Career } = $props()
-	const {
-		title,
-		url,
-		salary,
-		date_created,
-		closing_date,
-		location,
-		hours,
-		contract,
-		content,
-		posted_on
-	} = career
+	const { title, url, salary, closing_date, location, hours, contract, content, posted_on } = career
 </script>
 
 <BaseSection>
@@ -27,26 +17,26 @@
 		<div class="career-content-grid">
 			<div class="meta-container">
 				<div class="facts">
-					<h3 class="fact">Location: {location}</h3>
-					<h3 class="fact">Salary: {salary}</h3>
-					<h3 class="fact">Hours: {hours}</h3>
-					<h3 class="fact">Contract: {contract}</h3>
-					{#if date_created}
-						<h3 class="fact">
-							Posted on: {DateTime.fromISO(posted_on)
+					<Fact title="Location" text={location}></Fact>
+					<Fact title="Salary" text={salary}></Fact>
+					<Fact title="Hours" text={hours}></Fact>
+					<Fact title="Contract" text={contract}></Fact>
+					{#if posted_on}
+						<Fact
+							title="Posted on"
+							text={DateTime.fromISO(posted_on)
 								.setLocale('en-gb')
 								.toLocaleString(DateTime.DATE_FULL)}
-						</h3>
+						></Fact>
 					{/if}
-					<h3
-						class="fact"
-						class:expired={dateExpired(DateTime.fromISO(closing_date))}
-						class:available={dateAvailable(DateTime.fromISO(closing_date))}
-					>
-						Closing date: {DateTime.fromISO(closing_date)
+					<Fact
+						title="Closing date"
+						active={dateAvailable(DateTime.fromISO(closing_date))}
+						inactive={dateExpired(DateTime.fromISO(closing_date))}
+						text={DateTime.fromISO(closing_date)
 							.setLocale('en-gb')
 							.toLocaleString(DateTime.DATE_FULL)}
-					</h3>
+					></Fact>
 					<Anchor href={url} label="Apply"></Anchor>
 				</div>
 			</div>
@@ -85,19 +75,6 @@
 		position: sticky;
 		top: 6rem;
 		left: 0;
-	}
-	.fact {
-		color: var(--theme-colour-text);
-		font-family: var(--theme-font-subtitle);
-		font-size: clamp(0.8rem, 0.742rem + 0.292vw, 0.975rem);
-	}
-
-	.available {
-		color: var(--theme-colour-highlight);
-		font-weight: 600;
-	}
-	.expired {
-		color: red;
 	}
 	@media (min-width: 768px) {
 		.career-section {
