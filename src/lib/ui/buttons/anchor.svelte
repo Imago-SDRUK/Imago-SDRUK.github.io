@@ -3,7 +3,7 @@
 	import ArrowUpRight from '@tabler/icons-svelte/icons/arrow-up-right'
 	import type { Snippet } from 'svelte'
 
-	let { href, children, label }: { href: string; children?: Snippet; label: string } = $props()
+	let { href, children, label }: { href: string; children?: Snippet; label?: string } = $props()
 </script>
 
 <a {href}>

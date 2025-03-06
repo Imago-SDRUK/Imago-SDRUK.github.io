@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Job } from '$lib/types'
 	import { DateTime } from 'luxon'
 	import Title from '../blog/title.svelte'
 	import Anchor from '../buttons/anchor.svelte'
 	import BaseCard from './base_card.svelte'
 	import { dateAvailable, dateExpired } from '$lib/utils/data'
-	let { job }: { job: Job } = $props()
-	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = job
+	import type { Career } from '$lib/types/directus'
+	let { career }: { career: Career } = $props()
+	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = career
 </script>
 
 <BaseCard>
@@ -19,11 +19,13 @@
 			<h3 class="fact">Salary: {salary}</h3>
 			<h3 class="fact">Hours: {hours}</h3>
 			<h3 class="fact">Contract: {contract}</h3>
-			<h3 class="fact">
-				Posted on: {DateTime.fromISO(posted_on)
-					.setLocale('en-gb')
-					.toLocaleString(DateTime.DATE_FULL)}
-			</h3>
+			{#if posted_on}
+				<h3 class="fact">
+					Posted on: {DateTime.fromISO(posted_on)
+						.setLocale('en-gb')
+						.toLocaleString(DateTime.DATE_FULL)}
+				</h3>
+			{/if}
 			<h3
 				class="fact"
 				class:expired={dateExpired(DateTime.fromISO(closing_date))}

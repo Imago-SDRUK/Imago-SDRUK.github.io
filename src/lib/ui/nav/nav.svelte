@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconArrowLeft, IconMenu, IconMenu2 } from '@tabler/icons-svelte'
+	import { IconArrowLeft, IconMenu2 } from '@tabler/icons-svelte'
 	import { page } from '$app/state'
 	import Logos from '../cards/logos.svelte'
 	import NavButton from '../buttons/nav_button.svelte'

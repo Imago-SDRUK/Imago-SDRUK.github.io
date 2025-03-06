@@ -4,6 +4,47 @@
 	import Logos from '../cards/logos.svelte'
 	import FooterCollection from './footer_collection.svelte'
 	import { FOOTER_HEIGHT } from '$lib/globals/style'
+	import {
+		IconBrandLinkedin,
+		IconBrandMastodon,
+		IconBrandTwitter,
+		IconLink
+	} from '@tabler/icons-svelte'
+	import IconButton from '../buttons/icon_button.svelte'
+	import { goto } from '$app/navigation'
+	const platform_collection = [1, 2, 3].map((x) => ({
+		href: '/',
+		label: `Data product ${x}`
+	}))
+	const documentation_collection = [
+		{
+			href: '/',
+			label: 'Book of imagery'
+		},
+
+		{
+			href: '/',
+			label: 'Researchers'
+		}
+	]
+	const company_documentation = [
+		{
+			href: '/',
+			label: 'Copyright'
+		},
+		{
+			href: '/',
+			label: 'Accessibility'
+		},
+		{
+			href: '/',
+			label: 'Privacy'
+		},
+		{
+			href: '/',
+			label: 'Contact'
+		}
+	]
 </script>
 
 <footer style:--footer-height={FOOTER_HEIGHT}>
@@ -13,10 +54,12 @@
 				<Title title="Imago © {DateTime.now().year}"></Title>
 			</div>
 
-			<FooterCollection title="Platform"></FooterCollection>
-			<FooterCollection title="Documentation"></FooterCollection>
-			<FooterCollection title="Company"></FooterCollection>
-
+			<div class="footer-collections">
+				<FooterCollection routes={platform_collection} title="Platform"></FooterCollection>
+				<FooterCollection routes={documentation_collection} title="Documentation"
+				></FooterCollection>
+				<FooterCollection routes={company_documentation} title="Company"></FooterCollection>
+			</div>
 			<!-- <div class="centre-col"></div> -->
 			<!-- <div class="right-col"></div> -->
 		</div>
@@ -24,7 +67,22 @@
 		<div class="bottom">
 			<Logos></Logos>
 			<div class="social-media">
-				<p>iconssss</p>
+				<IconButton
+					onclick={() => {
+						goto('https://www.linkedin.com/company/sdr-imago')
+					}}
+				>
+					<IconBrandLinkedin></IconBrandLinkedin>
+				</IconButton>
+				<IconButton>
+					<IconBrandMastodon></IconBrandMastodon>
+				</IconButton>
+				<IconButton>
+					<IconBrandTwitter></IconBrandTwitter>
+				</IconButton>
+				<IconButton>
+					<IconLink></IconLink>
+				</IconButton>
 			</div>
 		</div>
 	</div>
@@ -45,18 +103,30 @@
 		padding: 4rem 0;
 	}
 
-	.left-col {
-	}
 	.bottom {
 		display: flex;
 		justify-content: space-between;
 	}
+	.social-media {
+		color: white;
+		display: flex;
+		gap: 0.25rem;
+	}
+
 	@media (min-width: 1024px) {
+		/* .left-col { */
+		/* 	text-align: center; */
+		/* } */
 		.top {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-			justify-content: space-evenly;
+			grid-template-columns: minmax(0, 1fr) minmax(0, max-content);
+			justify-content: center;
+			gap: 2rem;
+		}
+		.footer-collections {
+			display: flex;
+			gap: 4rem;
 		}
 	}
 </style>
