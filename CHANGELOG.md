@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.4.0...v1.4.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* nav bar background ([34ed3ee](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/34ed3eee83e80a3c4db4e22fe647aaec70982cfd))
+
 # [1.4.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.3.0...v1.4.0) (2025-03-06)
 
 
