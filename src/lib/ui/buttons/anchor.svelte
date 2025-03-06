@@ -40,6 +40,7 @@
 		font-weight: 600;
 		/* font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem); */
 		font-size: 0.975rem;
+		text-transform: capitalize;
 	}
 	a:hover {
 		border: 1px solid var(--theme-colour-text);
