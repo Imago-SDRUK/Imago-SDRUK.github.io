@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.0.1...v1.0.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* svelte config ([8e3bd2e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/8e3bd2edde1c594b35d54c1aa15ea942b1fa0d16))
+
 ## [1.0.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.0.0...v1.0.1) (2025-03-06)
 
 
