@@ -7,6 +7,7 @@
 	import '@fontsource-variable/space-grotesk'
 	import Nav from '$lib/ui/nav/nav.svelte'
 	import Logos from '$lib/ui/cards/logos.svelte'
+	import { PUBLIC_NODE_ENV } from '$env/static/public'
 
 	let { children } = $props()
 	const theme = {
@@ -29,11 +30,13 @@
 </script>
 
 <svelte:head>
-	<script
-		defer
-		src="https://events.arturoguzman.art/script.js"
-		data-website-id="6514d5fc-b640-45d3-92b3-3135517734a0"
-	></script>
+	{#if PUBLIC_NODE_ENV === 'production'}
+		<script
+			defer
+			src="https://events.arturoguzman.art/script.js"
+			data-website-id="6514d5fc-b640-45d3-92b3-3135517734a0"
+		></script>
+	{/if}
 	<title>Imago - SDRUK</title>
 </svelte:head>
 
