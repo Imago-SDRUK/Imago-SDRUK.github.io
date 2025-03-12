@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { INSTITUTIONS, ROLES, SOCIAL_MEDIA } from '$lib/globals/data.js'
 	import { NAV_HEIGHT } from '$lib/globals/style'
+	import SvelteSeo from 'svelte-seo'
 	import Content from '$lib/ui/blog/content.svelte'
 	import Title from '$lib/ui/blog/title.svelte'
 	import Anchor from '$lib/ui/buttons/anchor.svelte'
@@ -12,12 +13,39 @@
 		IconBrandInstagram,
 		IconBrandLinkedin,
 		IconBrandMastodon,
-		IconBrandTwitter,
-		IconLink
+		IconBrandTwitter
 	} from '@tabler/icons-svelte'
-
+	import { page } from '$app/state'
 	let { data } = $props()
 </script>
+
+<SvelteSeo
+	title={`Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`}
+	description="Imago SDR"
+	canonical={`${page.url.protocol}//${page.url.host}`}
+	keywords="Imago SDR"
+	openGraph={{
+		title: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`,
+		description: String(data.team_member.content),
+		image: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`,
+		url: page.url.toString(),
+		type: 'website',
+		images: [
+			{
+				url: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`,
+				alt: 'Profile picture'
+			}
+		],
+		site_name: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`
+	}}
+	twitter={{
+		card: 'summary_large_image',
+		site: '@imago-sdr',
+		title: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`,
+		description: String(data.team_member.content),
+		image: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`
+	}}
+/>
 
 <BaseSection>
 	<div class="team-member-section" style:--nav-height={NAV_HEIGHT}>
