@@ -3,15 +3,11 @@ import { createItem, readItems } from '@directus/sdk'
 export const prerender = true
 
 export const load = async ({ locals }) => {
-	const team_members = await locals.directus.request(readItems('team_members'))
 	return {
-		team_members
+		team_members: await locals.directus.request(readItems('team_members')),
+		careers: await locals.directus.request(readItems('careers')),
+		events: await locals.directus.request(readItems('events'))
 	}
-	// const response = await fetch('/api/v1/jobs')
-	// const jobs: Job[] = await response.json()
-	// return {
-	// 	jobs
-	// }
 }
 
 // export const actions = {
