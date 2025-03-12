@@ -3429,6 +3429,14 @@ export interface TeamMember {
    role: 'rse' | 'researcher' | 'postdoc' | 'administrator';
 
   /**
+   * This will be generated automatically
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   slug: string | null;
+
+  /**
    * No description.
    *
    * Type in directus: integer
