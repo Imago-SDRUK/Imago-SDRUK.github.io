@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.4.1...v1.5.0) (2025-03-12)
+
+
+### Bug Fixes
+
+* umami on production only ([0e993cb](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/0e993cb37da2884b1d29a1a01a3a3a4f8b8da932))
+* update hero section ([75d1934](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/75d1934b5b3b1e1855882b17cfea46b8652893a9))
+
+
+### Features
+
+* team members pages ([f879576](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/f879576d85c45ca9b2f40d043d97dae05793b4aa))
+
 ## [1.4.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.4.0...v1.4.1) (2025-03-06)
 
 
