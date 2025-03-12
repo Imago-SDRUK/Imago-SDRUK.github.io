@@ -28,8 +28,9 @@ jobs:
       - name: build
         env:
           BASE_PATH: '${{ github.event.repository.name }}'
-          BACKEND_TOKEN: '${{ secrets.BACKEND_TOKEN }}' 
+          BACKEND_TOKEN: '${{ secrets.BACKEND_TOKEN }}'
           BACKEND_URL: '${{ secrets.BACKEND_URL }}'
+          PUBLIC_NODE_ENV: '${{ secrets.PUBLIC_NODE_ENV }}'
         run: |
           pnpm run build
       - name: Upload Artifacts
