@@ -8,6 +8,7 @@
 	a {
 		font-family: var(--theme-font-accent);
 		color: var(--theme-colour-accent);
+		text-shadow: 1px 1px 15px var(--theme-colour-background);
 	}
 	a:hover {
 		text-decoration: underline;
