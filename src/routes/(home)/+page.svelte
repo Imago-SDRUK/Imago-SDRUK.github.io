@@ -7,7 +7,7 @@
 
 <div class="page">
 	<HeroSection></HeroSection>
-	<AboutSection></AboutSection>
+	<AboutSection team_members={data.team_members}></AboutSection>
 	<!-- <NewsletterFormSection></NewsletterFormSection> -->
 </div>
 

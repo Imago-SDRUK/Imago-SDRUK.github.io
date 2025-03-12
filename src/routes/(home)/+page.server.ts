@@ -1,12 +1,12 @@
-import type { Job } from '$lib/types/index.js'
-import { handleDirectusError } from '$lib/utils/directus.js'
-import { EMAIL_REGEX } from '$lib/utils/regex.js'
-import { createItem } from '@directus/sdk'
-import { fail } from '@sveltejs/kit'
+import { createItem, readItems } from '@directus/sdk'
 
 export const prerender = true
 
-export const load = async ({ fetch }) => {
+export const load = async ({ locals }) => {
+	const team_members = await locals.directus.request(readItems('team_members'))
+	return {
+		team_members
+	}
 	// const response = await fetch('/api/v1/jobs')
 	// const jobs: Job[] = await response.json()
 	// return {

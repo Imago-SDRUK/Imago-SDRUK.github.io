@@ -5,7 +5,10 @@
 	import BaseSection from '$lib/ui/sections/base_section.svelte'
 	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
+	import type { TeamMember } from '$lib/types/directus'
+	import BaseCard from '../cards/base_card.svelte'
 	let imago_text = `IMAGO seeks a complete disruption of the status quo, proposing an SDR UK Data Service that transforms the usability, utility, and usage of satellite imagery that, in turn, revolutionises our understanding and resolution of urgent challenges facing the UK— especially where environmental vulnerability, urban development and housing, and health and wellbeing are concerned.\n\n<br><br> IMAGO achieves its goal by meeting users where they are: translating complex imagery data into data products these stakeholders require through collaboration and co-production; delivering data via intuitive and user-friendly interfaces, as well as channels, formats, and approaches familiar to these communities; and expanding capacity and enthusiasm for using imagery-based data across a range of sectors, career stages, and disciplines.`
+	let { team_members }: { team_members: TeamMember[] } = $props()
 </script>
 
 <BaseSection>
@@ -21,6 +24,20 @@
 				</div>
 				<Paragraph text={imago_text}></Paragraph>
 			</div>
+			<div class="team-cards">
+				{#each team_members as team_member}
+					<a class="team-member-card" href="/about/team/{team_member.slug}">
+						<div class="card-image-container">
+							<div class="card-image">
+								<img src="https://placehold.co/600x1200/FF8F42/FF8F42" alt="" />
+							</div>
+						</div>
+						<div class="card-title">
+							<Title title="{team_member.first_name} {team_member.last_name}"></Title>
+						</div>
+					</a>
+				{/each}
+			</div>
 		</div>
 		<div class="right-col">
 			<div class="svg">
@@ -31,6 +48,30 @@
 </BaseSection>
 
 <style>
+	.team-cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		padding: 2rem 0;
+	}
+	.team-member-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		border-radius: 1rem;
+		overflow: hidden;
+		border: 1px solid var(--theme-colour-text);
+	}
+	.card-title {
+		padding: 0.25rem 1rem;
+	}
+	.card-image-container {
+		height: 200px;
+		width: 100%;
+		overflow: hidden;
+	}
+	.card-image {
+		width: 100%;
+		object-fit: cover;
+	}
 	.about-container {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(50vw, 1fr);

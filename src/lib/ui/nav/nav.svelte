@@ -11,20 +11,32 @@
 			href: '/careers'
 		},
 		{ label: 'Events', href: '/events' }
+		// { label: 'About', href: '/about' }
 	]
+	let windowHeight = $state(0)
 	let windowWidth = $state(0)
 	let desktop = $derived(windowWidth > 768)
 	let menu_open = $state(false)
+	const getBgPercentage = (scroll: number, height: number) => {
+		const result = (scroll * 100) / height
+		if (result > 100) return 100
+		return result
+	}
 </script>
 
 <svelte:window
 	bind:scrollY={scroll}
 	bind:innerWidth={windowWidth}
+	bind:innerHeight={windowHeight}
 	onscroll={() => {
 		menu_open = false
 	}}
 />
-<nav class:compact-nav={scroll > 256 && desktop} style:--nav-height={NAV_HEIGHT}>
+<nav
+	class:compact-nav={scroll > 256 && desktop}
+	style:--nav-height={NAV_HEIGHT}
+	style:--bg-percentage="{getBgPercentage(scroll, windowHeight)}%"
+>
 	<div class="left-col">
 		{#if page.url.pathname !== '/'}
 			<button
@@ -65,7 +77,7 @@
 
 <style>
 	nav {
-		background-color: var(--theme-colour-background);
+		background: color-mix(in oklab, white 0%, var(--theme-colour-background) var(--bg-percentage));
 		color: var(--theme-colour-highlight);
 		border: 1px solid transparent;
 		width: 100%;
