@@ -2,7 +2,8 @@
 	let {
 		title,
 		size = 'small'
-	}: { title: string; size?: 'small' | 'medium' | 'large' | 'extra-large' | 'huge' } = $props()
+	}: { title: string; size?: 'micro' | 'small' | 'medium' | 'large' | 'extra-large' | 'huge' } =
+		$props()
 </script>
 
 <h2 class="title {size}">{title}</h2>
@@ -12,6 +13,9 @@
 		color: var(--theme-colour-text);
 		font-family: var(--theme-font-title);
 		font-weight: 600;
+	}
+	.micro {
+		font-size: clamp(0.9rem, 0.867rem + 0.167vw, 1rem);
 	}
 	.small {
 		font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem);

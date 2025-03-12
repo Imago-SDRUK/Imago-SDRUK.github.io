@@ -2,7 +2,8 @@
 	let {
 		subtitle,
 		size = 'small'
-	}: { subtitle: string; size?: 'small' | 'medium' | 'large' | 'extra-large' | 'huge' } = $props()
+	}: { subtitle: string; size?: 'micro' | 'small' | 'medium' | 'large' | 'extra-large' | 'huge' } =
+		$props()
 </script>
 
 <h3 class="title {size}">{subtitle}</h3>
@@ -12,6 +13,9 @@
 		color: var(--theme-colour-text);
 		font-family: var(--theme-font-subtitle);
 		font-weight: 400;
+	}
+	.micro {
+		font-size: clamp(0.875rem, 0.858rem + 0.083vw, 0.925rem);
 	}
 	.small {
 		font-size: clamp(0.925rem, 0.85rem + 0.375vw, 1.15rem);
