@@ -55,34 +55,34 @@
 			</div>
 
 			<div class="footer-collections">
-				<FooterCollection routes={platform_collection} title="Platform"></FooterCollection>
-				<FooterCollection routes={documentation_collection} title="Documentation"
-				></FooterCollection>
-				<FooterCollection routes={company_documentation} title="Company"></FooterCollection>
+				<!-- <FooterCollection routes={platform_collection} title="Platform"></FooterCollection> -->
+				<!-- <FooterCollection routes={documentation_collection} title="Documentation" -->
+				<!-- ></FooterCollection> -->
+				<!-- <FooterCollection routes={company_documentation} title="Company"></FooterCollection> -->
 			</div>
 			<!-- <div class="centre-col"></div> -->
 			<!-- <div class="right-col"></div> -->
 		</div>
 
 		<div class="bottom">
-			<Logos></Logos>
+			<Logos href="https://www.sdruk.ukri.org/"></Logos>
 			<div class="social-media">
 				<IconButton
 					onclick={() => {
-						goto('https://www.linkedin.com/company/sdr-imago')
+						window.location = 'https://www.linkedin.com/company/sdr-imago'
 					}}
 				>
 					<IconBrandLinkedin></IconBrandLinkedin>
 				</IconButton>
-				<IconButton>
-					<IconBrandMastodon></IconBrandMastodon>
-				</IconButton>
-				<IconButton>
-					<IconBrandTwitter></IconBrandTwitter>
-				</IconButton>
-				<IconButton>
-					<IconLink></IconLink>
-				</IconButton>
+				<!-- <IconButton> -->
+				<!-- 	<IconBrandMastodon></IconBrandMastodon> -->
+				<!-- </IconButton> -->
+				<!-- <IconButton> -->
+				<!-- 	<IconBrandTwitter></IconBrandTwitter> -->
+				<!-- </IconButton> -->
+				<!-- <IconButton> -->
+				<!-- 	<IconLink></IconLink> -->
+				<!-- </IconButton> -->
 			</div>
 		</div>
 	</div>
