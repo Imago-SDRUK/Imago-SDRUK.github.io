@@ -3423,6 +3423,14 @@ export interface TeamMember {
   /**
    * No description.
    *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   picture: DirectusFile | DirectusFile["id"] | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: string
    * Type in database: character varying
    */
