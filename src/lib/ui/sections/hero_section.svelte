@@ -47,7 +47,7 @@
 <!-- <BaseSection> -->
 <div class="hero-section">
 	<div class="title-wrapper">
-		<Title size="huge" title="Satellite imagery for"></Title>
+		<Title size="huge" title="Making satellite imagery useful, usable and for"></Title>
 	</div>
 	<!-- <canvas class="city-canvas" id="city-canvas"></canvas> -->
 	<div class="animation-container">
@@ -77,7 +77,7 @@
 
 	.title-wrapper {
 		text-align: center;
-		transform: translate(-50%, 65%);
+		transform: translate(-50%, 100%);
 		left: 50%;
 		position: absolute;
 	}
