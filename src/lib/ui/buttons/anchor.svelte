@@ -2,13 +2,19 @@
 	import ArrowRight from '@tabler/icons-svelte/icons/arrow-right'
 	import ArrowUpRight from '@tabler/icons-svelte/icons/arrow-up-right'
 	import type { Snippet } from 'svelte'
-
-	let { href, children, label }: { href: string; children?: Snippet; label?: string } = $props()
+	let {
+		href,
+		children,
+		label,
+		character_limit = 60
+	}: { href: string; children?: Snippet; label?: string; character_limit?: number } = $props()
 </script>
 
 <a {href}>
 	{#if label}
-		{label}
+		{String(label).length > character_limit
+			? `${String(label).slice(0, character_limit)}...`
+			: label}
 	{/if}
 	{#if children}
 		{@render children()}
