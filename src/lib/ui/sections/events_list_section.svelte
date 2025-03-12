@@ -58,12 +58,8 @@
 	}
 	.time {
 		display: flex;
-		/* justify-content: space-between; */
 		gap: 0.35rem;
 	}
-	/* .location { */
-	/* 	font-weight: 200; */
-	/* } */
 	.event-list {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
