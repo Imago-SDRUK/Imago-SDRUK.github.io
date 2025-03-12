@@ -29,6 +29,7 @@
 		/* font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem); */
 		font-size: 0.975rem;
 		transition: all 0.3s ease-in-out;
+		gap: 1rem;
 	}
 	button:hover {
 		border: 1px solid var(--theme-colour-text);
