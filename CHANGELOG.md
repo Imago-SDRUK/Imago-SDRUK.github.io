@@ -1,3 +1,24 @@
+# [1.6.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.5.1...v1.6.0) (2025-03-12)
+
+
+### Bug Fixes
+
+* fetch assets on build ([1fa1ff3](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1fa1ff3dd4ab6cde060a12ee3686da8436e88dd1))
+* hide unexisting sections ([004b260](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/004b26042dea2ceccfb6e2a2b00d8f778c818ac7))
+
+
+### Features
+
+* add character limit to anchor ([c38c0f5](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/c38c0f5fcf4f5e7c17794f9a5b35baf9b6a7f2ae))
+* add data globals ([81060e8](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/81060e8caef7afd62a78c684869f406325407267))
+* add micro option to titles ([eb716ca](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/eb716ca0c9d565da7c6dec4ee0862575b19d0768))
+* add sdr logo, increase logos size ([ed54240](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/ed54240ff1ab3a3e312df3c05b4062e886bac26c))
+* add team card ([9e653c2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/9e653c2d5ccac2ba8251dbe831b5157ea04177c0))
+* improve team member page ([ae38169](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/ae38169b9991f68e82d7b00c8d9a709a2070e4c5))
+* increase nav button contrast ([299ba5b](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/299ba5bde11c6dd4a186174687bb2103477f3e3f))
+* load information on landing ([2a3dc3a](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/2a3dc3a62d46397f5171140db9a21ca872f06e82))
+* update hero ui ([8c5f853](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/8c5f8538413b66b699b786b91412e48b8d85f41e))
+
 ## [1.5.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.5.0...v1.5.1) (2025-03-12)
 
 
