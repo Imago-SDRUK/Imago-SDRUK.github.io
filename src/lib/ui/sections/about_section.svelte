@@ -6,7 +6,7 @@
 	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
 	import type { TeamMember } from '$lib/types/directus'
-	import BaseCard from '../cards/base_card.svelte'
+	import CardTeam from '../cards/card_team.svelte'
 	let imago_text = `IMAGO seeks a complete disruption of the status quo, proposing an SDR UK Data Service that transforms the usability, utility, and usage of satellite imagery that, in turn, revolutionises our understanding and resolution of urgent challenges facing the UK— especially where environmental vulnerability, urban development and housing, and health and wellbeing are concerned.\n\n<br><br> IMAGO achieves its goal by meeting users where they are: translating complex imagery data into data products these stakeholders require through collaboration and co-production; delivering data via intuitive and user-friendly interfaces, as well as channels, formats, and approaches familiar to these communities; and expanding capacity and enthusiasm for using imagery-based data across a range of sectors, career stages, and disciplines.`
 	let { team_members }: { team_members: TeamMember[] } = $props()
 </script>
@@ -26,16 +26,7 @@
 			</div>
 			<div class="team-cards">
 				{#each team_members as team_member}
-					<a class="team-member-card" href="/about/team/{team_member.slug}">
-						<div class="card-image-container">
-							<div class="card-image">
-								<img src="https://placehold.co/600x1200/FF8F42/FF8F42" alt="" />
-							</div>
-						</div>
-						<div class="card-title">
-							<Title title="{team_member.first_name} {team_member.last_name}"></Title>
-						</div>
-					</a>
+					<CardTeam {team_member}></CardTeam>
 				{/each}
 			</div>
 		</div>
@@ -50,27 +41,9 @@
 <style>
 	.team-cards {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		padding: 2rem 0;
-	}
-	.team-member-card {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr);
-		border-radius: 1rem;
-		overflow: hidden;
-		border: 1px solid var(--theme-colour-text);
-	}
-	.card-title {
-		padding: 0.25rem 1rem;
-	}
-	.card-image-container {
-		height: 200px;
-		width: 100%;
-		overflow: hidden;
-	}
-	.card-image {
-		width: 100%;
-		object-fit: cover;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		margin: 3rem 0;
+		gap: 1rem;
 	}
 	.about-container {
 		display: grid;
@@ -79,11 +52,11 @@
 		min-height: calc(100lvh - var(--nav-height));
 	}
 	.left-col {
-		grid-row: 2/3;
+		grid-row: 2 / 3;
 		grid-column: 1 / 3;
 	}
 	.right-col {
-		grid-row: 1/2;
+		grid-row: 1 / 2;
 		grid-column: 1 / 3;
 	}
 	.text-container {
@@ -95,6 +68,9 @@
 	@media (min-width: 768px) {
 		.text-container {
 			width: min(100% - 2rem, 500px);
+		}
+		.team-cards {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
 	@media (min-width: 1024px) {
@@ -111,6 +87,9 @@
 			grid-row: 1/2;
 		}
 		.svg {
+			position: sticky;
+			top: 1rem;
+			left: 0;
 			height: 80lvh;
 		}
 	}
