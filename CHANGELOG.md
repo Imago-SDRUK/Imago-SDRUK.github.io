@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.7.1...v1.8.0) (2025-03-19)
+
+
+### Bug Fixes
+
+* team member card image size ([7ee55aa](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/7ee55aadf249c796503f24b12d8d5a184399cf72))
+
+
+### Features
+
+* add facts to team member ([db85df8](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/db85df8297dbf20362a6dc5fe52fca5454e09221))
+
 ## [1.7.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.7.0...v1.7.1) (2025-03-19)
 
 
