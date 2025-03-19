@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.6.0...v1.7.0) (2025-03-12)
+
+
+### Features
+
+* initial seo ([1d4c7b7](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1d4c7b7610d5dda71f5bc8627cd7e6c2b6b9c8c4))
+
 # [1.6.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.5.1...v1.6.0) (2025-03-12)
 
 
