@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.8.0...v1.8.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* catch prerender issues ([fec0f9e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/fec0f9e8264e7bc17b1233aa39002031789aa2d9))
+
 # [1.8.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.7.1...v1.8.0) (2025-03-19)
 
 
