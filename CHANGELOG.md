@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.7.0...v1.7.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* handle larger screens profile picture ([0cafca5](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/0cafca560fda346cbcf784a5cff238c91e331113))
+
 # [1.7.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.6.0...v1.7.0) (2025-03-12)
 
 
