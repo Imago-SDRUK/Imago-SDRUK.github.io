@@ -156,4 +156,9 @@
 			border-right: 1px solid var(--theme-colour-text);
 		}
 	}
+	@media (min-width: 1440px) {
+		.left-col {
+			grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+		}
+	}
 </style>
