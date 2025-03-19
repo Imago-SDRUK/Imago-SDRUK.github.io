@@ -3389,6 +3389,14 @@ export interface TeamMember {
    date_updated: string | null;
 
   /**
+   * These are to add further information about the team member
+   *
+   * Type in directus: json
+   * Type in database: json
+   */
+   facts: any | null;
+
+  /**
    * No description.
    *
    * Type in directus: string

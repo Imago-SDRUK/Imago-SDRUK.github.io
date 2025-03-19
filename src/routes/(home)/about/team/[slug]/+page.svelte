@@ -16,6 +16,8 @@
 		IconBrandTwitter
 	} from '@tabler/icons-svelte'
 	import { page } from '$app/state'
+	import { jstr } from '$lib/utils/data.js'
+	import Fact from '$lib/ui/text/fact.svelte'
 	let { data } = $props()
 </script>
 
@@ -59,6 +61,11 @@
 				<div class="role">
 					<Subtitle subtitle={ROLES[data.team_member.role]}></Subtitle>
 					<Subtitle subtitle={INSTITUTIONS[data.team_member.institution]}></Subtitle>
+					{#if data.team_member.facts}
+						{#each data.team_member.facts as facts}
+							<Fact text={facts.fact}></Fact>
+						{/each}
+					{/if}
 				</div>
 				<div class="social-media">
 					{#each data.team_member.url.filter((url) => SOCIAL_MEDIA.includes(url.title)) as url}
