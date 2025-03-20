@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { INSTITUTIONS, ROLES, SOCIAL_MEDIA } from '$lib/globals/data.js'
 	import { NAV_HEIGHT } from '$lib/globals/style'
-	import SvelteSeo from 'svelte-seo'
 	import Content from '$lib/ui/blog/content.svelte'
 	import Title from '$lib/ui/blog/title.svelte'
 	import Anchor from '$lib/ui/buttons/anchor.svelte'
@@ -16,38 +15,16 @@
 		IconBrandTwitter
 	} from '@tabler/icons-svelte'
 	import { page } from '$app/state'
-	import { jstr } from '$lib/utils/data.js'
 	import Fact from '$lib/ui/text/fact.svelte'
+	import Seo from '$lib/ui/utils/seo.svelte'
 	let { data } = $props()
 </script>
 
-<SvelteSeo
-	title={`Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`}
-	description="Imago SDR"
-	canonical={`${page.url.protocol}//${page.url.host}`}
-	keywords="Imago SDR"
-	openGraph={{
-		title: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`,
-		description: String(data.team_member.content),
-		image: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`,
-		url: page.url.toString(),
-		type: 'website',
-		images: [
-			{
-				url: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`,
-				alt: 'Profile picture'
-			}
-		],
-		site_name: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`
-	}}
-	twitter={{
-		card: 'summary_large_image',
-		site: '@imago-sdr',
-		title: `Imago - SDR | ${data.team_member.first_name} ${data.team_member.last_name}`,
-		description: String(data.team_member.content),
-		image: `${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`
-	}}
-/>
+<Seo
+	title={`${data.team_member.first_name} ${data.team_member.last_name}`}
+	description={String(data.team_member.content)}
+	image={`${page.url.protocol}//${page.url.host}/assets/${data.team_member.picture}`}
+></Seo>
 
 <BaseSection>
 	<div class="team-member-section" style:--nav-height={NAV_HEIGHT}>
@@ -117,7 +94,7 @@
 		overflow: hidden;
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: minmax(0, 1fr) minmax(0, max-content);
+		grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
 		gap: 2rem;
 		padding: 0 1rem;
 		border-bottom: 1px solid var(--theme-colour-text);
@@ -154,7 +131,7 @@
 	@media (min-width: 1024px) {
 		.team-member-section {
 			grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
-			height: calc(100lvh - var(--nav-height) - 5rem);
+			min-height: calc(100lvh - var(--nav-height) - 5rem);
 			margin-top: 1rem;
 		}
 		.left-col {
@@ -163,9 +140,14 @@
 			border-right: 1px solid var(--theme-colour-text);
 		}
 	}
-	@media (min-width: 1440px) {
-		.left-col {
-			grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+	@media (min-width: 1280px) {
+		.profile-picture {
+			max-height: 50lvh;
 		}
 	}
+	/* @media (min-width: 1440px) { */
+	/* 	.left-col { */
+	/* 		grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); */
+	/* 	} */
+	/* } */
 </style>
