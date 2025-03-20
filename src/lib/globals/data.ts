@@ -1,8 +1,12 @@
-export const ROLES: Record<'rse' | 'researcher' | 'postdoc' | 'administrator', string> = {
+export const ROLES: Record<
+	'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director',
+	string
+> = {
 	rse: 'Research Software Engineer',
 	researcher: 'Researcher',
 	postdoc: 'Postdoctoral Research Associate',
-	administrator: 'Administrator'
+	administrator: 'Administrator',
+	co_director: 'Co-Director'
 }
 
 export const INSTITUTIONS: Record<'newcastle_university' | 'u_of_liverpool', string> = {

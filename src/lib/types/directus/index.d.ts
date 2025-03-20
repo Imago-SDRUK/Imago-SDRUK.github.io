@@ -3442,7 +3442,7 @@ export interface TeamMember {
    * Type in directus: string
    * Type in database: character varying
    */
-   role: 'rse' | 'researcher' | 'postdoc' | 'administrator';
+   role: 'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director';
 
   /**
    * This will be generated automatically
