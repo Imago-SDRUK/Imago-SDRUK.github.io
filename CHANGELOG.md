@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.9.0...v1.10.0) (2025-03-28)
+
+
+### Features
+
+* add robots ([b3c0958](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/b3c095897a0f00bb7b2f707fffbc5eb41718cb2f))
+* add rss feed ([329329d](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/329329d4007497da9ec7b976a74107ef1f55de63))
+* add sitemap ([1c4c0bf](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1c4c0bf78ef434c7fc6fd9b65738a1374806165d))
+
 # [1.9.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.8.1...v1.9.0) (2025-03-20)
 
 
