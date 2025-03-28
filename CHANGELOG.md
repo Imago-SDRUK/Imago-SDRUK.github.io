@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.10.1...v1.11.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* improve lottie animations, add uk lottie animation ([c67b0a2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/c67b0a2f7903d89590e0e239f0bc45e3f335d7d0))
+* replace new lottie with actually working old lottie ([68a7fed](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/68a7fed6df0c31dadbdd6b9d56822e3c9f1ddb67))
+
+
+### Features
+
+* add observer ([a4eaadf](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/a4eaadf9ea1a2dd664776d528336b2cadb7cb94c))
+
 ## [1.10.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.10.0...v1.10.1) (2025-03-28)
 
 
