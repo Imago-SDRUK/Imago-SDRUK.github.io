@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.10.0...v1.10.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* remove rss endpoint for now ([04ffa07](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/04ffa07b817f89f8027a86be9dda6db844351834))
+
 # [1.10.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.9.0...v1.10.0) (2025-03-28)
 
 
