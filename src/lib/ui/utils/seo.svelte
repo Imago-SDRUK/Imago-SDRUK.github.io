@@ -14,8 +14,8 @@
 </script>
 
 <SvelteSeo
-	title={`Imago - SDR${title ? ` | ${title}` : ''}`}
-	description="Imago SDR"
+	title={`Imago - SDRUK${title ? ` | ${title}` : ''}`}
+	description="Imago SDRUK"
 	canonical={`https://imago.ac.uk`}
 	keywords="Imago SDR"
 	openGraph={{
