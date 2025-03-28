@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Title from '../blog/title.svelte'
-	import { DotLottieSvelte } from '@lottiefiles/dotlottie-svelte'
+	import LottiePlayer from '../players/lottie_player.svelte'
 	let height = $state(300)
 	let width = $state(300)
 </script>
@@ -11,11 +11,7 @@
 		<Title size="huge" title="Making satellite imagery useful, usable and used for..."></Title>
 	</div>
 	<div class="animation-container">
-		<DotLottieSvelte
-			renderConfig={{ devicePixelRatio: 2, autoResize: true }}
-			src="/city/data.json"
-			autoplay
-		/>
+		<LottiePlayer src="/city/data.json"></LottiePlayer>
 	</div>
 </div>
 

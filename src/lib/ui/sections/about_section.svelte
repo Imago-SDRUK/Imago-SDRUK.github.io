@@ -1,18 +1,18 @@
 <script lang="ts">
+	import type { TeamMember } from '$lib/types/directus'
 	import { NAV_HEIGHT } from '$lib/globals/style'
-	import UkSvg from '$lib/assets/background.svg?raw'
 	import Title from '$lib/ui/blog/title.svelte'
 	import BaseSection from '$lib/ui/sections/base_section.svelte'
 	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
-	import type { TeamMember } from '$lib/types/directus'
 	import CardTeam from '../cards/card_team.svelte'
+	import LottiePlayer from '../players/lottie_player.svelte'
 	let imago_text = `IMAGO seeks a complete disruption of the status quo, proposing an SDR UK Data Service that transforms the usability, utility, and usage of satellite imagery that, in turn, revolutionises our understanding and resolution of urgent challenges facing the UK— especially where environmental vulnerability, urban development and housing, and health and wellbeing are concerned.\n\n<br><br> IMAGO achieves its goal by meeting users where they are: translating complex imagery data into data products these stakeholders require through collaboration and co-production; delivering data via intuitive and user-friendly interfaces, as well as channels, formats, and approaches familiar to these communities; and expanding capacity and enthusiasm for using imagery-based data across a range of sectors, career stages, and disciplines.`
 	let { team_members }: { team_members: TeamMember[] } = $props()
 </script>
 
 <BaseSection>
-	<div class="about-container" style:--nav-height={NAV_HEIGHT}>
+	<div class="about-container" id="uk-lottie" style:--nav-height={NAV_HEIGHT}>
 		<div class="left-col">
 			<div class="text-container">
 				<div class="about-title">
@@ -31,8 +31,8 @@
 			</div>
 		</div>
 		<div class="right-col">
-			<div class="svg">
-				{@html UkSvg}
+			<div class="player-container">
+				<LottiePlayer src="/lottie/uk.json"></LottiePlayer>
 			</div>
 		</div>
 	</div>
@@ -58,6 +58,17 @@
 	.right-col {
 		grid-row: 1 / 2;
 		grid-column: 1 / 3;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-height: 100%;
+	}
+	.player-container {
+		max-height: 100lvh;
+	}
+	.player {
+		max-height: 100lvh;
 	}
 	.text-container {
 		display: grid;

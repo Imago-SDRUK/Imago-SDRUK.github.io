@@ -5,8 +5,6 @@
 	import '@fontsource-variable/noto-sans'
 	import '@fontsource-variable/figtree'
 	import '@fontsource-variable/space-grotesk'
-	import Nav from '$lib/ui/nav/nav.svelte'
-	import Logos from '$lib/ui/cards/logos.svelte'
 	import { PUBLIC_NODE_ENV } from '$env/static/public'
 
 	let { children } = $props()
