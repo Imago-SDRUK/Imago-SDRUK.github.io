@@ -1,3 +1,11 @@
+# [1.9.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.8.1...v1.9.0) (2025-03-20)
+
+
+### Features
+
+* add new roles ([08aa2e0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/08aa2e036c13ca52853cee78031331714a4e8208))
+* simplify seo, change team member page style ([f530120](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/f530120ac99e9d33e1d1b53f089ab95ea97ab428))
+
 ## [1.8.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.8.0...v1.8.1) (2025-03-19)
 
 
