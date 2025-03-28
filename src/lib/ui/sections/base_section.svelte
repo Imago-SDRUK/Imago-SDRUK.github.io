@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FOOTER_HEIGHT, NAV_HEIGHT } from '$lib/globals/style'
+	import { NAV_HEIGHT } from '$lib/globals/style'
 	import type { Snippet } from 'svelte'
 	import { fly } from 'svelte/transition'
 	let { children }: { children?: Snippet } = $props()
@@ -15,5 +15,6 @@
 		width: min(100lvw - 4rem, 1440px);
 		margin-inline: auto;
 		min-height: calc(100lvh - var(--nav-height));
+		position: relative;
 	}
 </style>

@@ -11,6 +11,7 @@
 
 <TwoColumnsSection>
 	{#snippet leftCol()}
+		<!-- <video src="/videos/video_1.mp4" muted autoplay loop><track kind="captions" /></video> -->
 		<img src="/ui/terrain_1.png" alt="" class="img" />
 	{/snippet}
 	{#snippet rightCol()}

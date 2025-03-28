@@ -2,7 +2,7 @@
 // import { verifyCookie } from '$lib/utils/cookies'
 import { jstr } from '$lib/utils/data'
 import { directusSDK } from '$lib/utils/directus'
-import { log } from '@arturoguzman/art-ui'
+import { getId, log } from '@arturoguzman/art-ui'
 import { type Handle } from '@sveltejs/kit'
 
 // export const crawlers = [
@@ -27,6 +27,7 @@ export const handleError = async ({ event, status, message, error }) => {
 	console.log(jstr(error))
 	log({ status: status, event: event, content: message })
 	return {
+		id: getId(),
 		message: status === 404 ? `This page does not exist!` : 'Whoops!'
 		// errorId
 	}
