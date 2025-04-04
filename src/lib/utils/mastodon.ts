@@ -330,7 +330,7 @@ export const generateOutbox = ({
 	'@context': 'https://www.w3.org/ns/activitystreams',
 	id: `${endpoint}/users/${user}/outbox`,
 	type: 'OrderedCollection',
-	totalItems: 2,
+	totalItems: notes?.length ?? 0,
 	first: `${endpoint}/users/${user}/outbox?page=true`,
 	last: `${endpoint}/users/${user}/outbox?min_id=0\u0026page=true`,
 	orderedItems: notes
