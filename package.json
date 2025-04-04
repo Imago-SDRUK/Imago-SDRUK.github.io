@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@arturoguzman/art-ui": "^0.6.0",
 		"@directus/sdk": "^19.1.0",
-		"@eslint/compat": "^1.2.7",
+		"@eslint/compat": "^1.2.8",
 		"@eslint/js": "^9.23.0",
 		"@fontsource-variable/figtree": "^5.2.6",
 		"@fontsource-variable/noto-sans": "^5.2.6",
@@ -36,14 +36,14 @@
 		"@semantic-release/release-notes-generator": "^14.0.3",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/adapter-static": "^3.0.8",
-		"@sveltejs/kit": "^2.20.2",
+		"@sveltejs/kit": "^2.20.3",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tabler/icons-svelte": "^3.31.0",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.16",
-		"@types/luxon": "^3.4.2",
-		"@types/node": "^22.13.15",
+		"@types/luxon": "^3.6.2",
+		"@types/node": "^22.14.0",
 		"autoprefixer": "^10.4.21",
 		"eslint": "^9.23.0",
 		"eslint-config-prettier": "^10.1.1",
@@ -51,21 +51,21 @@
 		"feed": "^4.2.2",
 		"globals": "^15.15.0",
 		"lottie-web": "^5.12.2",
-		"luxon": "^3.6.0",
+		"luxon": "^3.6.1",
 		"mdsvex": "^0.12.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"semantic-release": "^24.2.3",
-		"svelte": "^5.25.3",
+		"svelte": "^5.25.6",
 		"svelte-check": "^4.1.5",
 		"svelte-seo": "^1.6.1",
 		"tailwindcss": "^3.4.17",
 		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.28.0",
+		"typescript-eslint": "^8.29.0",
 		"typescript-svelte-plugin": "^0.3.46",
-		"vite": "^6.2.3",
-		"vitest": "^3.0.9"
+		"vite": "^6.2.5",
+		"vitest": "^3.1.1"
 	},
 	"release": {
 		"branches": [
@@ -97,6 +97,11 @@
 					"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
 				}
 			]
+		]
+	},
+	"pnpm": {
+		"ignoredBuiltDependencies": [
+			"esbuild"
 		]
 	}
 }
