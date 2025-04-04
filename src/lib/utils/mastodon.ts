@@ -1,6 +1,13 @@
 import { env } from '$env/dynamic/private'
-import type { MastodonFollowRequest, MastodonPublicKeyResponse } from '$lib/types/mastodon'
+import type {
+	MastodonActor,
+	MastodonItem,
+	MastodonPayload,
+	MastodonPublicKeyResponse,
+	MastodonRequest
+} from '$lib/types/mastodon'
 import { error } from '@sveltejs/kit'
+import { DateTime } from 'luxon'
 import { createHash, createSign, createVerify, constants, verify } from 'node:crypto'
 
 export const content_type_headers = `application/activity+json, application/activity+ld`
@@ -70,7 +77,7 @@ function buildSignatureString(req: Request, headerList: string[]) {
 export const verifyMastodonRequest = async (
 	request: Request,
 	fetch: typeof globalThis.fetch
-): Promise<{ data: MastodonFollowRequest; valid: boolean }> => {
+): Promise<{ data: MastodonRequest; valid: boolean }> => {
 	const data = await request.json().catch((err) => {
 		console.log(err)
 		error(400, { message: `This is not a valid request`, id: '' })
@@ -116,4 +123,270 @@ export const verifyMastodonRequest = async (
 		data,
 		valid: true
 	}
+}
+
+export const generateNote = ({
+	id,
+	content,
+	endpoint,
+	user,
+	hostname
+}: {
+	id: string
+	content: string
+	user: string
+	endpoint: string
+	hostname: string
+}): MastodonItem => ({
+	'@context': [
+		'https://www.w3.org/ns/activitystreams',
+		{
+			ostatus: 'http://ostatus.org#',
+			atomUri: 'ostatus:atomUri',
+			inReplyToAtomUri: 'ostatus:inReplyToAtomUri',
+			conversation: 'ostatus:conversation',
+			sensitive: 'as:sensitive',
+			toot: 'http://joinmastodon.org/ns#',
+			votersCount: 'toot:votersCount'
+		}
+	],
+	id: `${endpoint}/users/${user}/statuses/${id}`,
+	type: 'Note',
+	summary: null,
+	inReplyTo: null,
+	published: '2025-03-31T14:44:05Z',
+	url: `${endpoint}/@${user}/${id}`,
+	attributedTo: `${endpoint}/users/${user}`,
+	to: ['https://www.w3.org/ns/activitystreams#Public'],
+	cc: [`${endpoint}/users/${user}/followers`],
+	sensitive: false,
+	atomUri: `${endpoint}/users/${user}/statuses/${id}`,
+	inReplyToAtomUri: null,
+	conversation: `tag:${hostname},2025-03-31:objectId=205339:objectType=Conversation`,
+	content: content,
+	contentMap: { en: content },
+	attachment: [],
+	tag: [],
+	replies: {
+		id: `${endpoint}/users/${user}/statuses/${id}/replies`,
+		type: 'Collection',
+		first: {
+			type: 'CollectionPage',
+			next: `${endpoint}/users/${user}/statuses/${id}/replies?only_other_accounts=true\u0026page=true`,
+			partOf: `${endpoint}/users/${user}/statuses/${id}/replies`,
+			items: []
+		}
+	},
+	likes: {
+		id: `${endpoint}/users/${user}/statuses/${id}/likes`,
+		type: 'Collection',
+		totalItems: 0
+	},
+	shares: {
+		id: `${endpoint}/users/${user}/statuses/${id}/shares`,
+		type: 'Collection',
+		totalItems: 0
+	}
+})
+
+export const generateStatus = ({
+	id,
+	content,
+	endpoint,
+	user,
+	hostname
+}: {
+	id: string
+	content: string
+	user: string
+	endpoint: string
+	hostname: string
+}): MastodonItem => ({
+	'@context': [
+		'https://www.w3.org/ns/activitystreams',
+		{
+			ostatus: 'http://ostatus.org#',
+			atomUri: 'ostatus:atomUri',
+			inReplyToAtomUri: 'ostatus:inReplyToAtomUri',
+			conversation: 'ostatus:conversation',
+			sensitive: 'as:sensitive',
+			toot: 'http://joinmastodon.org/ns#',
+			votersCount: 'toot:votersCount'
+		}
+	],
+	id: `${endpoint}/users/${user}/statuses/${id}`,
+	type: 'Note',
+	summary: null,
+	inReplyTo: null,
+	published: '2025-03-31T14:44:05Z',
+	url: `${endpoint}/@${user}/${id}`,
+	attributedTo: `${endpoint}/users/${user}`,
+	to: ['https://www.w3.org/ns/activitystreams#Public'],
+	cc: [`${endpoint}/users/${user}/followers`],
+	sensitive: false,
+	atomUri: `${endpoint}/users/${user}/statuses/${id}`,
+	inReplyToAtomUri: null,
+	conversation: `tag:${hostname},2025-03-31:objectId=205339:objectType=Conversation`,
+	content: content,
+	contentMap: { en: content },
+	attachment: [],
+	tag: [],
+	replies: {
+		id: `${endpoint}/users/${user}/statuses/${id}/replies`,
+		type: 'Collection',
+		first: {
+			type: 'CollectionPage',
+			next: `${endpoint}/users/${user}/statuses/${id}/replies?only_other_accounts=true\u0026page=true`,
+			partOf: `${endpoint}/users/${user}/statuses/${id}/replies`,
+			items: []
+		}
+	},
+	likes: {
+		id: `${endpoint}/users/${user}/statuses/${id}/likes`,
+		type: 'Collection',
+		totalItems: 0
+	},
+	shares: {
+		id: `${endpoint}/users/${user}/statuses/${id}/shares`,
+		type: 'Collection',
+		totalItems: 0
+	}
+})
+
+export const generateReply = ({
+	id,
+	content,
+	endpoint,
+	user,
+	hostname
+}: {
+	id: string
+	content: string
+	user: string
+	endpoint: string
+	hostname: string
+}): MastodonItem => ({
+	'@context': [
+		'https://www.w3.org/ns/activitystreams',
+		{
+			ostatus: 'http://ostatus.org#',
+			atomUri: 'ostatus:atomUri',
+			inReplyToAtomUri: 'ostatus:inReplyToAtomUri',
+			conversation: 'ostatus:conversation',
+			sensitive: 'as:sensitive',
+			toot: 'http://joinmastodon.org/ns#',
+			votersCount: 'toot:votersCount'
+		}
+	],
+	id: `${endpoint}/users/${user}/statuses/${id}`,
+	type: 'Note',
+	summary: null,
+	inReplyTo: null,
+	published: '2025-03-31T14:44:05Z',
+	url: `${endpoint}/@${user}/${id}`,
+	attributedTo: `${endpoint}/users/${user}`,
+	to: ['https://www.w3.org/ns/activitystreams#Public'],
+	cc: [`${endpoint}/users/${user}/followers`],
+	sensitive: false,
+	atomUri: `${endpoint}/users/${user}/statuses/${id}`,
+	inReplyToAtomUri: null,
+	conversation: `tag:${hostname},2025-03-31:objectId=205339:objectType=Conversation`,
+	content: content,
+	contentMap: { en: content },
+	attachment: [],
+	tag: [],
+	replies: {
+		id: `${endpoint}/users/${user}/statuses/${id}/replies`,
+		type: 'Collection',
+		first: {
+			type: 'CollectionPage',
+			next: `${endpoint}/users/${user}/statuses/${id}/replies?only_other_accounts=true\u0026page=true`,
+			partOf: `${endpoint}/users/${user}/statuses/${id}/replies`,
+			items: []
+		}
+	},
+	likes: {
+		id: `${endpoint}/users/${user}/statuses/${id}/likes`,
+		type: 'Collection',
+		totalItems: 0
+	},
+	shares: {
+		id: `${endpoint}/users/${user}/statuses/${id}/shares`,
+		type: 'Collection',
+		totalItems: 0
+	}
+})
+
+export const generateOutbox = ({
+	endpoint,
+	user,
+	notes
+}: {
+	hostname: string
+	endpoint: string
+	user: string
+	notes?: MastodonItem[]
+}) => ({
+	'@context': 'https://www.w3.org/ns/activitystreams',
+	id: `${endpoint}/users/${user}/outbox`,
+	type: 'OrderedCollection',
+	totalItems: 2,
+	first: `${endpoint}/users/${user}/outbox?page=true`,
+	last: `${endpoint}/users/${user}/outbox?min_id=0\u0026page=true`,
+	orderedItems: notes
+})
+
+export const getIncomingActorInformation = async (url: string, fetch: typeof globalThis.fetch) => {
+	const res_actor = await fetch(url, {
+		headers: { Accept: 'application/activity+json' }
+	}).catch((err) => {
+		console.log(err)
+		error(400, { message: `Coudln't get the actor information`, id: '' })
+	})
+	const actor = await res_actor.json()
+	return actor as MastodonActor
+}
+
+export const createHeaders = ({
+	payload,
+	endpoint,
+	user
+}: {
+	hostname: string
+	endpoint: string
+	user: string
+	payload: MastodonPayload
+}) => {
+	const payload_hash = hashSHA256(JSON.stringify(payload))
+	const host_header = `toot.artgp.xyz`
+	const date_header = DateTime.now().toHTTP()
+	const digest_header = `SHA-256=${payload_hash}`
+	const to_sign = [
+		`(request-target): post ${new URL(payload.object.actor).pathname}/inbox`,
+		`host: ${host_header}`,
+		`date: ${date_header}`,
+		`digest: ${digest_header}`,
+		`Content-Type: application/activity+json`
+	].join('\n')
+	const signature_header = generateDigitalSignature(to_sign)
+	const signatureParams = {
+		keyId: `${endpoint}/@${user}#main-key`,
+		algorithm: 'rsa-sha256',
+		headers: '(request-target) host date digest content-type',
+		signature: signature_header
+	}
+	const headers = {
+		Host: host_header,
+		Date: date_header,
+		Digest: digest_header,
+		Signature: [
+			`keyId="${signatureParams.keyId}"`,
+			`algorithm="${signatureParams.algorithm}"`,
+			`headers="${signatureParams.headers}"`,
+			`signature="${signature_header}"`
+		].join(','),
+		Algorithm: 'rsa-sha256',
+		'Content-Type': 'application/activity+json'
+	}
+	return headers
 }

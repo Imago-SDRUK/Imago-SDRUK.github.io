@@ -10,7 +10,7 @@ const user = env.MASTODON_USER
 
 export const GET = async ({ params, locals }) => {
 	const article = await locals.directus
-		.request(readItem('articles', params.status_id, { filter: { status: { _eq: 'published' } } }))
+		.request(readItem('articles', params.id, { filter: { status: { _eq: 'published' } } }))
 		.catch(handleDirectusError)
 	const content = getArticleContent(article)
 	const note = generateNote({ id: article.id, content, user: user, endpoint, hostname })

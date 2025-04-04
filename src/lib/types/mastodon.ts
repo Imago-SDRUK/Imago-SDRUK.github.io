@@ -37,20 +37,67 @@ export type MastodonActor = {
 	endpoints: { sharedInbox: string }
 }
 
-export type MastodonFollowRequest = {
+export type MastodonRequestMetadata = {
 	'@context': string
 	id: string
-	type: 'Follow'
 	actor: string
+}
+
+export type MastodonFollowRequest = MastodonRequestMetadata & {
+	type: 'Follow'
 	object: string
+}
+
+export type MastodonUnfollowRequest = MastodonRequestMetadata & {
+	type: 'Undo'
+	object: {
+		id: string
+		type: 'Follow'
+		actor: string
+		object: string
+	}
+}
+
+export type MastodonReplyRequest = MastodonRequestMetadata & {
+	type: 'Create'
+	published: string
+	to: string[]
+	cc: string[]
+	object: MastodonItem
+	signature: {
+		type: string
+		creator: string
+		created: string
+		signatureValue: string
+	}
+}
+
+export type MastodonRequest = MastodonFollowRequest | MastodonUnfollowRequest | MastodonReplyRequest
+
+export type MastodonAcceptFollowRequest = {
+	'@context': string
+	id: string
+	type: string
+	actor: string
+	object: MastodonFollowRequest
+}
+
+export type MastodonPayload = {
+	'@context': string
+	id: string
+	partOf?: string | null
+	type?: string | null
+	actor?: string | null
+	object?: MastodonRequest
+	items?: string[]
 }
 
 export type MastodonItem = {
 	'@context': (string | Record<PropertyKey, string>)[]
 	id: string
 	type: string
-	summary?: null
-	inReplyTo?: null
+	summary: string | null
+	inReplyTo: string | null
 	published: string
 	url: string
 	attributedTo: string
@@ -58,7 +105,7 @@ export type MastodonItem = {
 	cc: string[]
 	sensitive: boolean
 	atomUri: string
-	inReplyToAtomUri?: null
+	inReplyToAtomUri: string | null
 	conversation: string
 	content: string
 	contentMap: Record<PropertyKey, string>
@@ -84,14 +131,6 @@ export type MastodonItem = {
 		type: string
 		totalItems: number
 	}
-}
-
-export type MastodonAcceptRequest = {
-	'@context': string
-	id: string
-	type: string
-	actor: string
-	object: MastodonFollowRequest
 }
 
 export type MastodonPublicKeyResponse = {
