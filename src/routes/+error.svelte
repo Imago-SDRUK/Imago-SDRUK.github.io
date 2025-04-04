@@ -2,7 +2,7 @@
 	import Footer from '$lib/ui/footer/footer.svelte'
 	import Nav from '$lib/ui/nav/nav.svelte'
 	import { page } from '$app/state'
-	import { FOOTER_HEIGHT, NAV_HEIGHT } from '$lib/globals/style'
+	import { NAV_HEIGHT } from '$lib/globals/style'
 	import Title from '$lib/ui/blog/title.svelte'
 	import Button from '$lib/ui/buttons/button.svelte'
 	import { goto } from '$app/navigation'

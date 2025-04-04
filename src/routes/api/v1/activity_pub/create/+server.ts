@@ -1,4 +1,4 @@
-import type { MastodonFollowRequest, MastodonReplyRequest } from '$lib/types/mastodon.js'
+import type { MastodonReplyRequest } from '$lib/types/mastodon.js'
 import { createHeaders, getIncomingActorInformation } from '$lib/utils/mastodon'
 import { jstr } from '@arturoguzman/art-ui'
 import { error, json } from '@sveltejs/kit'
@@ -30,14 +30,6 @@ export async function POST({ locals, request }) {
 		partOf: reply.post_url,
 		type: 'CollectionPage',
 		items: [reply.reply_url as string]
-	}
-
-	const example = {
-		'@context': 'https://www.w3.org/ns/activitystreams',
-		id: 'https://maho.dev/socialweb/replies/4f2756ff205d2e4b15e5c65c17f961e5?page=true',
-		partOf: 'https://maho.dev/socialweb/replies/4f2756ff205d2e4b15e5c65c17f961e5',
-		type: 'CollectionPage',
-		items: ['https://dotnet.social/users/SmartmanApps/statuses/111910545030985527']
 	}
 	const headers = createHeaders({ payload, endpoint, user, hostname })
 	await fetch(actor.inbox, {

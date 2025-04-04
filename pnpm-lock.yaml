@@ -56,6 +56,9 @@ importers:
       '@semantic-release/release-notes-generator':
         specifier: ^14.0.3
         version: 14.0.3(semantic-release@24.2.3(typescript@5.8.2))
+      '@sindresorhus/slugify':
+        specifier: ^2.2.1
+        version: 2.2.1
       '@sveltejs/adapter-node':
         specifier: ^5.2.12
         version: 5.2.12(@sveltejs/kit@2.20.3(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.25.6)(vite@6.2.5(@types/node@22.14.0)(jiti@1.21.7)(yaml@2.7.1)))(svelte@5.25.6)(vite@6.2.5(@types/node@22.14.0)(jiti@1.21.7)(yaml@2.7.1)))
@@ -727,6 +730,14 @@ packages:
   '@sindresorhus/merge-streams@4.0.0':
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
+
+  '@sindresorhus/slugify@2.2.1':
+    resolution: {integrity: sha512-MkngSCRZ8JdSOCHRaYd+D01XhvU3Hjy6MGl06zhOk614hp9EOAp5gIkBeQg7wtmxpitU6eAL4kdiRMcJa2dlrw==}
+    engines: {node: '>=12'}
+
+  '@sindresorhus/transliterate@1.6.0':
+    resolution: {integrity: sha512-doH1gimEu3A46VX6aVxpHTeHrytJAG6HgdxntYnCFiIFHEM/ZGpG8KiZGBChchjQmG0XFIBL552kBTjVcMZXwQ==}
+    engines: {node: '>=12'}
 
   '@sveltejs/acorn-typescript@1.0.5':
     resolution: {integrity: sha512-IwQk4yfwLdibDlrXVE04jTZYlLnwsTT2PIOQQGNLWfjavGifnk1JD1LcZjZaBTRcxZu2FfPfNLOE04DSu9lqtQ==}
@@ -3425,6 +3436,15 @@ snapshots:
   '@sindresorhus/merge-streams@2.3.0': {}
 
   '@sindresorhus/merge-streams@4.0.0': {}
+
+  '@sindresorhus/slugify@2.2.1':
+    dependencies:
+      '@sindresorhus/transliterate': 1.6.0
+      escape-string-regexp: 5.0.0
+
+  '@sindresorhus/transliterate@1.6.0':
+    dependencies:
+      escape-string-regexp: 5.0.0
 
   '@sveltejs/acorn-typescript@1.0.5(acorn@8.14.1)':
     dependencies:
