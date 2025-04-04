@@ -1,3 +1,338 @@
+export interface ArticleSectionBlock {
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   content: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   media: ArticleSectionBlocksFile[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   section: ArticleSection | ArticleSection["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface ArticleSectionBlocksFile {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   article_section_blocks_id: ArticleSectionBlock | ArticleSectionBlock["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   directus_files_id: DirectusFile | DirectusFile["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+}
+
+export interface ArticleSection {
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   articles: ArticlesArticleSection[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   content: ArticleSectionBlock[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   subtitle: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   title: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface Article {
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   description: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   mastodon_replies: MastodonReply[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   sections: ArticlesArticleSection[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   slug: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   title: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface ArticlesArticleSection {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   article_sections_id: ArticleSection | ArticleSection["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   articles_id: Article | Article["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+}
+
 export interface Career {
 
   /**
@@ -3078,6 +3413,188 @@ export interface EventsFile {
    id: number;
 }
 
+export interface MastodonFollower {
+
+  /**
+   * No description.
+   *
+   * Type in directus: json
+   * Type in database: json
+   */
+   actor: any | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   actor_id: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+   following: boolean | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   public_key: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface MastodonReply {
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   actor_id: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   article: Article | Article["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   post_url: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   reply_url: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
 export interface Page {
 
   /**
@@ -3495,6 +4012,11 @@ export interface TeamMember {
 
 
 export type Collections = {
+  article_section_blocks: ArticleSectionBlock[];
+  article_section_blocks_files: ArticleSectionBlocksFile[];
+  article_sections: ArticleSection[];
+  articles: Article[];
+  articles_article_sections: ArticlesArticleSection[];
   careers: Career[];
   careers_files: CareersFile[];
   contacts: Contact[];
@@ -3527,6 +4049,8 @@ export type Collections = {
   directus_webhooks: DirectusWebhook[];
   events: Event[];
   events_files: EventsFile[];
+  mastodon_followers: MastodonFollower[];
+  mastodon_replies: MastodonReply[];
   pages: Page[];
   pages_sections: PagesSection[];
   products: Product[];
