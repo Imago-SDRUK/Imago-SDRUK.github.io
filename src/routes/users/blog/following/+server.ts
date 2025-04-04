@@ -1,6 +1,5 @@
 import { env } from '$env/dynamic/private'
 import { json } from '@sveltejs/kit'
-import { DateTime } from 'luxon'
 
 const hostname = env.MASTODON_HOSTNAME
 const endpoint = `https://${hostname}`
