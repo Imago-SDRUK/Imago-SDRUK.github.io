@@ -357,12 +357,18 @@ export const createHeaders = ({
 	user: string
 	payload: MastodonPayload
 }) => {
+	const object = payload.object
+	if (!object)
+		error(500, {
+			message: `Payload object must be defined to sign this request`,
+			id: 'missing-actor'
+		})
 	const payload_hash = hashSHA256(JSON.stringify(payload))
 	const host_header = `toot.artgp.xyz`
 	const date_header = DateTime.now().toHTTP()
 	const digest_header = `SHA-256=${payload_hash}`
 	const to_sign = [
-		`(request-target): post ${new URL(payload.object.actor).pathname}/inbox`,
+		`(request-target): post ${new URL(object.actor).pathname}/inbox`,
 		`host: ${host_header}`,
 		`date: ${date_header}`,
 		`digest: ${digest_header}`,
