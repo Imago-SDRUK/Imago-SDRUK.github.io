@@ -9,7 +9,7 @@ export const GET = async ({ request, fetch }) => {
 export const POST = async ({ request, fetch }) => {
 	const { data, valid } = await verifyMastodonRequest(request, fetch)
 	console.log(`Mastodon request is valid: ${valid}`)
-	fetch(`/api/v1/activity_pub/${data.type.toLowerCase()}`, {
+	fetch(`/api/v1/activity-pub/${data.type.toLowerCase()}`, {
 		method: 'POST',
 		body: JSON.stringify(data)
 	})
