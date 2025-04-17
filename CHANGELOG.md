@@ -1,3 +1,25 @@
+# [1.12.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.11.0...v1.12.0) (2025-04-17)
+
+
+### Bug Fixes
+
+* actor must be defined to sign payload ([5c8c6c6](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/5c8c6c6e67dfd786de40a76afd3885459b70eb8b))
+* change date on notes, statuses and outbox to creation date ([d26d516](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d26d516392ed37df0d92816951b39b86a27743d5))
+* get actual notes length ([d962d8f](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d962d8f6b011e3a8b7b1584e4805e0274c442d08))
+
+
+### Features
+
+* add fallback to allow static build ([1b24b73](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1b24b73f6929cf5207dfc13ad8590dca0ddf2078))
+* add favicon ([a54837d](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/a54837ddb3c6f19447f6d37f37966314598b9ebb))
+* add mastodon endpoints ([e1e3d92](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/e1e3d92ce6d9caea1e91a3043e36aa84b61eb46c))
+* add mastodon followers endpoint ([93f23ac](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/93f23acf33dd1702c5f897bce6035d9d8714f911))
+* add mastodon utils ([f4bea81](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/f4bea814d65949d5c717d2c94a6c042974c2f5af))
+* add not found to statuses endpoint ([fc26251](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/fc2625160463f5f2bd14ee6f7f209e7c54ba5423))
+* add note generation, add statuses replies and endpoint ([d133222](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d133222e4feeecade330bf31ff5c70d86786bbbe))
+* broadcast notes ([256fed0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/256fed0fdffc385406f0241a68816a8b512dc7ef))
+* create endpoint for mastodon inbox actions ([61bd1df](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/61bd1dfa67f391720d2d06011fe0c4f6b646a5eb))
+
 # [1.11.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.10.1...v1.11.0) (2025-03-28)
 
 
