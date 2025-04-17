@@ -13,6 +13,14 @@ export const GET = async ({ params, locals }) => {
 		.request(readItem('articles', params.status_id, { filter: { status: { _eq: 'published' } } }))
 		.catch(handleDirectusError)
 	const content = getArticleContent(article)
-	const note = generateNote({ id: article.id, content, user: user, endpoint, hostname })
+	const note = generateNote({
+		id: article.id,
+		published: String(article.date_created),
+		// published: String(DateTime.fromISO(String(article.date_created)).toHTTP()),
+		content,
+		user: user,
+		endpoint,
+		hostname
+	})
 	return json(note, { headers: { 'Content-Type': 'application/activity+json' } })
 }

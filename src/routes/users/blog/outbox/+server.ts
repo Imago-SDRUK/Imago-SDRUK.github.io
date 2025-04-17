@@ -19,7 +19,8 @@ export const GET = async ({ locals }) => {
 					content: getArticleContent(article),
 					endpoint,
 					hostname,
-					user
+					user,
+					published: String(article.date_created)
 				})
 			)
 		)
