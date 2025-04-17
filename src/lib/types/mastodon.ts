@@ -72,7 +72,11 @@ export type MastodonReplyRequest = MastodonRequestMetadata & {
 	}
 }
 
-export type MastodonRequest = MastodonFollowRequest | MastodonUnfollowRequest | MastodonReplyRequest
+export type MastodonRequest =
+	| MastodonFollowRequest
+	| MastodonUnfollowRequest
+	| MastodonReplyRequest
+	| MastodonItem
 
 export type MastodonAcceptFollowRequest = {
 	'@context': string
@@ -178,4 +182,21 @@ export type MastodonPublicKeyResponse = {
 	tag: []
 	attachment: []
 	endpoints: { sharedInbox: string }
+}
+
+export type MastodonBroadcastNote = {
+	'@context': 'https://www.w3.org/ns/activitystreams'
+	id: string
+	type: 'Create'
+	actor: string
+	published: string
+	to: string[]
+	cc: string[]
+	object: MastodonItem
+	signature?: {
+		type: string
+		creator: string
+		created: string
+		signatureValue: string
+	}
 }

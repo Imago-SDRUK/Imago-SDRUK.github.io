@@ -130,13 +130,15 @@ export const generateNote = ({
 	content,
 	endpoint,
 	user,
-	hostname
+	hostname,
+	published
 }: {
 	id: string
 	content: string
 	user: string
 	endpoint: string
 	hostname: string
+	published: string
 }): MastodonItem => ({
 	'@context': [
 		'https://www.w3.org/ns/activitystreams',
@@ -154,9 +156,9 @@ export const generateNote = ({
 	type: 'Note',
 	summary: null,
 	inReplyTo: null,
-	published: '2025-03-31T14:44:05Z',
+	published: published,
 	url: `${endpoint}/@${user}/${id}`,
-	attributedTo: `${endpoint}/users/${user}`,
+	attributedTo: `${endpoint}/@${user}`,
 	to: ['https://www.w3.org/ns/activitystreams#Public'],
 	cc: [`${endpoint}/users/${user}/followers`],
 	sensitive: false,
@@ -350,12 +352,13 @@ export const getIncomingActorInformation = async (url: string, fetch: typeof glo
 export const createHeaders = ({
 	payload,
 	endpoint,
-	user
+	user,
+	actor
 }: {
-	hostname: string
 	endpoint: string
 	user: string
 	payload: MastodonPayload
+	actor?: MastodonActor
 }) => {
 	const object = payload.object
 	if (!object)
@@ -364,21 +367,21 @@ export const createHeaders = ({
 			id: 'missing-actor'
 		})
 	const payload_hash = hashSHA256(JSON.stringify(payload))
-	const host_header = `toot.artgp.xyz`
+	const host_header = actor ? new URL(actor.id).hostname : new URL(object.actor).hostname
 	const date_header = DateTime.now().toHTTP()
 	const digest_header = `SHA-256=${payload_hash}`
 	const to_sign = [
-		`(request-target): post ${new URL(object.actor).pathname}/inbox`,
+		`(request-target): post ${actor ? new URL(actor.id).pathname : new URL(object.actor).pathname}/inbox`,
+		// `(request-target): post ${new URL(object.actor).pathname}/inbox`,
 		`host: ${host_header}`,
 		`date: ${date_header}`,
-		`digest: ${digest_header}`,
-		`Content-Type: application/activity+json`
+		`digest: ${digest_header}`
 	].join('\n')
 	const signature_header = generateDigitalSignature(to_sign)
-	const signatureParams = {
-		keyId: `${endpoint}/@${user}#main-key`,
+	const signature_params = {
+		key_id: `${endpoint}/@${user}#main-key`,
 		algorithm: 'rsa-sha256',
-		headers: '(request-target) host date digest content-type',
+		headers: '(request-target) host date digest',
 		signature: signature_header
 	}
 	const headers = {
@@ -386,13 +389,14 @@ export const createHeaders = ({
 		Date: date_header,
 		Digest: digest_header,
 		Signature: [
-			`keyId="${signatureParams.keyId}"`,
-			`algorithm="${signatureParams.algorithm}"`,
-			`headers="${signatureParams.headers}"`,
+			`keyId="${signature_params.key_id}"`,
+			`algorithm="${signature_params.algorithm}"`,
+			`headers="${signature_params.headers}"`,
 			`signature="${signature_header}"`
 		].join(','),
 		Algorithm: 'rsa-sha256',
-		'Content-Type': 'application/activity+json'
+		'Content-Type':
+			'application/activity+json; application/ld+json; profile="https://www.w3.org/ns/activitystreams"'
 	}
 	return headers
 }
