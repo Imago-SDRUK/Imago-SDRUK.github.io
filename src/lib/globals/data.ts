@@ -9,9 +9,13 @@ export const ROLES: Record<
 	co_director: 'Co-Director'
 }
 
-export const INSTITUTIONS: Record<'newcastle_university' | 'u_of_liverpool', string> = {
+export const INSTITUTIONS: Record<
+	'newcastle_university' | 'university_of_liverpool' | 'harvard_university',
+	string
+> = {
 	newcastle_university: 'Newcastle University',
-	u_of_liverpool: 'University of Liverpool'
+	university_of_liverpool: 'University of Liverpool',
+	harvard_university: 'Harvard University'
 }
 
 export const SOCIAL_MEDIA: string[] = ['mastodon', 'linkedin', 'twitter', 'instagram']

@@ -3935,7 +3935,7 @@ export interface TeamMember {
    * Type in directus: string
    * Type in database: character varying
    */
-   institution: 'newcastle_university' | 'u_of_liverpool';
+   institution: 'newcastle_university' | 'university_of_liverpool' | 'harvard_university';
 
   /**
    * No description.
