@@ -18,7 +18,7 @@
 	}
 	.logo {
 		/* height: clamp(1rem, 0.75rem + 1.25vw, 1.75rem); */
-		height: 2.25rem;
+		height: 3.25rem;
 	}
 	.logos {
 		display: flex;
