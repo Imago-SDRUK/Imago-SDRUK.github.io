@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.12.0...v1.12.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* increase logo size ([651217c](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/651217ca3b93db2827caf9fff2b61fd456c2467b))
+
 # [1.12.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.11.0...v1.12.0) (2025-04-17)
 
 
