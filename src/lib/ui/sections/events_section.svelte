@@ -21,7 +21,9 @@
 		<div class="career-content-grid">
 			<div class="meta-container">
 				<div class="facts">
-					<Anchor label="Tickets" href={url}></Anchor>
+					{#if url}
+						<Anchor label="Tickets" href={url}></Anchor>
+					{/if}
 					<Fact title="Location" text={location}></Fact>
 					<Fact
 						title="Date"
