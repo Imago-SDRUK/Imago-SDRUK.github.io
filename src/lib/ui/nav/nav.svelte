@@ -49,7 +49,14 @@
 			</button>
 		{/if}
 		{#if desktop}
-			<Logos {scroll}></Logos>
+			{#if page.url.pathname === '/'}
+				<Logos {scroll}></Logos>
+			{/if}
+			{#if page.url.pathname !== '/'}
+				<a href="/">
+					<img class="icon" src="/favicon.png" alt="" />
+				</a>
+			{/if}
 		{/if}
 		{#if !desktop}
 			<a href="/">
