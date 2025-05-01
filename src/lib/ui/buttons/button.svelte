@@ -5,12 +5,17 @@
 	let {
 		leftCol,
 		rightCol,
-		onclick
-	}: { leftCol?: Snippet; rightCol?: Snippet; onclick?: MouseEventHandler<HTMLButtonElement> } =
-		$props()
+		onclick,
+		active
+	}: {
+		leftCol?: Snippet
+		rightCol?: Snippet
+		onclick?: MouseEventHandler<HTMLButtonElement>
+		active?: boolean
+	} = $props()
 </script>
 
-<button {onclick}>
+<button class:active {onclick}>
 	{@render leftCol?.()}
 	{@render rightCol?.()}
 </button>
@@ -35,10 +40,14 @@
 		border: 1px solid var(--theme-colour-text);
 		box-shadow: 0px 0px 10px
 			color-mix(in oklab, var(--theme-colour-text) 20%, var(--theme-colour-background) 80%);
-		/* background-color: color-mix( */
-		/* 	in oklab, */
-		/* 	var(--theme-colour-primary) 80%, */
-		/* 	var(--theme-colour-text) 20% */
-		/* ); */
+		background-color: color-mix(
+			in oklab,
+			var(--theme-colour-primary) 90%,
+			var(--theme-colour-background) 10%
+		);
+	}
+	button.active {
+		outline: 3px solid var(--theme-colour-highlight);
+		outline-offset: 2px;
 	}
 </style>

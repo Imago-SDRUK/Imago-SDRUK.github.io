@@ -2,12 +2,14 @@
 	import BaseSection from './base_section.svelte'
 	import Title from '$lib/ui/blog/title.svelte'
 	import type { Snippet } from 'svelte'
-	let { title, children }: { title: string; children?: Snippet } = $props()
+	let { title, children, sectionNav }: { title: string; children?: Snippet; sectionNav?: Snippet } =
+		$props()
 </script>
 
 <BaseSection>
 	<div class="cards-section">
 		<Title size="large" {title}></Title>
+		{@render sectionNav?.()}
 		<div class="cards-content">
 			{@render children?.()}
 		</div>
