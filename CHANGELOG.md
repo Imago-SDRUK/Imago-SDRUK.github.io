@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.12.2...v1.13.0) (2025-05-01)
+
+
+### Features
+
+* add filters to sections ([3112d77](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/3112d77a0442ff123f661075d1a9d060da5e1697))
+
 ## [1.12.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.12.1...v1.12.2) (2025-04-29)
 
 
