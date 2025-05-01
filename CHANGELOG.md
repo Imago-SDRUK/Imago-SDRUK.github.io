@@ -1,3 +1,12 @@
+## [1.12.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.12.1...v1.12.2) (2025-04-29)
+
+
+### Bug Fixes
+
+* main logos only on root path ([8c4e349](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/8c4e34965b91da3863a56f6b89287b8f2032274c))
+* skip url if undefined ([36d6788](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/36d678825651c167a12edb3b9850418b7dda4d01))
+* sort events and careers based on end date ([1c492c2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1c492c2df3eea81cddbf00dec08e2f80b3ebe7c2))
+
 ## [1.12.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.12.0...v1.12.1) (2025-04-23)
 
 
