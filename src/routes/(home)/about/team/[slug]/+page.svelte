@@ -127,6 +127,7 @@
 	.external-links {
 		display: grid;
 		grid-template-columns: minmax(0, max-content);
+		gap: 0.5rem;
 	}
 	@media (min-width: 1024px) {
 		.team-member-section {
