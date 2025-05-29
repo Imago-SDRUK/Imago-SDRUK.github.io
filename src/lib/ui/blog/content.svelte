@@ -2,7 +2,7 @@
 	let { children } = $props()
 </script>
 
-<div class="content prose-base">
+<div class="content prose-sm lg:prose-base">
 	{@render children()}
 </div>
 
@@ -12,7 +12,6 @@
 		font-family: var(--theme-font-paragraph);
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
 		font-weight: 200;
 		width: min(100%, 600px);
 		margin-inline: auto;

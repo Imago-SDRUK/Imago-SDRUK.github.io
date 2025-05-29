@@ -114,7 +114,7 @@
 		padding: 0 1rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 2rem;
 		width: min(100%, 500px);
 		overflow: hidden;
 	}
