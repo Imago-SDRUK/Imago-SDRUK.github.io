@@ -1,3 +1,11 @@
+# [1.14.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.13.2...v1.14.0) (2025-06-03)
+
+
+### Features
+
+* add github button ([1fc6117](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1fc6117f8f79c5713e69df7a5443798aac82d6b8))
+* add new roles ([d51cf3d](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d51cf3d90b1bd2277d9341f8ff82567a9bc9d1d7))
+
 ## [1.13.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.13.1...v1.13.2) (2025-05-29)
 
 
