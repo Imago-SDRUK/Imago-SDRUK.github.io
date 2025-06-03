@@ -3959,7 +3959,7 @@ export interface TeamMember {
    * Type in directus: string
    * Type in database: character varying
    */
-   role: 'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director';
+   role: 'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director' | 'data_service_manager';
 
   /**
    * This will be generated automatically

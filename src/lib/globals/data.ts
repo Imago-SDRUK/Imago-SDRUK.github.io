@@ -1,12 +1,12 @@
-export const ROLES: Record<
-	'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director',
-	string
-> = {
+import type { TeamMember } from '$lib/types/directus'
+
+export const ROLES: Record<TeamMember['role'], string> = {
 	rse: 'Research Software Engineer',
 	researcher: 'Researcher',
 	postdoc: 'Postdoctoral Research Associate',
 	administrator: 'Administrator',
-	co_director: 'Co-Director'
+	co_director: 'Co-Director',
+	data_service_manager: 'Data Service Manager'
 }
 
 export const INSTITUTIONS: Record<
