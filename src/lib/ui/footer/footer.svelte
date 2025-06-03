@@ -5,6 +5,7 @@
 	import FooterCollection from './footer_collection.svelte'
 	// import { FOOTER_HEIGHT } from '$lib/globals/style'
 	import {
+		IconBrandGithub,
 		IconBrandLinkedin,
 		IconBrandMastodon,
 		IconBrandTwitter,
@@ -73,6 +74,13 @@
 					}}
 				>
 					<IconBrandLinkedin></IconBrandLinkedin>
+				</IconButton>
+				<IconButton
+					onclick={() => {
+						window.location = 'https://github.com/Imago-SDRUK/'
+					}}
+				>
+					<IconBrandGithub></IconBrandGithub>
 				</IconButton>
 				<!-- <IconButton> -->
 				<!-- 	<IconBrandMastodon></IconBrandMastodon> -->
