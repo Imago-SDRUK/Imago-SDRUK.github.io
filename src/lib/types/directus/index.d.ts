@@ -2694,6 +2694,14 @@ export interface DirectusSetting {
    * Type in database: json
    */
    theme_light_overrides: any | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: json
+   * Type in database: json
+   */
+   visual_editor_urls: any | null;
 }
 
 export interface DirectusShare {
@@ -3959,7 +3967,7 @@ export interface TeamMember {
    * Type in directus: string
    * Type in database: character varying
    */
-   role: 'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director' | 'data_service_manager';
+   role: 'rse' | 'researcher' | 'postdoc' | 'administrator' | 'co_director' | 'data_service_manager' | 'outreach_officer';
 
   /**
    * This will be generated automatically
