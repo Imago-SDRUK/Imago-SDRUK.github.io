@@ -66,7 +66,7 @@
 		</div>
 
 		<div class="bottom">
-			<Logos href="https://www.sdruk.ukri.org/"></Logos>
+			<Logos footer href="https://www.sdruk.ukri.org/"></Logos>
 			<div class="social-media">
 				<IconButton
 					onclick={() => {
