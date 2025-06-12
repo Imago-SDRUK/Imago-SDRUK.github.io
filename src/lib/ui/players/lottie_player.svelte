@@ -2,7 +2,7 @@
 	import { obvrState } from '$lib/utils/observer.svelte'
 	import { getId } from '@arturoguzman/art-ui'
 	import type { AnimationItem } from 'lottie-web'
-	import { onDestroy } from 'svelte'
+	import { onDestroy, onMount } from 'svelte'
 	import type { MouseEventHandler } from 'svelte/elements'
 	let {
 		height = 'auto',
@@ -12,7 +12,8 @@
 		renderer = 'svg',
 		loop = false,
 		onclick,
-		ondblclick
+		ondblclick,
+		mountAction
 	}: {
 		height?: string
 		width?: string
@@ -22,6 +23,7 @@
 		loop?: boolean
 		onclick?: MouseEventHandler<HTMLButtonElement>
 		ondblclick?: MouseEventHandler<HTMLButtonElement>
+		mountAction?: () => void | Promise<void>
 	} = $props()
 	const id = `lt-player-${getId()}`
 	let lt: AnimationItem | null = null
@@ -55,6 +57,7 @@
 	$effect(() => {
 		if (obvrState.intersecting.includes(id)) {
 			handlePlay(true, lt)
+			mountAction?.()
 		}
 	})
 	onDestroy(() => {
@@ -62,16 +65,14 @@
 	})
 </script>
 
-<button
+<div
 	aria-labelledby="hehehe"
 	style:--height={height}
 	style:--width={width}
 	class="lottie-player-container relative overflow-hidden"
-	{onclick}
-	{ondblclick}
 >
 	<div {id} class="h-full w-full" use:observe></div>
-</button>
+</div>
 
 <style>
 	.lottie-player-container {
