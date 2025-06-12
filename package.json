@@ -54,6 +54,7 @@
 		"lottie-web": "^5.12.2",
 		"luxon": "^3.6.1",
 		"mdsvex": "^0.12.3",
+		"motion": "^12.17.1",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
