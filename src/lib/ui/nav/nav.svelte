@@ -4,15 +4,10 @@
 	import Logos from '../cards/logos.svelte'
 	import NavButton from '../buttons/nav_button.svelte'
 	import { NAV_HEIGHT } from '$lib/globals/style'
+	import Menu from '../menus/menu.svelte'
+	import Anchor from '../buttons/anchor.svelte'
+	import { ROUTES } from '$lib/globals/routes'
 	let scroll = $state(0)
-	const routes: { label: string; href: string }[] = [
-		{
-			label: 'Careers',
-			href: '/careers'
-		},
-		{ label: 'Events', href: '/events' }
-		// { label: 'About', href: '/about' }
-	]
 	let windowHeight = $state(0)
 	let windowWidth = $state(0)
 	let desktop = $derived(windowWidth > 768)
@@ -75,8 +70,19 @@
 			</button>
 		{/if}
 		<div class="routes" data-menu={menu_open ? true : undefined}>
-			{#each routes as { href, label }}
-				<NavButton {href} {label}></NavButton>
+			{#each ROUTES as { href, label, subpaths }}
+				<Menu>
+					{#snippet trigger({ toggleMenu })}
+						<NavButton onpointerdown={() => toggleMenu(false)} {href} {label}></NavButton>
+					{/snippet}
+					{#snippet children()}
+						<div class="subpaths">
+							{#each subpaths as { href, label }}
+								<Anchor {href} {label}></Anchor>
+							{/each}
+						</div>
+					{/snippet}
+				</Menu>
 			{/each}
 		</div>
 	</div>
@@ -145,6 +151,11 @@
 	}
 	.icon {
 		height: 2rem;
+	}
+	.subpaths {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 	@media (min-width: 768px) {
 		nav {
