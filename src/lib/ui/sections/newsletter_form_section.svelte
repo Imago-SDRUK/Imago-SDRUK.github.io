@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
+	import { window_width } from '$lib/stores/layout.svelte'
 	import { notify } from '$lib/stores/notify'
 	import Title from '../blog/title.svelte'
 	import Button from '../buttons/button.svelte'

@@ -7,6 +7,7 @@
 	import '@fontsource-variable/space-grotesk'
 	import { PUBLIC_NODE_ENV } from '$env/static/public'
 
+	import { window_height, window_width } from '$lib/stores/layout.svelte'
 	let { children } = $props()
 	const theme = {
 		colours: {
@@ -37,7 +38,7 @@
 	{/if}
 	<title>Imago - SDRUK</title>
 </svelte:head>
-
+<svelte:window bind:innerWidth={$window_width} bind:innerHeight={$window_height} />
 <div
 	style:--theme-colour-background={theme.colours.background}
 	style:--theme-colour-text={theme.colours.text}

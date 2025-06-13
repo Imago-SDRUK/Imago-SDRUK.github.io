@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Title from '../blog/title.svelte'
 	import LottiePlayer from '../players/lottie_player.svelte'
-	let height = $state(300)
-	let width = $state(300)
 	const ids = [
 		{
 			id: 'animation-button-prosperity',
@@ -28,7 +26,6 @@
 	]
 </script>
 
-<svelte:window onresize={() => {}} bind:innerHeight={height} bind:innerWidth={width} />
 <div class="hero-section">
 	<div class="bg-image-container">
 		<img class="bg-image" src="/ui/terrain_1.png" alt="" />

@@ -7,10 +7,9 @@
 	import Menu from '../menus/menu.svelte'
 	import Anchor from '../buttons/anchor.svelte'
 	import { ROUTES } from '$lib/globals/routes'
+	import { window_height, window_width } from '$lib/stores/layout.svelte'
 	let scroll = $state(0)
-	let windowHeight = $state(0)
-	let windowWidth = $state(0)
-	let desktop = $derived(windowWidth > 768)
+	let desktop = $derived($window_width > 768)
 	let menu_open = $state(false)
 	const getBgPercentage = (scroll: number, height: number) => {
 		const result = (scroll * 100) / height
@@ -21,8 +20,6 @@
 
 <svelte:window
 	bind:scrollY={scroll}
-	bind:innerWidth={windowWidth}
-	bind:innerHeight={windowHeight}
 	onscroll={() => {
 		menu_open = false
 	}}
@@ -30,7 +27,7 @@
 <nav
 	class:compact-nav={scroll > 256 && desktop}
 	style:--nav-height={NAV_HEIGHT}
-	style:--bg-percentage="{getBgPercentage(scroll, windowHeight)}%"
+	style:--bg-percentage="{getBgPercentage(scroll, $window_height)}%"
 >
 	<div class="left-col">
 		{#if page.url.pathname !== '/'}
