@@ -1,8 +1,22 @@
 <script lang="ts">
-	let { label, href }: { label: string; href: string } = $props()
+	import type { PointerEventHandler } from 'svelte/elements'
+
+	let {
+		label,
+		href,
+		onpointerenter,
+		onpointerleave,
+		onpointerdown
+	}: {
+		label: string
+		href: string
+		onpointerdown?: PointerEventHandler<HTMLAnchorElement>
+		onpointerleave?: PointerEventHandler<HTMLAnchorElement>
+		onpointerenter?: PointerEventHandler<HTMLAnchorElement>
+	} = $props()
 </script>
 
-<a {href}>{label}</a>
+<a {onpointerenter} {onpointerleave} {onpointerdown} {href}>{label}</a>
 
 <style>
 	a {
