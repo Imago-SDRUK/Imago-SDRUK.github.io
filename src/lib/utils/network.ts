@@ -7,7 +7,8 @@ import { createConnection } from 'node:net'
 export async function ping(hostname: string, timeout = 3000) {
 	return new Promise((resolve) => {
 		const start = performance.now()
-		const [host, port] = hostname.replaceAll('https://', '').replaceAll('http://', '').split(':')
+		let [host, port] = hostname.replaceAll('https://', '').replaceAll('http://', '').split(':')
+		if (port === undefined) port = `80`
 		const socket = createConnection(Number(port), host)
 		socket.setTimeout(timeout)
 		socket.on('connect', () => {
