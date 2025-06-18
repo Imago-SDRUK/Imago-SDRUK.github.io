@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - 'none'
 
 jobs:
   build_site:
