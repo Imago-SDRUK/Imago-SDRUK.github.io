@@ -7,6 +7,7 @@ import type { DirectusClient, RestClient, StaticTokenClient } from '@directus/sd
 declare global {
 	namespace App {
 		interface Locals {
+			startTimer: number
 			directus: DirectusClient<Collections> &
 				StaticTokenClient<Collections> &
 				RestClient<Collections>

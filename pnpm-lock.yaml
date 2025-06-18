@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@arturoguzman/art-ui':
-        specifier: ^0.6.0
-        version: 0.6.0(svelte@5.34.5)
+        specifier: ^0.11.0
+        version: 0.11.0(svelte@5.34.5)
       '@directus/sdk':
         specifier: ^19.1.0
         version: 19.1.0
@@ -169,8 +169,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@arturoguzman/art-ui@0.6.0':
-    resolution: {integrity: sha1-5Je6xMxxlEJ4sJXWE2yOMSf1juA=, tarball: https://gitlab.com/api/v4/projects/57545903/packages/npm/@arturoguzman/art-ui/-/@arturoguzman/art-ui-0.6.0.tgz}
+  '@arturoguzman/art-ui@0.11.0':
+    resolution: {integrity: sha1-YxPVfzhDCdNh4Hm066DUL3evG3c=, tarball: https://gitlab.com/api/v4/projects/57545903/packages/npm/@arturoguzman/art-ui/-/@arturoguzman/art-ui-0.11.0.tgz}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -3016,7 +3016,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@arturoguzman/art-ui@0.6.0(svelte@5.34.5)':
+  '@arturoguzman/art-ui@0.11.0(svelte@5.34.5)':
     dependencies:
       svelte: 5.34.5
 
