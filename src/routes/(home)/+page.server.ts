@@ -1,6 +1,6 @@
 import { createItem, readItems } from '@directus/sdk'
 
-export const prerender = true
+// export const prerender = true
 
 export const load = async ({ locals }) => {
 	return {

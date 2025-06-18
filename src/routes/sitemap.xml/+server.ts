@@ -1,7 +1,7 @@
 import { getXMLUrl } from '$lib/utils/seo.js'
 import { readItems } from '@directus/sdk'
 
-export const prerender = true
+// export const prerender = true
 const url = 'https://imago.ac.uk/'
 const rss_feeds = ['rss', 'rss/careers', 'rss/events']
 export async function GET({ locals }) {

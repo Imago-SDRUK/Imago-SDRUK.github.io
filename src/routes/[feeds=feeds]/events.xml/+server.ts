@@ -4,10 +4,10 @@ import { Feed } from 'feed'
 import { DateTime } from 'luxon'
 const title = 'Imago - Smart Data Research UK | Events'
 const url = 'https://imago.ac.uk/events'
-export const prerender = true
-export const entries = async () => {
-	return FEEDS.map((entry) => ({ feeds: entry }))
-}
+// export const prerender = true
+// export const entries = async () => {
+// 	return FEEDS.map((entry) => ({ feeds: entry }))
+// }
 export const GET = async ({ locals }) => {
 	const feed = new Feed({
 		title: title,

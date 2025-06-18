@@ -5,14 +5,14 @@
 	import '@fontsource-variable/noto-sans'
 	import '@fontsource-variable/figtree'
 	import '@fontsource-variable/space-grotesk'
-	import { PUBLIC_NODE_ENV } from '$env/static/public'
+	import { env } from '$env/dynamic/public'
 	import { window_height, window_width } from '$lib/stores/layout.svelte'
 	import { theme } from '$lib/ui/utils/theme'
 	let { children } = $props()
 </script>
 
 <svelte:head>
-	{#if PUBLIC_NODE_ENV === 'production'}
+	{#if env.PUBLIC_NODE_ENV === 'production'}
 		<script
 			defer
 			src="https://events.arturoguzman.art/script.js"
