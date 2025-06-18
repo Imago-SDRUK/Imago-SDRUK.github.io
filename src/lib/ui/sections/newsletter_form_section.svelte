@@ -6,6 +6,7 @@
 	import Button from '../buttons/button.svelte'
 	import Email from '../inputs/email.svelte'
 	import Input from '../inputs/input.svelte'
+	import Text from '../inputs/text.svelte'
 	import Paragraph from '../text/paragraph.svelte'
 	import OneColumnSection from './one_column_section.svelte'
 	import TwoColumnsSection from './two_columns_section.svelte'
@@ -41,6 +42,9 @@
 					}
 				}}
 			>
+				<Input label_text="Name" layout={1} label_design={1}>
+					<Text key="name" design={1}></Text>
+				</Input>
 				<Input label_text="Email" layout={1} label_design={1}>
 					<Email key="email" design={1}></Email>
 				</Input>
