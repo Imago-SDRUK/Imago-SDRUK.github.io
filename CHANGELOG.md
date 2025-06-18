@@ -1,3 +1,26 @@
+# [1.16.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.15.0...v1.16.0) (2025-06-18)
+
+
+### Bug Fixes
+
+* desktop offset ([a8b403e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/a8b403ea7823eb766c16859981fdd306158e38f4))
+* remove animation for small screens, add nav buttons, add click events to animation ([27ebae7](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/27ebae75b6e157d62af4ada43a2f11a89e772474))
+* separate footer and nav logos, increase nav logo size ([135663f](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/135663f6f708a60e6e42f86883069ade46c1286b))
+
+
+### Features
+
+* add docker image build ([5ae9a78](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/5ae9a788a20cd2e82a6d61eb78e56f9d6bdb70f7))
+* add in construction page ([b19b7ad](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/b19b7adfc786063fdb5cfb1be524be7539e2f4a3))
+* add menu ([012e6d8](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/012e6d8ae34a49fd44c9cf343f2bf0b7945ab425))
+* add ping check ([03822ac](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/03822acd0b0c6e1389a6c3d8b0d33a4b85aebbc4))
+* add stacks ([f161ec3](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/f161ec30345875991145745bb39d6a0a2fe550c3))
+* add stacks, clickable animation ([eb192a4](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/eb192a406fc23dc4b73cbba6fb7d8ba34a91b757))
+* alt button ([1ee1133](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/1ee1133436a35c4328ffcea3953a5e62e498c68f))
+* mobile menu as tabs ([767dc2e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/767dc2e7964d20cef19c37e34b9dc81421199a4d))
+* move to dynamic envs, remove preredering ([48d093d](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/48d093d05ebac60139e69845fadcd94ca70abd37))
+* ui updates ([0ec0a44](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/0ec0a44178aacc660c7200b7281433e469adeb70))
+
 # [1.15.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.14.0...v1.15.0) (2025-06-11)
 
 
