@@ -1,0 +1,18 @@
+services:
+  imago:
+    container_name: imago
+    build:
+      context: .
+      tags:
+        - imago-${SHA:-latest}
+    restart: unless-stopped
+    env_file:
+      - .env.docker
+    ports:
+      - '3000:3000'
+    networks:
+      - subnet
+
+networks:
+  subnet:
+    external: true
