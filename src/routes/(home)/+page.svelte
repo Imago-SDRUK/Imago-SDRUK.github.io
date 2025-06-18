@@ -9,6 +9,7 @@
 	import { IconArrowRight, IconArrowUpRight } from '@tabler/icons-svelte'
 	import Button from '$lib/ui/buttons/button.svelte'
 	import { window_width } from '$lib/stores/layout.svelte.js'
+	import { goto } from '$app/navigation'
 	let imago_text = `IMAGO seeks a complete disruption of the status quo, proposing an SDR UK Data Service that transforms the usability, utility, and usage of satellite imagery that, in turn, revolutionises our understanding and resolution of urgent challenges facing the UK— especially where environmental vulnerability, urban development and housing, and health and wellbeing are concerned.\n\n<br><br> IMAGO achieves its goal by meeting users where they are: translating complex imagery data into data products these stakeholders require through collaboration and co-production; delivering data via intuitive and user-friendly interfaces, as well as channels, formats, and approaches familiar to these communities; and expanding capacity and enthusiasm for using imagery-based data across a range of sectors, career stages, and disciplines.`
 	let { data } = $props()
 	const sections = ['section-1', 'section-2', 'section-3']
@@ -78,7 +79,7 @@
 					<Button
 						alt
 						onclick={() => {
-							console.log('data catalogue')
+							goto('/data')
 						}}
 						>{#snippet leftCol()}
 							Data catalogue
@@ -103,7 +104,37 @@
 			id="section-3"
 			title="Capability and Community"
 			text="Which builds capacity to understand and work with imagery and nurtures a community of practice around imagery-based data and methods. This involves developing and offering training material, community events and thought leadership around the use of imagery in the social sciences, public health and policy making."
-		></StacksSection>
+		>
+			{#snippet buttons()}
+				<div class="buttons">
+					<Button
+						alt
+						onclick={() => {
+							goto('/research')
+						}}
+						>{#snippet leftCol()}
+							Research
+						{/snippet}
+						{#snippet rightCol()}
+							<IconArrowRight></IconArrowRight>
+						{/snippet}
+					</Button>
+
+					<Button
+						alt
+						onclick={() => {
+							goto('/events')
+						}}
+						>{#snippet leftCol()}
+							Events
+						{/snippet}
+						{#snippet rightCol()}
+							<IconArrowRight></IconArrowRight>
+						{/snippet}
+					</Button>
+				</div>
+			{/snippet}
+		</StacksSection>
 	</div>
 	<div class="beacons-section">
 		<div class="cards">
@@ -166,12 +197,15 @@
 	}
 	.buttons {
 		margin: 1rem 0;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 	@media (min-width: 768px) {
 		.beacons-section {
-			/* height: 100lvh; */
+			min-height: 75lvh;
 			padding: 0;
-			margin-bottom: 16rem;
+			/* margin-bottom: 16rem; */
 		}
 		.cards {
 			flex-direction: row;
