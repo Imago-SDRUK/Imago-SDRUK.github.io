@@ -232,5 +232,8 @@
 			align-items: center;
 			width: initial;
 		}
+		.routes[data-menu] {
+			transform: translate(0, 0);
+		}
 	}
 </style>
