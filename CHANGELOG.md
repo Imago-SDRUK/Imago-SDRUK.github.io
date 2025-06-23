@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.16.1...v1.17.0) (2025-06-18)
+
+
+### Features
+
+* add name to form, reenable newsletter sign up ([c87e527](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/c87e5271c363185de0a227b8e1cd96eaf3a71a70))
+
 ## [1.16.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.16.0...v1.16.1) (2025-06-18)
 
 
