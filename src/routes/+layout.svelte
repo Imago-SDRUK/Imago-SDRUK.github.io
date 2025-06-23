@@ -15,8 +15,8 @@
 	{#if env.PUBLIC_NODE_ENV === 'production'}
 		<script
 			defer
-			src="https://events.arturoguzman.art/script.js"
-			data-website-id="6514d5fc-b640-45d3-92b3-3135517734a0"
+			src="https://events.imago.ac.uk/script.js"
+			data-website-id="a90d4bb4-e429-400e-9f89-9935f2570abe"
 		></script>
 	{/if}
 	<title>Imago - SDRUK</title>
