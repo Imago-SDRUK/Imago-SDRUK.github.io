@@ -21,7 +21,7 @@
 		// },
 		Current: (career) => {
 			const difference = DateTime.fromISO(career.closing_date).diffNow()
-			if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
+			if (difference.milliseconds >= 0) {
 				return true
 			}
 			return false
