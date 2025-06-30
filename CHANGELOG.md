@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.1...v1.18.2) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove timelimit on current careers ([724e0b9](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/724e0b9060d3d2e0954e778a08b21084b9860fe4))
+
 ## [1.18.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.0...v1.18.1) (2025-06-30)
 
 
