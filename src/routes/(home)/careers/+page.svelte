@@ -7,32 +7,32 @@
 	import { DateTime } from 'luxon'
 
 	let { data } = $props()
-	type Filters = 'Past' | 'Current' | 'Future' | 'All'
-	let active_filter: Filters = $state('All')
+	type Filters = 'Current' | 'All'
+	let active_filter: Filters = $state('Current')
 	const filters: Record<Filters, (career: Career) => boolean> = {
 		All: () => true,
-		Past: (career) => {
-			const difference = DateTime.fromISO(career.closing_date).diffNow('milliseconds')
-			console.log(difference.milliseconds)
-			if (difference.milliseconds < 0) {
-				return true
-			}
-			return false
-		},
+		// Past: (career) => {
+		// 	const difference = DateTime.fromISO(career.closing_date).diffNow('milliseconds')
+		// 	console.log(difference.milliseconds)
+		// 	if (difference.milliseconds < 0) {
+		// 		return true
+		// 	}
+		// 	return false
+		// },
 		Current: (career) => {
 			const difference = DateTime.fromISO(career.closing_date).diffNow()
 			if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
 				return true
 			}
 			return false
-		},
-		Future: (career) => {
-			const difference = DateTime.fromISO(career.closing_date).diffNow()
-			if (difference.milliseconds > 604800001) {
-				return true
-			}
-			return false
 		}
+		// Future: (career) => {
+		// 	const difference = DateTime.fromISO(career.closing_date).diffNow()
+		// 	if (difference.milliseconds > 604800001) {
+		// 		return true
+		// 	}
+		// 	return false
+		// }
 	}
 	const careers = $derived(data.careers.filter((x) => filters[active_filter](x)))
 </script>

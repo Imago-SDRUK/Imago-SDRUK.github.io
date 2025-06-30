@@ -7,6 +7,16 @@
 	import type { Career } from '$lib/types/directus'
 	let { career }: { career: Career } = $props()
 	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = career
+	const getCurrent = () => {
+		const difference = DateTime.fromISO(career.closing_date).diffNow()
+		if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
+			console.log('returning false')
+			return true
+		}
+		console.log('returning true')
+		return false
+	}
+	const current = getCurrent()
 </script>
 
 <BaseCard>
@@ -16,9 +26,11 @@
 		</div>
 		<div class="facts">
 			<h3 class="fact">Location: {location}</h3>
-			<h3 class="fact">Salary: {salary}</h3>
-			<h3 class="fact">Hours: {hours}</h3>
-			<h3 class="fact">Contract: {contract}</h3>
+			{#if current}
+				<h3 class="fact">Salary: {salary}</h3>
+				<h3 class="fact">Hours: {hours}</h3>
+				<h3 class="fact">Contract: {contract}</h3>
+			{/if}
 			{#if posted_on}
 				<h3 class="fact">
 					Posted on: {DateTime.fromISO(posted_on)
@@ -38,7 +50,9 @@
 		</div>
 		<div class="buttons">
 			<Anchor href="/careers/{slug}" label="See more"></Anchor>
-			<Anchor href={url} label="Apply"></Anchor>
+			{#if current}
+				<Anchor href={url} label="Apply"></Anchor>
+			{/if}
 		</div>
 	</div>
 </BaseCard>

@@ -9,6 +9,16 @@
 	import Fact from '../text/fact.svelte'
 	let { career }: { career: Career } = $props()
 	const { title, url, salary, closing_date, location, hours, contract, content, posted_on } = career
+	const getCurrent = () => {
+		const difference = DateTime.fromISO(career.closing_date).diffNow()
+		if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
+			console.log('returning false')
+			return true
+		}
+		console.log('returning true')
+		return false
+	}
+	const current = getCurrent()
 </script>
 
 <BaseSection>
@@ -18,9 +28,11 @@
 			<div class="meta-container">
 				<div class="facts">
 					<Fact title="Location" text={location}></Fact>
-					<Fact title="Salary" text={salary}></Fact>
-					<Fact title="Hours" text={hours}></Fact>
-					<Fact title="Contract" text={contract}></Fact>
+					{#if current}
+						<Fact title="Salary" text={salary}></Fact>
+						<Fact title="Hours" text={hours}></Fact>
+						<Fact title="Contract" text={contract}></Fact>
+					{/if}
 					{#if posted_on}
 						<Fact
 							title="Posted on"
@@ -37,7 +49,9 @@
 							.setLocale('en-gb')
 							.toLocaleString(DateTime.DATE_FULL)}
 					></Fact>
-					<Anchor href={url} label="Apply"></Anchor>
+					{#if current}
+						<Anchor href={url} label="Apply"></Anchor>
+					{/if}
 				</div>
 			</div>
 			<Content>
