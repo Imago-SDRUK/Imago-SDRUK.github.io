@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.0...v1.18.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* change current calc for current ([08fdf3e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/08fdf3ef6742004302295f6e1cee283dbe8d90f6))
+
 # [1.18.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.17.1...v1.18.0) (2025-06-30)
 
 
