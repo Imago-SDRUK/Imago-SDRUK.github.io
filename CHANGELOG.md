@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.17.1...v1.18.0) (2025-06-30)
+
+
+### Features
+
+* remove jobs listing data, closes [#2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/issues/2) ([478c9a7](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/478c9a74333def80ceee98da9c8ed5fe540272e3))
+
 ## [1.17.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.17.0...v1.17.1) (2025-06-23)
 
 
