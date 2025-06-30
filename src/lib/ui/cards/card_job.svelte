@@ -7,16 +7,16 @@
 	import type { Career } from '$lib/types/directus'
 	let { career }: { career: Career } = $props()
 	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = career
-	const getCurrent = () => {
+	const getCurrentAndFuture = () => {
 		const difference = DateTime.fromISO(career.closing_date).diffNow()
-		if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
+		if (difference.milliseconds >= 0) {
 			console.log('returning false')
 			return true
 		}
 		console.log('returning true')
 		return false
 	}
-	const current = getCurrent()
+	const current = getCurrentAndFuture()
 </script>
 
 <BaseCard>
