@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.19.0...v1.20.0) (2025-07-02)
+
+
+### Features
+
+* add query parameters for event filtering ([d4617d9](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d4617d96796c71b7b04b1fe7d3ce8826b69783fe))
+
 # [1.19.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.2...v1.19.0) (2025-07-02)
 
 
