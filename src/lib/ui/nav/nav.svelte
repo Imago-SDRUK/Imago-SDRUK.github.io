@@ -10,7 +10,7 @@
 	import { window_height, window_width } from '$lib/stores/layout.svelte'
 	let scroll = $state(0)
 	let desktop = $derived($window_width > 768)
-	let menu_open = $state(true)
+	let menu_open = $state(false)
 	let mobile_menu_selection = $state(ROUTES[0].href ?? '')
 	const getBgPercentage = (scroll: number, height: number) => {
 		const result = (scroll * 100) / height
