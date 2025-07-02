@@ -60,3 +60,23 @@ export const getArticleContent = (article: Article): string => {
 	if (content) return content
 	return ''
 }
+
+export const getTimeFilter = (url: URL): { _lte: string } | { _gte: string } | undefined => {
+	const time_param = url.searchParams.get('time')
+	if (!time_param) {
+		return
+	}
+	if (time_param === 'all') {
+		return
+	}
+	if (time_param === 'past') {
+		return { _lte: '$NOW' }
+	}
+	if (time_param === 'current') {
+		return { _gte: '$NOW(+2 weeks)' }
+	}
+	if (time_param === 'future') {
+		return { _gte: '$NOW' }
+	}
+	return
+}

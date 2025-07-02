@@ -7,68 +7,37 @@
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
 	import { DateTime } from 'luxon'
 	import Button from '../buttons/button.svelte'
+	import { page } from '$app/state'
 	let { events }: { events: Event[] } = $props()
-	type Filters = 'Past' | 'Current' | 'Future' | 'All'
-	let active_filter: Filters = $state('All')
-	const filters: Record<Filters, (event: Event) => boolean> = {
-		All: () => true,
-		Past: (event) => {
-			const difference = DateTime.fromISO(event.date_start).diffNow('milliseconds')
-			console.log(difference.milliseconds)
-			if (difference.milliseconds < 0) {
-				return true
-			}
-			return false
-		},
-		Current: (event) => {
-			const difference = DateTime.fromISO(event.date_start).diffNow()
-			if (difference.milliseconds >= 0 && difference.milliseconds <= 604800000) {
-				return true
-			}
-			return false
-		},
-		Future: (event) => {
-			const difference = DateTime.fromISO(event.date_start).diffNow()
-			if (difference.milliseconds > 604800001) {
-				return true
-			}
-			return false
-		}
-	}
-	const filtered_events = $derived(events.filter((x) => filters[active_filter](x)))
+	const filters = [
+		{ label: 'All', href: '/events', matcher: null },
+		{ label: 'Past', href: '?time=past', matcher: 'past' },
+		{ label: 'Current', href: '?time=current', matcher: 'current' },
+		{ label: 'Future', href: '?time=future', matcher: 'future' }
+	]
 </script>
 
 <ListSection title="Events">
 	<div class="filter-buttons">
-		{#each Object.keys(filters) as filter}
+		{#each filters as filter}
 			<Button
-				active={active_filter === filter}
-				onclick={() => {
-					const _filter = filter as Filters
-					if (active_filter === _filter) {
-						active_filter = 'All'
-					} else {
-						active_filter = _filter
-					}
-				}}
+				anchor
+				href={filter.href}
+				active={page.url.searchParams.get('time') === filter.matcher}
 				>{#snippet leftCol()}
-					<p>{filter}</p>
+					<p>{filter.label}</p>
 				{/snippet}</Button
 			>
 		{/each}
 	</div>
-	{#if filtered_events.length === 0}
-		<button
-			onclick={() => {
-				active_filter = 'All'
-			}}
-		>
+	{#if events.length === 0}
+		<a href="/events">
 			<Title
 				title="There are no events that match this search, please try another filter or click here to clear your search."
 			></Title>
-		</button>
+		</a>
 	{/if}
-	{#each filtered_events as event}
+	{#each events as event}
 		<li class="list">
 			<div class="event-list">
 				<div class="left-col">
