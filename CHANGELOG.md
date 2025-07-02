@@ -1,3 +1,16 @@
+# [1.19.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.2...v1.19.0) (2025-07-02)
+
+
+### Bug Fixes
+
+* menu not visible before scroll ([78f540a](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/78f540a0e9aeb1b0d4f7128de86faf50125c2601))
+* remove past jobs, closes [#2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/issues/2) ([d7403c2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d7403c2265ad33da9b804afab5c375ad4d6d251c))
+
+
+### Features
+
+* image endpoint accepts query params ([976f68a](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/976f68a2323165f742ee4d3ef6ea44569da741a5))
+
 ## [1.18.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.18.1...v1.18.2) (2025-06-30)
 
 
