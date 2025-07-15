@@ -1,3 +1,17 @@
+# [1.21.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.20.0...v1.21.0) (2025-07-15)
+
+
+### Bug Fixes
+
+* add missing icons ([3ed4a9f](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/3ed4a9f263529893ffda7af0165dac23cc2f080b))
+
+
+### Features
+
+* add email proxy ([683dbfb](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/683dbfb7ba89b92a3b504eb9df042b6a6ab05f99))
+* add multicol section ([13115f0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/13115f048020fdd0fe4b8dfdca09057f2a09956b))
+* add network logos, move static assets to static subfolder ([49fe08c](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/49fe08ce06634ffd8fd1956fc17ed2102d2aac43))
+
 # [1.20.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.19.0...v1.20.0) (2025-07-02)
 
 
