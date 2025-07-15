@@ -28,7 +28,7 @@
 
 <div class="hero-section">
 	<div class="bg-image-container">
-		<img class="bg-image" src="/ui/terrain_1.png" alt="" />
+		<img class="bg-image" src="/static/ui/terrain_1.png" alt="" />
 	</div>
 	<div class="title-wrapper">
 		<Title size="huge" title="Making satellite imagery useful, usable and used for..."></Title>
@@ -45,7 +45,7 @@
 	</div>
 	<div class="animation-container">
 		<LottiePlayer
-			src="/city/data.json"
+			src="/static/city/data.json"
 			mountAction={() => {
 				setTimeout(() => {
 					for (const id of ids) {

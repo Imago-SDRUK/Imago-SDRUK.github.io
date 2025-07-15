@@ -32,7 +32,7 @@
 		</div>
 		<div class="right-col">
 			<div class="player-container">
-				<LottiePlayer src="/lottie/uk.json"></LottiePlayer>
+				<LottiePlayer src="/static/lottie/uk.json"></LottiePlayer>
 			</div>
 		</div>
 	</div>

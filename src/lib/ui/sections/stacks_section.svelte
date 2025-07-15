@@ -70,6 +70,11 @@
 	}
 	.stack-text {
 		width: min(100% - 2rem, 400px);
+		background: radial-gradient(
+			/* transparent 5%, */ color-mix(in oklab, var(--theme-colour-background) 10%, transparent 20%),
+			transparent 95%
+		);
+		/* background-color: color-mix(in oklab, var(--theme-colour-background) 89%, transparent 20%); */
 	}
 
 	.card-title {

@@ -69,7 +69,7 @@
 {#if $window_width > 767}
 	<TwoColumnsSection>
 		{#snippet leftCol()}
-			<img src="/ui/terrain_1.png" alt="" class="img" />
+			<img src="/static/ui/terrain_1.png" alt="" class="img" />
 		{/snippet}
 		{#snippet rightCol()}
 			{@render form()}

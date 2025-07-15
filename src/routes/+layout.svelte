@@ -37,7 +37,7 @@
 	class="theme"
 >
 	<!-- <div class="watermark-container"> -->
-	<!-- 	<img class="watermark" src="/ui/banner.png" alt="" /> -->
+	<!-- 	<img class="watermark" src="/static/ui/banner.png" alt="" /> -->
 	<!-- </div> -->
 	{@render children()}
 </div>
