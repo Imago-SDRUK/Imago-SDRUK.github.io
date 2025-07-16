@@ -7,9 +7,11 @@ import { fail } from '@sveltejs/kit'
 
 export const load = async ({ locals }) => {
 	return {
-		team_members: await locals.directus.request(readItems('team_members')),
-		careers: await locals.directus.request(readItems('careers')),
-		events: await locals.directus.request(readItems('events'))
+		team_members: await locals.directus
+			.request(readItems('team_members'))
+			.catch(handleDirectusError),
+		careers: await locals.directus.request(readItems('careers')).catch(handleDirectusError),
+		events: await locals.directus.request(readItems('events')).catch(handleDirectusError)
 	}
 }
 
