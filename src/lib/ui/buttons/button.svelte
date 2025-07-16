@@ -41,7 +41,7 @@
 	button {
 		display: flex;
 		justify-content: space-between;
-		padding: 0.25rem 2rem;
+		padding: clamp(0.15rem, 0.117rem + 0.167vw, 0.25rem) clamp(1rem, 0.667rem + 1.667vw, 2rem);
 		color: var(--theme-colour-text);
 		font-weight: 300;
 		background-color: var(--theme-colour-primary);
@@ -49,7 +49,7 @@
 		border-radius: 999px;
 		font-family: var(--theme-font-accent);
 		/* font-size: clamp(0.75rem, 0.675rem + 0.375vw, 0.975rem); */
-		font-size: 0.975rem;
+		font-size: clamp(0.9rem, 0.875rem + 0.125vw, 0.975rem);
 		transition: all 0.3s ease-in-out;
 		gap: 1rem;
 	}
