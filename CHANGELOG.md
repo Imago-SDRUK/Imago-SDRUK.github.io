@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.0...v1.22.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* remove prose from paragraph ([284dc80](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/284dc807a88b82d1b796ab00de52d3f5b469be86))
+
 # [1.22.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.21.0...v1.22.0) (2025-07-16)
 
 
