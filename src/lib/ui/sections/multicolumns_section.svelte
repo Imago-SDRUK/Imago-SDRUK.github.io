@@ -23,10 +23,10 @@
 
 <style>
 	.section {
-		width: min(100%, 1280px);
+		width: min(100% - 4rem, 1280px);
 		margin-inline: auto;
 		display: grid;
-		gap: 1rem;
+		gap: clamp(1rem, 0.667rem + 1.667vw, 2rem);
 	}
 	.section-content {
 		display: grid;
