@@ -5,6 +5,7 @@
 	import BaseCard from '$lib/ui/cards/base_card.svelte'
 	import ArrowRight from '@tabler/icons-svelte/icons/arrow-right'
 	import { DateTime } from 'luxon'
+	import Paragraph from '../text/paragraph.svelte'
 	let { article }: { article: Article } = $props()
 </script>
 
@@ -36,13 +37,11 @@
 				<!-- 	> -->
 				<!-- </div> -->
 			</div>
-			<div class="content">
-				<div class="description">
-					<span class="prose-sm">
-						{@html article.description}
-					</span>
+			{#if article.description}
+				<div class="content">
+					<Paragraph text={article.description}></Paragraph>
 				</div>
-			</div>
+			{/if}
 			<div class="footer">
 				{#if article.date_created}
 					<p class="posted-on">

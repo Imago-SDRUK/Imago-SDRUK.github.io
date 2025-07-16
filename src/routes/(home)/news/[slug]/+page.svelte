@@ -68,7 +68,7 @@
 						<div class="section-blocks">
 							{#each section.content as block}
 								{#if block.content}
-									<div class="content">
+									<div class="content prose">
 										<Paragraph text={block.content}></Paragraph>
 									</div>
 								{/if}

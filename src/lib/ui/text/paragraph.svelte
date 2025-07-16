@@ -2,7 +2,7 @@
 	let { text }: { text: string } = $props()
 </script>
 
-<p class="paragraph prose">
+<p class="paragraph">
 	{@html text}
 </p>
 
