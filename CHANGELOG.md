@@ -1,3 +1,12 @@
+## [1.22.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.1...v1.22.2) (2025-07-16)
+
+
+### Bug Fixes
+
+* add imago and text ([d60dd96](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d60dd96c9ae3efd9c6d753562ae8f4edb5201b9c))
+* add spacing ([d98d14b](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/d98d14b848fe5e48b56a0ca07994a0b9e3762906))
+* assets path ([b961ef0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/b961ef09d7f76a9d044122815e6873ca65ecedd8))
+
 ## [1.22.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.0...v1.22.1) (2025-07-16)
 
 
