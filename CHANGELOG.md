@@ -1,3 +1,10 @@
+## [1.23.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.23.0...v1.23.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* remove email proxy ([535b3ed](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/535b3edc17ab6a690987421f389bd7b7fa7df140))
+
 # [1.23.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.2...v1.23.0) (2025-07-16)
 
 
