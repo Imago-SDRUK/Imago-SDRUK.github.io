@@ -9,7 +9,7 @@
 	const { title, url, closing_date, contract, slug, salary, posted_on, location, hours } = career
 </script>
 
-<BaseCard>
+<BaseCard border>
 	<div class="job-card">
 		<div class="card-title">
 			<Title {title}></Title>
