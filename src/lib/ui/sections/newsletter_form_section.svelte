@@ -62,7 +62,7 @@
 
 {#if $window_width < 768}
 	<OneColumnSection>
-		{@render form(`/ui/terrain_1.png`)}
+		{@render form(`/static/ui/terrain_1.png`)}
 	</OneColumnSection>
 {/if}
 
