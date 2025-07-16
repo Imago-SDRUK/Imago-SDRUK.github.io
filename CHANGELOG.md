@@ -1,3 +1,17 @@
+# [1.22.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.21.0...v1.22.0) (2025-07-16)
+
+
+### Bug Fixes
+
+* resizeable button ([2b40f9a](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/2b40f9a806706ea5761c12f8df6f2193f4ce7560))
+* set border as optional ([3eeaf7e](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/3eeaf7e9414d3b69b2b61637d186e49e895ad2ea))
+
+
+### Features
+
+* add article and section handlers ([20bd9a4](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/20bd9a48d80173ef3e9e1bfc0a2bc63043ac5331))
+* add news section ([6fe9b46](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/6fe9b462f75826cb50c31e01b97e2077f02f1655))
+
 # [1.21.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.20.0...v1.21.0) (2025-07-15)
 
 
