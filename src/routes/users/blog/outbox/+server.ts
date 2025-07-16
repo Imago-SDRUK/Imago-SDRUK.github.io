@@ -1,5 +1,6 @@
 import { env } from '$env/dynamic/private'
-import { getArticleContent, handleDirectusError } from '$lib/utils/directus.js'
+import { handleDirectusError } from '$lib/utils/directus.js'
+import { getArticleDescription } from '$lib/utils/directus/articles.js'
 import { generateNote, generateOutbox } from '$lib/utils/mastodon.js'
 import { readItems } from '@directus/sdk'
 import { json } from '@sveltejs/kit'
@@ -16,7 +17,7 @@ export const GET = async ({ locals }) => {
 			articles.map((article) =>
 				generateNote({
 					id: article.id,
-					content: getArticleContent(article),
+					content: getArticleDescription(article),
 					endpoint,
 					hostname,
 					user,

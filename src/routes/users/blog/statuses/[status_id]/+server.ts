@@ -1,5 +1,6 @@
 import { env } from '$env/dynamic/private'
-import { getArticleContent, handleDirectusError } from '$lib/utils/directus.js'
+import { handleDirectusError } from '$lib/utils/directus.js'
+import { getArticleDescription } from '$lib/utils/directus/articles.js'
 import { generateNote } from '$lib/utils/mastodon.js'
 import { readItem } from '@directus/sdk'
 import { json } from '@sveltejs/kit'
@@ -12,7 +13,7 @@ export const GET = async ({ params, locals }) => {
 	const article = await locals.directus
 		.request(readItem('articles', params.status_id, { filter: { status: { _eq: 'published' } } }))
 		.catch(handleDirectusError)
-	const content = getArticleContent(article)
+	const content = getArticleDescription(article)
 	const note = generateNote({
 		id: article.id,
 		published: String(article.date_created),

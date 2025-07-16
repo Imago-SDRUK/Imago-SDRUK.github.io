@@ -42,25 +42,6 @@ export const handleDirectusError = (err: DirectusError) => {
 	return error(err.response.status, { message: err.errors[0].message, id: err.response.url })
 }
 
-export const getArticleContent = (article: Article): string => {
-	if (article.description) return article.description
-	const content = article.sections
-		?.map(({ article_sections_id }) =>
-			article_sections_id && typeof article_sections_id !== 'string'
-				? article_sections_id
-				: undefined
-		)
-		.filter((section) => section !== undefined)
-		.map(({ content }) => (content !== null ? content : undefined))
-		.filter((content) => content !== undefined)
-		.flatMap((content) =>
-			content.map(({ content }) => content).filter((content) => content !== null)
-		)
-		.join(`\n`)
-	if (content) return content
-	return ''
-}
-
 export const getTimeFilter = (url: URL): { _lte: string } | { _gte: string } | undefined => {
 	const time_param = url.searchParams.get('time')
 	if (!time_param) {
