@@ -6,6 +6,7 @@
 	import ArrowRight from '@tabler/icons-svelte/icons/arrow-right'
 	import { DateTime } from 'luxon'
 	import Paragraph from '../text/paragraph.svelte'
+	import Fact from '../text/fact.svelte'
 	let { article }: { article: Article } = $props()
 </script>
 
@@ -37,16 +38,23 @@
 				<!-- 	> -->
 				<!-- </div> -->
 			</div>
+
 			{#if article.description}
 				<div class="content">
 					<Paragraph text={article.description}></Paragraph>
 				</div>
 			{/if}
 			<div class="footer">
+				{#if article.user_created && typeof article.user_created !== 'string' && article.user_created.first_name}
+					<Fact text="By {article.user_created.first_name} {article.user_created.last_name ?? ''}"
+					></Fact>
+				{/if}
 				{#if article.date_created}
-					<p class="posted-on">
-						Posted on {DateTime.fromISO(article.date_created).toLocaleString(DateTime.DATE_MED)}
-					</p>
+					<Fact
+						text="Posted on {DateTime.fromISO(article.date_created).toLocaleString(
+							DateTime.DATE_MED
+						)}"
+					></Fact>
 				{/if}
 				<Button anchor href="/news/{article.slug}">
 					{#snippet rightCol()}

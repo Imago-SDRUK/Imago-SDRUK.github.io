@@ -28,7 +28,11 @@ export const load = async ({ locals, params }: PageServerLoadEvent) => {
 						}
 					}
 				},
-				fields: ['*', { sections: [{ article_sections_id: ['*', { content: ['*'] }] }] }]
+				fields: [
+					'*',
+					{ sections: [{ article_sections_id: ['*', { content: ['*'] }] }] },
+					{ user_created: ['first_name', 'last_name'] }
+				]
 			})
 		)
 		.catch(handleDirectusError)

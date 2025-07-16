@@ -38,7 +38,10 @@
 					<!-- </div> -->
 				</div>
 				<div class="right-col">
-					<Fact text="By {article.user_created}"></Fact>
+					{#if article.user_created && typeof article.user_created !== 'string' && article.user_created.first_name}
+						<Fact text="By {article.user_created.first_name} {article.user_created.last_name ?? ''}"
+						></Fact>
+					{/if}
 					{#if article.date_updated}
 						<Fact
 							text={`Updated on ${DateTime.fromISO(article.date_updated).toLocaleString(DateTime.DATE_MED)}`}
