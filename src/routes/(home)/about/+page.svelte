@@ -2,6 +2,7 @@
 	import Title from '$lib/ui/blog/title.svelte'
 	import AboutSection from '$lib/ui/sections/about_section.svelte'
 	import MulticolumnsSection from '$lib/ui/sections/multicolumns_section.svelte'
+	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	const services = [
 		{
 			image: `/static/network/logos/financial.png`,
@@ -9,7 +10,6 @@
 		},
 		{ image: `/static/network/logos/geographic.png`, url: 'https://geods.ac.uk/' },
 		{ image: `/static/network/logos/hasp.png`, url: 'https://hasp.ac.uk/' },
-		// { image: `/network/logos/imago.png`, url: '' },
 		{
 			image: `/static/network/logos/smart_data.png`,
 			url: 'https://www.sdruk.ukri.org/data/smart-data-donation-service/'
@@ -17,7 +17,8 @@
 		{
 			image: `/static/network/logos/smart_energy.png`,
 			url: 'https://es.catapult.org.uk/project/smart-energy-data-service-sense/'
-		}
+		},
+		{ image: `/static/network/logos/imago.png`, url: '/about' }
 	]
 	let { data } = $props()
 </script>
@@ -26,6 +27,9 @@
 <MulticolumnsSection columns={3} gap="2rem"
 	>{#snippet title()}
 		<Title size="large" title="Our network"></Title>
+		<Paragraph
+			text="Imago Data Service for Imagery is part of Smart Data Research UK, the UK’s national programme for smart data research. We are one of six data services in the SDR UK family."
+		></Paragraph>
 	{/snippet}
 	{#each services as service}
 		<a class="network-partner" href={service.url}>
