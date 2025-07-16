@@ -1,10 +1,11 @@
 services:
   imago:
+    image: ghcr.io/imago-sdruk/imago-sdruk.github.io-frontend:latest
     container_name: imago
-    build:
-      context: .
-      tags:
-        - imago-${SHA:-latest}
+    # build:
+    #   context: .
+    #   tags:
+    #     - imago-${SHA:-latest}
     restart: unless-stopped
     env_file:
       - .env.docker
