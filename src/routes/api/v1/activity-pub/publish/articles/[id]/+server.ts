@@ -8,14 +8,14 @@ import { jstr } from '@arturoguzman/art-ui'
 import { error, json } from '@sveltejs/kit'
 import { env } from '$env/dynamic/private'
 import { readItems } from '@directus/sdk'
-import { handleDirectusError } from '$lib/utils/directus.js'
+import { directusSDKWithToken, handleDirectusError } from '$lib/utils/directus.js'
 import { DateTime } from 'luxon'
 
 const hostname = env.MASTODON_HOSTNAME
 const endpoint = `https://${hostname}`
 const user = env.MASTODON_USER
 
-export async function GET({ locals, params, fetch }) {
+export async function GET({ params, fetch }) {
 	//NOTE: make this internal only
 	const article_res = await fetch(`${endpoint}/users/${user}/statuses/${params.id}`)
 	const article = (await article_res.json()) as MastodonItem
@@ -36,7 +36,8 @@ export async function GET({ locals, params, fetch }) {
 			signatureValue: generateDigitalSignature(JSON.stringify(article))
 		}
 	}
-	const followers = await locals.directus
+	const directus = directusSDKWithToken(env.BACKEND_TOKEN, fetch)
+	const followers = await directus
 		.request(readItems('mastodon_followers'))
 		.catch(handleDirectusError)
 	const actors = await Promise.allSettled(

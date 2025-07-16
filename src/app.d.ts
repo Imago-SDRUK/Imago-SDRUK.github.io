@@ -9,7 +9,7 @@ declare global {
 		interface Locals {
 			startTimer: number
 			directus: DirectusClient<Collections> &
-				StaticTokenClient<Collections> &
+				// StaticTokenClient<Collections> &
 				RestClient<Collections>
 			// session: {}
 			// startTimer: number

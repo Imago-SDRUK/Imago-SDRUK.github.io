@@ -32,7 +32,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 }
 
 export const handleError = async ({ event, status, message, error }) => {
-	console.log(jstr(error))
+	if (status !== 404) {
+		console.log(jstr(error))
+	}
 	log({ status: status, event: event, content: message })
 	return {
 		id: getId(),
