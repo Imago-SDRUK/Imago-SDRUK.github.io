@@ -1,3 +1,17 @@
+# [1.23.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.2...v1.23.0) (2025-07-16)
+
+
+### Bug Fixes
+
+* add handle backend errors ([893dabf](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/893dabf55d02382495990cbb1638f769b36e0227))
+* get author details ([9825347](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/9825347376037a1fef3f0515556aa08309035053))
+
+
+### Features
+
+* add author name to articles ([79aa6c9](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/79aa6c99f35f6cc38ce20126b2905a80ca4dbbb0))
+* replace auth user with public user ([30bc231](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/30bc2317a58f4d06d8b7f66593a2a9289014358f))
+
 ## [1.22.2](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.22.1...v1.22.2) (2025-07-16)
 
 
