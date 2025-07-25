@@ -333,10 +333,152 @@ export interface ArticlesArticleSection {
    sort: number | null;
 }
 
-export interface Career {
+export interface Block {
 
   /**
    * No description.
+   *
+   * Type in directus: json
+   * Type in database: json
+   */
+   actions: any | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   background_colour: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   content: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_created: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: timestamp
+   * Type in database: timestamp with time zone
+   */
+   date_updated: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   id: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   media: BlocksFile[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   status: 'published' | 'draft' | 'archived';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   style: 'general' | 'title_and_image' | 'title_only';
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   subtitle: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   title: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_created: DirectusUser | DirectusUser["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface BlocksFile {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   blocks_id: Block | Block["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   directus_files_id: DirectusFile | DirectusFile["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+}
+
+export interface Career {
+
+  /**
+   * Timezone is UTC, adjust accordingly
    *
    * Type in directus: dateTime
    * Type in database: timestamp without time zone
@@ -2434,6 +2576,14 @@ export interface DirectusSetting {
   /**
    * No description.
    *
+   * Type in directus: boolean
+   * Type in database: boolean
+   */
+   accepted_terms: boolean | null;
+
+  /**
+   * No description.
+   *
    * Type in directus: integer
    * Type in database: integer
    */
@@ -2542,6 +2692,14 @@ export interface DirectusSetting {
    * Type in database: character varying
    */
    project_descriptor: string | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   project_id: string | null;
 
   /**
    * $t:field_options.directus_settings.project_logo_note
@@ -3675,7 +3833,7 @@ export interface Page {
    * Type in directus: string
    * Type in database: character varying
    */
-   type: 'careers' | 'blog' | null;
+   type: 'home' | 'general';
 
   /**
    * No description.
@@ -3793,10 +3951,18 @@ export interface Section {
   /**
    * No description.
    *
-   * Type in directus: text
-   * Type in database: text
+   * Type in directus: integer
+   * Type in database: integer
    */
-   content: string | null;
+   columns: number | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   content: SectionsBlocksContent[] | null;
 
   /**
    * No description.
@@ -3815,12 +3981,20 @@ export interface Section {
    date_updated: string | null;
 
   /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   description: string | null;
+
+  /**
    * This will customise the way the content is going to be displayed, if you're unsure use General
    *
    * Type in directus: string
    * Type in database: character varying
    */
-   design: 'general' | 'hero' | 'imago_about' | 'data_product' | 'two_columns' | 'cards' | 'form';
+   design: 'general' | 'two_columns' | 'cards' | 'form' | 'columns' | 'stacks' | 'banner';
 
   /**
    * No description.
@@ -3836,7 +4010,23 @@ export interface Section {
    * Type in directus: alias
    * Type in database: no column
    */
+   left_column: SectionsBlocksLeftColumn[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
    pages: PagesSection[] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: alias
+   * Type in database: no column
+   */
+   right_column: SectionsBlocksRightColumn[] | null;
 
   /**
    * No description.
@@ -3868,7 +4058,7 @@ export interface Section {
    * Type in directus: string
    * Type in database: character varying
    */
-   title: string;
+   title: string | null;
 
   /**
    * No description.
@@ -3885,6 +4075,111 @@ export interface Section {
    * Type in database: uuid
    */
    user_updated: DirectusUser | DirectusUser["id"] | null;
+}
+
+export interface SectionsBlocksContent {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   blocks_id: Block | Block["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   sections_id: Section | Section["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+}
+
+export interface SectionsBlocksLeftColumn {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   blocks_id: Block | Block["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   sections_id: Section | Section["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
+}
+
+export interface SectionsBlocksRightColumn {
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   blocks_id: Block | Block["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   id: number;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   sections_id: Section | Section["id"] | null;
+
+  /**
+   * No description.
+   *
+   * Type in directus: integer
+   * Type in database: integer
+   */
+   sort: number | null;
 }
 
 export interface TeamMember {
@@ -4025,6 +4320,8 @@ export type Collections = {
   article_sections: ArticleSection[];
   articles: Article[];
   articles_article_sections: ArticlesArticleSection[];
+  blocks: Block[];
+  blocks_files: BlocksFile[];
   careers: Career[];
   careers_files: CareersFile[];
   contacts: Contact[];
@@ -4063,6 +4360,9 @@ export type Collections = {
   pages_sections: PagesSection[];
   products: Product[];
   sections: Section[];
+  sections_blocks_content: SectionsBlocksContent[];
+  sections_blocks_left_column: SectionsBlocksLeftColumn[];
+  sections_blocks_right_column: SectionsBlocksRightColumn[];
   team_members: TeamMember[];
 }
 

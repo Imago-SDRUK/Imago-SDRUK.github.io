@@ -1,22 +1,52 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte'
-	import Title from '../blog/title.svelte'
-	import Subtitle from '../text/subtitle.svelte'
+	import { animate, scroll } from 'motion'
+	import { window_width } from '$lib/stores/layout.svelte'
+	import type { Section } from '$lib/types/directus'
+	import PageBlock from '../cards/page_block.svelte'
+	import { getId } from '@arturoguzman/art-ui'
 	let {
-		text,
-		title,
-		id,
-		buttons,
+		id = `section-${getId()}`,
 		sticky_top = 0,
-		index = 0
+		index = 0,
+		section
 	}: {
-		text: string
-		title: string
 		id?: string
 		sticky_top?: string | number
 		index?: number
-		buttons?: Snippet
+		section: Section
 	} = $props()
+
+	$effect(() => {
+		if (id) {
+			const section_element = document.getElementById(id)
+			if (section_element && section) {
+				const left_col = section_element.querySelector('.left-col')
+				if (left_col) {
+					const wrappers = left_col.querySelectorAll('.wrapper')
+					wrappers.forEach((el, i, arr) => {
+						const limit = 1 / arr.length
+						if (el) {
+							const start = limit * i
+							const finish = start + limit + limit * 0.5
+							const animation = animate(
+								el,
+								{ opacity: [1, 0, 0] },
+								{ times: [start, finish > 1 ? 1 : finish] }
+							)
+							if ($window_width < 768) {
+								animation.cancel()
+								return
+							}
+							scroll(animation, {
+								target: section_element ?? undefined,
+								offset: [`start start`, `end ${1 - i * limit}`]
+							})
+						}
+					})
+				}
+			}
+		}
+	})
 </script>
 
 <div
@@ -27,22 +57,18 @@
 	style:--margin="{index}rem"
 >
 	<div class="left-col">
-		<div class="stack-text">
-			<Subtitle subtitle={text}></Subtitle>
-			{#if buttons}
-				{@render buttons()}
-			{/if}
-		</div>
+		{#each section.left_column ?? [] as { blocks_id }}
+			<div class="wrapper">
+				<PageBlock {blocks_id}></PageBlock>
+			</div>
+		{/each}
 	</div>
 	<div class="right-col">
-		<div class="card">
-			<div class="card-title">
-				<Title {title} size="large"></Title>
+		{#each section.right_column ?? [] as { blocks_id }, i}
+			<div class="wrapper" style:--padding-top="{i * 8}rem">
+				<PageBlock {blocks_id}></PageBlock>
 			</div>
-			<div class="card-content">
-				<div class="card-image"></div>
-			</div>
-		</div>
+		{/each}
 	</div>
 </div>
 
@@ -51,53 +77,52 @@
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
+		gap: 1rem;
 		width: min(100% - 4rem, 1280px);
 		margin-inline: auto;
-		gap: 1rem;
-		padding: 2rem 0;
-		align-items: center;
-	}
-	.card {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: minmax(0, max-content) minmax(0, 1fr);
-		border: 1px solid var(--theme-colour-highlight);
-		background-color: var(--theme-colour-background);
-		border-radius: 0.35rem;
 	}
 	.left-col {
 		grid-row: 2 / 3;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
-	.stack-text {
-		width: min(100% - 2rem, 400px);
-		background: radial-gradient(
-			/* transparent 5%, */ color-mix(in oklab, var(--theme-colour-background) 10%, transparent 20%),
-			transparent 95%
-		);
-		/* background-color: color-mix(in oklab, var(--theme-colour-background) 89%, transparent 20%); */
+	.right-col {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
-	.card-title {
-		border-bottom: 1px solid var(--theme-colour-highlight);
-		padding: 1rem;
-	}
-	.card-image {
-		width: 100%;
-		aspect-ratio: 1 / 1;
-		background-color: var(--theme-colour-primary);
+	.wrapper {
+		opacity: 1;
 	}
 	@media (min-width: 768px) {
+		.section {
+			padding: 2rem 0;
+			align-items: center;
+			position: relative;
+		}
 		.section {
 			grid-template-rows: minmax(0, 1fr);
 			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 			gap: 4rem;
-			height: 100lvh;
-			position: sticky;
+			/* height: 100lvh; */
+			/* position: sticky; */
 			top: var(--sticky-top);
 			left: 0;
 		}
 		.left-col {
 			grid-row: auto;
+		}
+
+		.wrapper {
+			min-height: 100lvh;
+			position: sticky;
+			left: 0;
+			top: 0;
+			display: grid;
+			align-items: center;
+			padding-top: var(--padding-top, 0);
 		}
 		/* .left-col::before { */
 		/* 	content: ''; */
