@@ -2,17 +2,9 @@
 	import { DateTime } from 'luxon'
 	import Title from '../blog/title.svelte'
 	import Logos from '../cards/logos.svelte'
-	import FooterCollection from './footer_collection.svelte'
-	// import { FOOTER_HEIGHT } from '$lib/globals/style'
-	import {
-		IconBrandGithub,
-		IconBrandLinkedin,
-		IconBrandMastodon,
-		IconBrandTwitter,
-		IconLink
-	} from '@tabler/icons-svelte'
+	import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-svelte'
 	import IconButton from '../buttons/icon_button.svelte'
-	import { goto } from '$app/navigation'
+	import Subtitle from '../text/subtitle.svelte'
 	const platform_collection = [1, 2, 3].map((x) => ({
 		href: '/',
 		label: `Data product ${x}`
@@ -54,20 +46,19 @@
 			<div class="left-col">
 				<Title title="Imago © {DateTime.now().year}"></Title>
 			</div>
-
-			<div class="footer-collections">
-				<!-- <FooterCollection routes={platform_collection} title="Platform"></FooterCollection> -->
-				<!-- <FooterCollection routes={documentation_collection} title="Documentation" -->
-				<!-- ></FooterCollection> -->
-				<!-- <FooterCollection routes={company_documentation} title="Company"></FooterCollection> -->
-			</div>
-			<!-- <div class="centre-col"></div> -->
-			<!-- <div class="right-col"></div> -->
 		</div>
 
 		<div class="bottom">
 			<Logos footer href="https://www.sdruk.ukri.org/"></Logos>
 			<div class="social-media">
+				<Subtitle subtitle="Contact us: "></Subtitle>
+				<IconButton
+					onclick={() => {
+						window.location = 'mailto:imago@liverpool.ac.uk'
+					}}
+				>
+					<IconMail></IconMail>
+				</IconButton>
 				<IconButton
 					onclick={() => {
 						window.location = 'https://www.linkedin.com/company/sdr-imago'
