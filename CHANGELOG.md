@@ -1,3 +1,12 @@
+# [1.24.0](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.23.1...v1.24.0) (2025-07-30)
+
+
+### Features
+
+* add email to footer ([980dca1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/980dca11531b6896dc838cd7018716a9466d17e1))
+* add migration script ([4ae0ba6](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/4ae0ba622a0e19c95b4a55c03524c0896d2190f7))
+* pages, sections and blocks overhaul to allow dynamic content from cms ([e535bc3](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/commit/e535bc3b0da32438ab0201d2d0a9ed9a9cdb1863))
+
 ## [1.23.1](https://github.com/Imago-SDRUK/Imago-SDRUK.github.io/compare/v1.23.0...v1.23.1) (2025-07-16)
 
 
