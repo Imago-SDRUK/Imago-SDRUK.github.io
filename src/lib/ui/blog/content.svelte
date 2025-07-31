@@ -14,7 +14,7 @@
 		flex-direction: column;
 		font-weight: 200;
 		width: min(100%, 600px);
-		margin-inline: auto;
+		/* margin-inline: auto; */
 		/* font-size: clamp(0.85rem, 0.8rem + 0.25vw, 1rem); */
 	}
 	:global(.content > a, .content > * > a) {

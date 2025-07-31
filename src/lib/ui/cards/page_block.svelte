@@ -1,12 +1,11 @@
 <script lang="ts" generics="T extends Block">
 	import type { Block } from '$lib/types/directus'
-	import { jstr, Picture } from '@arturoguzman/art-ui'
-	import Paragraph from '../text/paragraph.svelte'
-	import LottiePlayer from '../players/lottie_player.svelte'
 	import Button from '../buttons/button.svelte'
 	import Title from '../blog/title.svelte'
 	import { IconArrowRight, IconArrowUpRight } from '@tabler/icons-svelte'
 	import Content from '../blog/content.svelte'
+	import Subtitle from '../text/subtitle.svelte'
+	import Carousel from '../components/carousel.svelte'
 	type Action = {
 		label: string
 		href?: string
@@ -23,46 +22,46 @@
 	{@const block = blocks_id}
 	{#if block.style === 'general'}
 		<div class="block">
-			{#if block.title}
-				<Title title={block.title}></Title>
-			{/if}
-			{#if block.content}
-				<Content>
-					{@html block.content}
-				</Content>
-			{/if}
-			{#if block.media}
-				{#each block.media as { directus_files_id }}
-					{@const media = directus_files_id}
-					{#if media && typeof media !== 'string'}
-						{#if media.type?.startsWith('image/')}
-							<Picture image={media}></Picture>
+			<div class="left-col">
+				<Carousel {block}></Carousel>
+			</div>
+			<div class="right-col">
+				<div class="copy">
+					<div class="header">
+						{#if block.title}
+							<Title title={block.title}></Title>
 						{/if}
-						{#if media.type === 'application/json'}
-							<LottiePlayer src="/assets/{media.id}"></LottiePlayer>
+						{#if block.subtitle}
+							<Subtitle subtitle={block.subtitle}></Subtitle>
 						{/if}
-					{/if}
-				{/each}
-			{/if}
-			{#if block.actions}
-				{@const actions = block.actions as Action[]}
-				{#each actions as { alternative, href, label }}
-					<div class="actions">
-						<Button alt={alternative} {href} anchor>
-							{#snippet leftCol()}
-								{label}
-							{/snippet}
-							{#snippet rightCol()}
-								{#if href?.startsWith('/')}
-									<IconArrowRight></IconArrowRight>
-								{:else}
-									<IconArrowUpRight></IconArrowUpRight>
-								{/if}
-							{/snippet}
-						</Button>
 					</div>
-				{/each}
-			{/if}
+					{#if block.content}
+						<Content>
+							{@html block.content}
+						</Content>
+					{/if}
+				</div>
+
+				{#if block.actions}
+					{@const actions = block.actions as Action[]}
+					{#each actions as { alternative, href, label }}
+						<div class="actions">
+							<Button alt={alternative} {href} anchor>
+								{#snippet leftCol()}
+									{label}
+								{/snippet}
+								{#snippet rightCol()}
+									{#if href?.startsWith('/')}
+										<IconArrowRight></IconArrowRight>
+									{:else}
+										<IconArrowUpRight></IconArrowUpRight>
+									{/if}
+								{/snippet}
+							</Button>
+						</div>
+					{/each}
+				{/if}
+			</div>
 		</div>
 	{/if}
 	{#if block.style === 'title_and_image'}
@@ -98,6 +97,19 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+	@container (width > 600px) {
+		.block {
+			width: 100%;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		}
+	}
+	.right-col {
+		height: 100%;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: minmax(0, 1fr) minmax(0, max-content);
 	}
 	.actions {
 		display: flex;
