@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 
 #Migrations
 migrations/*.json
+
+# turbo
+.turbo
