@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
+		"start": "./node_modules/.bin/directus start",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "./node_modules/directus/cli.js start",
 		"types": "./node_modules/directus/cli.js models snapshot model.d.ts",
@@ -21,7 +22,7 @@
 		"@tiptap/extension-typography": "^2.26.1",
 		"@tiptap/pm": "^2.26.1",
 		"@tiptap/starter-kit": "^2.26.1",
-		"directus": "^11.10.2",
+		"directus": "^11.11.0",
 		"directus-extension-models": "^2.5.2",
 		"pg": "^8.16.3"
 	}
