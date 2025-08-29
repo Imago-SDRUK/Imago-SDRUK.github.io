@@ -50,12 +50,6 @@
 </MulticolumnsSection>
 
 <style>
-	.team-cards {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		margin: 3rem 0;
-		gap: 1rem;
-	}
 	.network-partner {
 		width: 100%;
 		aspect-ratio: 2 / 1;
@@ -74,11 +68,5 @@
 		);
 	}
 	@media (min-width: 768px) {
-		.text-container {
-			width: min(100% - 2rem, 500px);
-		}
-		.team-cards {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
 	}
 </style>
