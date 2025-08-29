@@ -4,8 +4,6 @@ import { EMAIL_REGEX } from '$lib/utils/regex.js'
 import { createItem, readItems } from '@directus/sdk'
 import { fail } from '@sveltejs/kit'
 
-// export const prerender = true
-
 export const load = async ({ locals }) => {
 	const page = locals.directus.request(
 		readItems('pages', {
