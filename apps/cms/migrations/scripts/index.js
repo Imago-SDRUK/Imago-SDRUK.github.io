@@ -132,6 +132,5 @@ const main = async () => {
  * How to use:
  *
  *  node index.js --token DIRECTUS_TOKEN --from URL_OF_YOUR_LOCAL_SCHEMA --to URL_OF_PROD_CMS
- *
  **/
 main()
