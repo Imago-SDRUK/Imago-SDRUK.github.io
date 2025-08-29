@@ -1,0 +1,62 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgis/postgis:17-3.5
+    restart: always
+    volumes:
+      - ./data/postgres/scripts:/docker-entrypoint-initdb.d
+      - ./data/postgres/data:/var/lib/postgresql/data
+      - ./data/postgres/restore:/home/dump:ro
+      - ./data/postgres/backup:/home/data/backup
+    env_file:
+      - .env.postgres
+    networks:
+      - subnet
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER}']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  directus:
+    container_name: directus
+    build:
+      context: .
+      target: cms
+      tags: ${SHA:latest}
+    restart: unless-stopped
+    volumes:
+      - ./data/directus/database:/directus/database:rw
+      - ./data/directus/uploads:/directus/uploads:rw
+      - ./data/directus/migrations:/directus/migrations:rw
+    env_file:
+      - .env.directus
+    networks:
+      - subnet
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # umami:
+  #   container_name: umami
+  #   image: ghcr.io/umami-software/umami:postgresql-latest
+  #   env_file:
+  #     - .env.umami
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   restart: always
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+  #   networks:
+  #     - subnet
+
+networks:
+  subnet:
+    name: subnet
+    driver: bridge
