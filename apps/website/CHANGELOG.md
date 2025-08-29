@@ -1,5 +1,10 @@
 # website
 
+## 2.0.1
+### Patch Changes
+
+- 659af56: revert the filter that was added for demo
+
 ## 2.0.0
 ### Major Changes
 
