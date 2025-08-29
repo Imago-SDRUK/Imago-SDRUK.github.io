@@ -16,6 +16,11 @@ jobs:
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest # Runs on an Ubuntu runner
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      TURBO_API: ${{ secrets.TURBO_API }}
+      TURBO_TELEMETRY_DISABLED: 1
 
     steps:
       - name: Checkout Repository
