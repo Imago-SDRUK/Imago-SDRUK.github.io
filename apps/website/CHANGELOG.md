@@ -1,5 +1,10 @@
 # website
 
+## 2.0.2
+### Patch Changes
+
+- 4c34413: set proper types
+
 ## 2.0.1
 ### Patch Changes
 
