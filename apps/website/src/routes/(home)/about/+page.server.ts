@@ -1,3 +1,4 @@
+import type { Page } from '$lib/types/directus/index.js'
 import { handleDirectusError } from '$lib/utils/directus.js'
 import { readItems } from '@directus/sdk'
 
@@ -46,7 +47,7 @@ export async function load({ locals }) {
 	)
 	const team_members = locals.directus.request(readItems('team_members')).catch(handleDirectusError)
 	return {
-		page: (await page) as Page,
+		page: (await page) as Page[],
 		team_members: await team_members
 	}
 }
