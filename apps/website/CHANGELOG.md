@@ -1,5 +1,10 @@
 # website
 
+## 2.0.4
+### Patch Changes
+
+- f25712c: trigger release
+
 ## 2.0.3
 ### Patch Changes
 
