@@ -5,6 +5,7 @@
 	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
 	import { getArticleSections } from '$lib/utils/directus/articles.js'
+	import { jstr, Picture } from '@arturoguzman/art-ui'
 	import { DateTime } from 'luxon'
 	let { data } = $props()
 </script>
@@ -74,6 +75,13 @@
 									<div class="content prose">
 										<Paragraph text={block.content}></Paragraph>
 									</div>
+								{/if}
+								{#if block.media}
+									{#each block.media as media}
+										{#if 'directus_files_id' in media}
+											<Picture image={media.directus_files_id}></Picture>
+										{/if}
+									{/each}
 								{/if}
 							{/each}
 						</div>
