@@ -21,10 +21,13 @@ jobs:
       - name: Get tags
         id: get-tags
         run: |
-          package=$(echo ${{ github.ref_name }} | awk -F'@' '{print $1}') >> $GITHUB_OUTPUT
-          version=$(echo ${{ github.ref_name }} | awk -F'@' '{print $2}') >> $GITHUB_OUTPUT
-          echo Package: $package
-          echo Version: $version
+          package=$(echo ${{ github.ref_name }} | awk -F'@' '{print $1}')
+          version=$(echo ${{ github.ref_name }} | awk -F'@' '{print $2}')
+          echo Package: "$package"
+          echo Version: "$version"
+          echo "package=$package" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
+
           if [[ "$package" = '' ]] || [[ "$version" = '' ]]; then
             echo "This workflow was triggered without a package reference (git.ref_name). Please make sure it is triggered by a pac"
             exit 0
