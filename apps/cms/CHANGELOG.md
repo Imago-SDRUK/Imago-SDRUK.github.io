@@ -1,5 +1,10 @@
 # cms
 
+## 1.1.1
+### Patch Changes
+
+- c3c5a27: trigger release
+
 ## 1.1.0
 ### Minor Changes
 
