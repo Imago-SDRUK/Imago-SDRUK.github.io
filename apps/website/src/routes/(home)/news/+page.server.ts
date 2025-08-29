@@ -1,7 +1,7 @@
-import { getTimeFilter, handleDirectusError } from '$lib/utils/directus.js'
+import { handleDirectusError } from '$lib/utils/directus.js'
 import { readItems } from '@directus/sdk'
 
-export async function load({ locals, url }) {
+export async function load({ locals }) {
 	const articles = await locals.directus
 		.request(
 			readItems('articles', {
