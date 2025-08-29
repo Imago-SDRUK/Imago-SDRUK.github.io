@@ -1,5 +1,20 @@
 # website
 
+## 2.0.6
+### Patch Changes
+
+- d5c0264: trigger build
+
+## 2.0.5
+### Patch Changes
+
+- c3c5a27: trigger release
+
+## 2.0.4
+### Patch Changes
+
+- f25712c: trigger release
+
 ## 2.0.3
 ### Patch Changes
 
