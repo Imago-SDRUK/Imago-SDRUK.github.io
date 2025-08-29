@@ -9,54 +9,59 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  detect:
+  build:
     name: Detect Changed Services
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.get-matrix.outputs.matrix }}
     steps:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
-      - name: Determine Changed Services
-        id: get-matrix
-        shell: bash
+      - name: Get tags
+        id: get-tags
         run: |
-          cd $GITHUB_WORKSPACE
-           echo "Detecting changes..."
-           CHANGED_FOLDERS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} apps | awk -F/ '!($2 ~ /^(Dockerfile|Makefile)$/) {print $2}' | sort -u | xargs)
-           echo "Changed folders: $CHANGED_FOLDERS"
+          package=$(echo ${{ github.ref_name }} | awk -F'@' '{print $1}') >> $GITHUB_OUTPUT
+          version=$(echo ${{ github.ref_name }} | awk -F'@' '{print $2}') >> $GITHUB_OUTPUT
+          echo Package: $package
+          echo Version: $version
+          if [[ "$package" = '' ]] || [[ "$version" = '' ]]; then
+            echo "This workflow was triggered without a package reference (git.ref_name). Please make sure it is triggered by a pac"
+            exit 0
+          fi
 
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_PAT }}
 
-           matrix="{\"include\": ["
-           first=1
-           for service in $CHANGED_FOLDERS; do
-             if [ -f "apps/${service}/Dockerfile" ]; then
-               if [ $first -eq 0 ]; then
-                 matrix+=","
-               fi
-               version=$(grep -o '"version": *"[^"]*"' apps/${service}/package.json | cut -d'"' -f4)
-               matrix+="{\"service\": \"${service}\", \"version\": \"${version}\"}"
-               first=0
-             fi
-           done
-           matrix+="]}"
-           
-           echo "Matrix for build job: $matrix"
-           echo "matrix=$matrix" >> $GITHUB_OUTPUT
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
-      - name: Validate Matrix
-        if: ${{ fromJson(steps.get-matrix.outputs.matrix).include[0] == null }}
-        run: |
-          echo "Output from previous step:"
-          echo "${{ fromJson(steps.get-matrix.outputs.matrix).include.length }}"
-          echo "${{ steps.get-matrix.outputs.matrix }}"
-          echo "No services with a Dockerfile were changed. Exiting gracefully."
-          exit 0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ steps.get-tags.outputs.package }}
+          tags: |
+            type=raw,value=latest
+            type=raw,value=${{ github.sha }}
+            type=raw,value=release
+            type=raw,value=v${{ steps.get-tags.outputs.version }}
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v6
+        with:
+          file: apps/${{ steps.get-tags.outputs.package }}/Dockerfile
+          platforms: linux/amd64
+          push: true
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
