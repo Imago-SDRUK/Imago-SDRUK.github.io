@@ -1,4 +1,3 @@
-import { FEEDS } from '$lib/globals/data.js'
 import { readItems } from '@directus/sdk'
 import { Feed } from 'feed'
 import { DateTime } from 'luxon'
