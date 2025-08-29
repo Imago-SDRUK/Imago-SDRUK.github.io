@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   release:
     permissions:
@@ -15,12 +19,11 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 10
           run_install: false
 
       - name: Set up Node.js
@@ -32,11 +35,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Run Semantic Release
-        run: pnpm exec semantic-release
+      - name: Build package
+        run: pnpm turbo run build
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Provide the GitHub
-          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR }}
-          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_EMAIL }}
-          GIT_COMMITTER_NAME: ${{ secrets.GIT_AUTHOR }}
-          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

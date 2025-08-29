@@ -6,13 +6,13 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 RUN apk add --no-cache libc6-compat && \
   corepack enable && \
-  pnpm install turbo --global
+  pnpm add -g turbo
 
 FROM base AS builder
 RUN apk add --no-cache openssl
 WORKDIR /app
 COPY . .
-RUN turbo prune public --docker
+RUN turbo prune website --docker
 
 FROM base AS installer
 WORKDIR /app
@@ -33,7 +33,8 @@ RUN --mount=type=secret,id=TURBO_API \
   export TURBO_TEAM=$(cat /run/secrets/TURBO_TEAM) && \
   export TURBO_TOKEN=$(cat /run/secrets/TURBO_TOKEN) && \
   pnpm build
-
+RUN --mount=type=cache,id=pnpm,target=~/.pnpm-store pnpm prune --prod --no-optional
+RUN rm -rf ./**/*/src
 # NOTE: If enabling sentry
 # RUN --mount=type=secret,id=TURBO_API \
 #   --mount=type=secret,id=TURBO_TEAM \
@@ -52,7 +53,7 @@ RUN --mount=type=secret,id=TURBO_API \
 #   export BRANCH=$(cat /run/secrets/BRANCH) && \
 #   export SENTRY_RELEASE=$(cat /run/secrets/SENTRY_RELEASE) && \
 #   export SENTRY_LOG_LEVEL=debug && \
-#   turbo run build --filter=apps/website
+#   turbo run build --filter=website
 
 
 FROM base AS sveltekit
