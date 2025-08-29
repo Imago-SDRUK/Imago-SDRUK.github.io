@@ -1,11 +1,10 @@
 <script lang="ts">
 	import Title from '$lib/ui/blog/title.svelte'
-	import Button from '$lib/ui/buttons/button.svelte'
 	import Fact from '$lib/ui/text/fact.svelte'
 	import Paragraph from '$lib/ui/text/paragraph.svelte'
 	import Subtitle from '$lib/ui/text/subtitle.svelte'
 	import { getArticleSections } from '$lib/utils/directus/articles.js'
-	import { jstr, Picture } from '@arturoguzman/art-ui'
+	import { Picture } from '@arturoguzman/art-ui'
 	import { DateTime } from 'luxon'
 	let { data } = $props()
 </script>
